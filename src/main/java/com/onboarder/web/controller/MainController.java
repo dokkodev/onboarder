@@ -1,4 +1,4 @@
-package com.example.demo.web.controller;
+package com.onboarder.web.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,9 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class SampleController {
+public class MainController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(SampleController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MainController.class);
 
     @RequestMapping("/")
     public String test(Model model) {
