@@ -13,7 +13,7 @@
         <appender-ref ref="CONSOLE"/>
     </logger>
 
-    <logger name="com.example.demo" level="DEBUG" additivity="false">
+    <logger name="com.onboarder" level="DEBUG" additivity="false">
         <appender-ref ref="CONSOLE"/>
     </logger>
 

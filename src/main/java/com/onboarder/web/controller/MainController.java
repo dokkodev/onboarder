@@ -1,8 +1,5 @@
 package com.onboarder.web.controller;
 
-import com.google.gson.Gson;
-import com.onboarder.web.model.OnboardingSet;
-import com.onboarder.web.repository.OnboardingSetRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +28,7 @@ public class MainController {
     }
 
     @RequestMapping("/admin")
+    @PutMapping
     public String testAdmin(Model model) {
 
         LOGGER.debug("Admin View");

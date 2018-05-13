@@ -2,8 +2,8 @@ package com.onboarder.web.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name="onboarding")
 public class Onboarding {
-
 
     @Id
     @GeneratedValue
