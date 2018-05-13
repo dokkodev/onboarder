@@ -68,6 +68,37 @@ public class MainController {
         return onboardingset_json;
     }
 
+    @PutMapping("/OnboardingSet/{onboardingSetId}/")
+    @ResponseBody
+    public String update(@RequestBody OnboardingSet updatingOnboardingSet, @PathVariable int onboardingSetId){
+
+        OnboardingSet existingOnboardingSet = onboardingSetRepository.findById(onboardingSetId);
+        List<SequenceOnboarding> sequenceOnboardings = existingOnboardingSet.getSequenceOnboardings();
+        for(SequenceOnboarding SO : sequenceOnboardings){
+            boxPropertyRepository.delete(SO.getBoxProperty());
+            sequenceOnboardingRepository.delete(SO);
+        }
+        List<SequenceOnboarding> updatingSequenceOnboardings = existingOnboardingSet.getSequenceOnboardings();
+        for(SequenceOnboarding SO : updatingSequenceOnboardings){
+            boxPropertyRepository.save(SO.getBoxProperty());
+            sequenceOnboardingRepository.save(SO);
+        }
+        existingOnboardingSet.setType(updatingOnboardingSet.getType());
+        existingOnboardingSet.setSequenceOnboardings(updatingSequenceOnboardings);
+        onboardingSetRepository.save(existingOnboardingSet);
+        return "update success";
+    }
+
+    @DeleteMapping("/OnboardingSet/{onboardingSetId}/")
+    @ResponseBody
+    public String update(@PathVariable int onboardingSetId){
+
+        onboardingSetRepository.deleteById(onboardingSetId);
+        return "success";
+
+
+    }
+
     @PostMapping("/OnboardingSet")
     @ResponseBody
     public String saveOnboardings(@RequestBody OnboardingSet onboardingSet){
