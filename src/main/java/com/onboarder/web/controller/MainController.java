@@ -1,30 +1,28 @@
 package com.onboarder.web.controller;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+
 import com.onboarder.web.model.*;
 import com.onboarder.web.repository.BoxPropertyRepository;
 import com.onboarder.web.repository.OnboardingSetRepository;
 import com.onboarder.web.repository.SequenceOnboardingRepository;
 import com.onboarder.web.repository.SwipeOnboardingRepository;
 import org.onboarder.Onboarding;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONArray;
 
 import javax.jws.soap.SOAPBinding;
 import java.util.ArrayList;
 import java.util.List;
 
 
-@Controller
+@RestController
+@RequestMapping("/asdf")
 public class MainController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MainController.class);
@@ -50,7 +48,6 @@ public class MainController {
     }
 
     @RequestMapping("/admin")
-    @PutMapping
     public String testAdmin(Model model) {
 
         LOGGER.debug("Admin View");
