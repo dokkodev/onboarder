@@ -1,10 +1,14 @@
 package com.onboarder.web.model;
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
+@Data
 public class SequenceOnboarding {
 
     @Id
+    @GeneratedValue
     private int id;
 
     @Column(name= "sequence_order")

@@ -1,7 +1,10 @@
 package com.onboarder.web.model;
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
+@Data
 public class BoxProperty {
 
     @Id
@@ -9,7 +12,7 @@ public class BoxProperty {
     private int id;
 
     @Column(name="font_size")
-    private int font_size;
+    private int fontSize;
 
     @Column(name="direction")
     private BoxDirection boxDirection;

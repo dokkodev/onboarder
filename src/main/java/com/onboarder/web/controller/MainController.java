@@ -2,13 +2,24 @@ package com.onboarder.web.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.onboarder.web.model.OnboardingSet;
+
+import com.onboarder.web.model.*;
+import com.onboarder.web.repository.BoxPropertyRepository;
 import com.onboarder.web.repository.OnboardingSetRepository;
+import com.onboarder.web.repository.SequenceOnboardingRepository;
+import com.onboarder.web.repository.SwipeOnboardingRepository;
+import org.onboarder.Onboarding;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import javax.jws.soap.SOAPBinding;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/asdf")
@@ -19,6 +30,14 @@ public class MainController {
     @Autowired
     private OnboardingSetRepository onboardingSetRepository;
 
+    @Autowired
+    private SequenceOnboardingRepository sequenceOnboardingRepository;
+
+    @Autowired
+    private SwipeOnboardingRepository swipeOnboardingRepository;
+
+    @Autowired
+    private BoxPropertyRepository boxPropertyRepository;
 
     @RequestMapping("/")
     public String test(Model model) {
@@ -48,28 +67,17 @@ public class MainController {
 
     @PostMapping("/OnboardingSet")
     @ResponseBody
-    public String saveOnboardings(@RequestBody JsonObject onboardingSet_json){
+    public String saveOnboardings(@RequestBody OnboardingSet onboardingSet){
 
-//        String url = onboardingSet_json.getAsJsonObject("url").getAsString();
-//        OnboardingType onboardingType = OnboardingType.valueOf(onboardingSet_json.getAsJsonObject("type").getAsString());
-//
-//        JsonArray onboardings_json = onboardingSet_json.getAsJsonArray("sequenceOnboardings");
-//
-//        List<Onboarding> onboardings = new ArrayList<>();
-//
-//        for (JsonElement onbaording_json: onboardings_json){
-//
-//        }
-
-
-        OnboardingSet onboardingSet = new OnboardingSet();
+        List<SequenceOnboarding> sequenceOnboardings = onboardingSet.getSequenceOnboardings();
+        for(SequenceOnboarding SO : sequenceOnboardings){
+            boxPropertyRepository.save(SO.getBoxProperty());
+            sequenceOnboardingRepository.save(SO);
+        }
 
         onboardingSetRepository.save(onboardingSet);
         return "success";
     }
-
-
-
 
 
 }
