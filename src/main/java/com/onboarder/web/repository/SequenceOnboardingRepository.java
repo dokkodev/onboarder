@@ -1,4 +1,10 @@
 package com.onboarder.web.repository;
 
-public interface OnboaridngRepository {
+import com.onboarder.web.model.OnboardingSet;
+import com.onboarder.web.model.SequenceOnboarding;
+import org.springframework.data.repository.CrudRepository;
+
+public interface SequenceOnboardingRepository  extends CrudRepository<SequenceOnboarding, Integer> {
+    SequenceOnboarding findById(int id);
+
 }

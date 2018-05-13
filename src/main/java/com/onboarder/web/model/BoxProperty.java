@@ -8,11 +8,14 @@ public class BoxProperty {
     @GeneratedValue
     private int id;
 
-//    @Column(name="font")
-//    private String font;
-
     @Column(name="font_size")
     private int font_size;
+
+    @Column(name="direction")
+    private BoxDirection boxDirection;
+
+    //    @Column(name="font")
+//    private String font;
 
 //    @Column(name="shape")
 //    private String shape;
@@ -23,7 +26,5 @@ public class BoxProperty {
 //    @Column(name="LinkName")
 //    private String link_name;
 
-    @Column(name="direction")
-    private BoxDirection boxDirection;
 
 }

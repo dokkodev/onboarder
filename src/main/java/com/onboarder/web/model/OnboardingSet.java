@@ -1,6 +1,7 @@
 package com.onboarder.web.model;
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class OnboardingSet {
@@ -12,15 +13,14 @@ public class OnboardingSet {
     @Column(name= "url")
     private String url;
 
-    @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="onboardingset_id")
-    private Collection<Onboarding> sequence_onboardings;
+    private List<SequenceOnboarding> sequenceOnboardings;
 
 
-    @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="onboardingset_id")
-    private Collection<Onboarding> swipe_onboardings;
-
+    private List<SwipeOnboarding> swipeOnboardings;
 
 
     @Enumerated(EnumType.STRING)

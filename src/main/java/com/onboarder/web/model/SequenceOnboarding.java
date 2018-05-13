@@ -2,14 +2,12 @@ package com.onboarder.web.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="onboarding")
-public class Onboarding {
+public class SequenceOnboarding {
 
     @Id
-    @GeneratedValue
     private int id;
 
-    @Column(name= "order")
+    @Column(name= "sequence_order")
     private int order;
 
     @Column(name="content")
