@@ -1,6 +1,5 @@
 package com.onboarder.web.repository;
 
-import com.onboarder.web.model.OnboardingSet;
 import com.onboarder.web.model.SequenceOnboarding;
 import org.springframework.data.repository.CrudRepository;
 

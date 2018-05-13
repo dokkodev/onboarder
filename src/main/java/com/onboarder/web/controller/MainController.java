@@ -59,7 +59,7 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/OnboardingSet")
+    @GetMapping("/OnboardingSet/")
     @ResponseBody
     public String show(@RequestParam String url){
         OnboardingSet onboardingSet = onboardingSetRepository.findByUrl(url);
@@ -73,12 +73,21 @@ public class MainController {
     public String update(@RequestBody OnboardingSet updatingOnboardingSet, @PathVariable int onboardingSetId){
 
         OnboardingSet existingOnboardingSet = onboardingSetRepository.findById(onboardingSetId);
+
         List<SequenceOnboarding> sequenceOnboardings = existingOnboardingSet.getSequenceOnboardings();
-        for(SequenceOnboarding SO : sequenceOnboardings){
-            boxPropertyRepository.delete(SO.getBoxProperty());
-            sequenceOnboardingRepository.delete(SO);
+
+//        SequenceOnboarding se = sequenceOnboardingRepository.findById(84);
+
+        for(SequenceOnboarding SO1 : sequenceOnboardings){
+            boxPropertyRepository.delete(SO1.getBoxProperty());
+            SequenceOnboarding se = sequenceOnboardingRepository.findById(SO1.getId());
+            sequenceOnboardingRepository.delete(se);
         }
-        List<SequenceOnboarding> updatingSequenceOnboardings = existingOnboardingSet.getSequenceOnboardings();
+
+//        sequenceOnboardingRepository.delete(se);
+
+
+        List<SequenceOnboarding> updatingSequenceOnboardings = updatingOnboardingSet.getSequenceOnboardings();
         for(SequenceOnboarding SO : updatingSequenceOnboardings){
             boxPropertyRepository.save(SO.getBoxProperty());
             sequenceOnboardingRepository.save(SO);

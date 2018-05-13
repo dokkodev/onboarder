@@ -16,12 +16,12 @@ public class OnboardingSet {
     @Column(name= "url")
     private String url;
 
-    @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.REMOVE)
     @JoinColumn(name="onboardingset_id")
     private List<SequenceOnboarding> sequenceOnboardings;
 
 
-    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JoinColumn(name="onboardingset_id")
     private List<SwipeOnboarding> swipeOnboardings;
 
