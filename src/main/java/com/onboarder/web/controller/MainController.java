@@ -1,15 +1,26 @@
 package com.onboarder.web.controller;
 
+import com.google.gson.Gson;
+import com.onboarder.web.model.OnboardingSet;
+import com.onboarder.web.repository.OnboardingSetRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+
 
 @Controller
 public class MainController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MainController.class);
+
+    @Autowired
+    private OnboardingSetRepository onboardingSetRepository;
+
 
     @RequestMapping("/")
     public String test(Model model) {
@@ -27,4 +38,25 @@ public class MainController {
 
         return "index";
     }
+
+    @GetMapping("/OnboardingSet")
+    @ResponseBody
+    public String show(@RequestParam int id){
+        OnboardingSet onboardingSet = onboardingSetRepository.findById(id);
+        Gson gson = new Gson();
+        String onboardingset_json = gson.toJson(onboardingSet);
+        return onboardingset_json;
+    }
+
+    @PostMapping("/OnboardingSet")
+    @ResponseBody
+    public String saveOnboardings(@RequestBody OnboardingSet onboardingSet){
+        onboardingSetRepository.save(onboardingSet);
+        return "success";
+    }
+
+
+
+
+
 }
