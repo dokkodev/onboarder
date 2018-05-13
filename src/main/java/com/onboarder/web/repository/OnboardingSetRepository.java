@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface OnboardingSetRepository extends CrudRepository<OnboardingSet, Integer> {
     OnboardingSet findById(int id);
+    OnboardingSet findByUrl(String url);
+
 }

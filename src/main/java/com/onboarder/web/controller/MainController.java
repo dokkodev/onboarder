@@ -61,8 +61,8 @@ public class MainController {
 
     @GetMapping("/OnboardingSet")
     @ResponseBody
-    public String show(@RequestParam int id){
-        OnboardingSet onboardingSet = onboardingSetRepository.findById(id);
+    public String show(@RequestParam String url){
+        OnboardingSet onboardingSet = onboardingSetRepository.findByUrl(url);
         Gson gson = new Gson();
         String onboardingset_json = gson.toJson(onboardingSet);
         return onboardingset_json;
