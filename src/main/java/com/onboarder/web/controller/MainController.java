@@ -8,7 +8,6 @@ import com.onboarder.web.repository.BoxPropertyRepository;
 import com.onboarder.web.repository.OnboardingSetRepository;
 import com.onboarder.web.repository.SequenceOnboardingRepository;
 import com.onboarder.web.repository.SwipeOnboardingRepository;
-import org.onboarder.Onboarding;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +21,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/asdf")
+@RequestMapping("/onboarder")
 public class MainController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MainController.class);
@@ -38,23 +37,6 @@ public class MainController {
 
     @Autowired
     private BoxPropertyRepository boxPropertyRepository;
-
-    @RequestMapping("/")
-    public String test(Model model) {
-
-        LOGGER.debug("User View");
-        model.addAttribute("name", "user");
-        return "index";
-    }
-
-    @RequestMapping("/admin")
-    public String testAdmin(Model model) {
-
-        LOGGER.debug("Admin View");
-        model.addAttribute("name", "admin");
-
-        return "index";
-    }
 
     @GetMapping("/OnboardingSet/")
     @ResponseBody
@@ -78,7 +60,6 @@ public class MainController {
 
 
         for(SequenceOnboarding SO1 : sequenceOnboardings){
-            boxPropertyRepository.delete(SO1.getBoxProperty());
             SequenceOnboarding se = sequenceOnboardingRepository.findById(SO1.getId());
             sequenceOnboardingRepository.delete(se);
         }
@@ -93,24 +74,16 @@ public class MainController {
         List<SwipeOnboarding> updatingSwipeOnboardings = updatingOnboardingSet.getSwipeOnboardings();
 
         for(SequenceOnboarding SO : updatingSequenceOnboardings){
-            boxPropertyRepository.save(SO.getBoxProperty());
             sequenceOnboardingRepository.save(SO);
         }
         for(SwipeOnboarding SW : updatingSwipeOnboardings){
             swipeOnboardingRepository.save(SW);
         }
-        existingOnboardingSet.setType(updatingOnboardingSet.getType());
+
         existingOnboardingSet.setSequenceOnboardings(updatingSequenceOnboardings);
         existingOnboardingSet.setSwipeOnboardings(updatingSwipeOnboardings);
         onboardingSetRepository.save(existingOnboardingSet);
         return "update success";
-    }
-
-    @DeleteMapping("/OnboardingSet/{onboardingSetId}/")
-    @ResponseBody
-    public String delete(@PathVariable int onboardingSetId){
-        onboardingSetRepository.deleteById(onboardingSetId);
-        return "success";
     }
 
     @PostMapping("/OnboardingSet")
@@ -121,8 +94,6 @@ public class MainController {
         List<SwipeOnboarding> swipeOnboardings = onboardingSet.getSwipeOnboardings();
 
         for(SequenceOnboarding SO : sequenceOnboardings){
-            if(SO.getBoxProperty()!=null)
-                boxPropertyRepository.save(SO.getBoxProperty());
             sequenceOnboardingRepository.save(SO);
         }
 
@@ -133,6 +104,4 @@ public class MainController {
         onboardingSetRepository.save(onboardingSet);
         return "success";
     }
-
-
 }

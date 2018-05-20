@@ -20,8 +20,9 @@ public class SequenceOnboarding {
     @Column(name="selector")
     private String selector;
 
-    @OneToOne
-    @JoinColumn(name="property_no")
-    private BoxProperty boxProperty;
+
+//    @OneToOne
+//    @JoinColumn(name="property_no")
+//    private BoxProperty boxProperty;
 
 }
