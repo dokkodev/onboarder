@@ -1,0 +1,2005 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0103)https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&userAgent=Chrome&isMobile=false& -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>포탈메인탭</title>
+		<link href="./style.css" rel="stylesheet" type="text/css">
+		<link type="text/css" href="./jquery.ui.all(1).css" rel="stylesheet">
+		<script src="./jquery.min.js.다운로드" type="text/javascript"></script>
+		<script src="./jquery-ui.min.js.다운로드" type="text/javascript"></script>
+		<script src="./utility.js(1).다운로드" type="text/javascript"></script>
+		<script type="text/javascript" src="./jquery.PrintArea.js.다운로드"></script>
+		<script src="./common.js.다운로드" type="text/javascript"></script>
+		
+		
+		<script type="text/javascript">
+		var tabcnt=new Array();
+		tabcnt[0]=0;
+		tabcnt[1]=0;
+		tabcnt[2]=0;
+		
+		$(window).load(function() {//창이 전부 로드 되고 실행되는 함수
+			$('.ptl_board_a1:first').css('border-left', '0px');
+			$('.ptl_board_a2:first').css('border-left', '0px');
+			
+			view_tab(1);
+			view_tab(2);
+			view_tab(3);
+			
+			if($('.tab1').length > 6){
+				$('.act_rightarr1').children().show();
+			}
+			if($('.tab2').length > 6){
+				$('.act_rightarr2').children().show();
+			}
+			if($('.tab3').length > 6){
+				$('.act_rightarr3').children().show();
+			}
+			
+			var cateid = '';	
+			
+				
+				cateid = '200';
+				
+			
+			
+		
+			var pid = $("li[cateid='" + cateid + "']").attr("pid");
+			
+			$("a[topid='" + pid + "']").click(); //처음에 보여지는 부분 선택 대분류 행정업무,연구업무,학사업무 부분입니다.
+			$("li[cateId='" + cateid + "']").click(); //처음에 보여지는 부분 선택 중분류 부분입니다.
+			
+			
+//			$("a[topid='1']").click(); //처음에 보여지는 부분 선택 대분류 행정업무,연구업무,학사업무 부분입니다.
+//			$("li[cateid='2']").click(); //처음에 보여지는 부분 선택 중분류 부분입니다.
+		});
+		$(function() {
+			$('.ptl_board_ul2').eq(0).children('li').click(function(e){
+				$('.ptl_board_ul2').eq(0).children('li').removeClass('act_ptlsel2');
+				$(this).addClass('act_ptlsel2');
+				$('.ptl_board_ul2').eq(0).children('li').children('.ptl_board_ul3').removeClass('act_ptl_view');
+				$(this).children('.ptl_board_ul3').addClass('act_ptl_view');
+			});
+			
+			$('.ptl_board_ul2').eq(1).children('li').click(function(e){
+				$('.ptl_board_ul2').eq(1).children('li').removeClass('act_ptlsel2');
+				$(this).addClass('act_ptlsel2');
+				$('.ptl_board_ul2').eq(1).children('li').children('.ptl_board_ul3').removeClass('act_ptl_view');
+				$(this).children('.ptl_board_ul3').addClass('act_ptl_view');
+			});
+			
+			$('.ptl_board_ul2').eq(2).children('li').click(function(e){
+				
+				$('.ptl_board_ul2').eq(2).children('li').removeClass('act_ptlsel2');
+				$(this).addClass('act_ptlsel2');
+				$('.ptl_board_ul2').eq(2).children('li').children('.ptl_board_ul3').removeClass('act_ptl_view');
+				$(this).children('.ptl_board_ul3').addClass('act_ptl_view');
+			});
+			
+			$('.ptl_board_a1').click(function(e){
+				e.preventDefault();
+				$('.ptl_board_a1').removeClass('act_ptlsel1');
+				$(this).addClass('act_ptlsel1');
+				$(this).parent().parent().find('div').removeClass('act_ptl_view');
+				$(this).parent().children('div').addClass('act_ptl_view');
+				$('.ptl_board_ul2').hide();
+				$(this).parent().children('div').children('.ptl_board_ul2').show();
+			});
+			
+			$('.act_leftarr1').click(function(e){
+				e.preventDefault();
+				if(0 != tabcnt[0]){
+					tabcnt[0]=tabcnt[0]-1;
+					view_tab(1);
+					$('.act_rightarr1').children().show();
+					if(0 == tabcnt[0]){
+						$('.act_leftarr1').children().hide();
+					}
+				}
+			});
+			
+			$('.act_rightarr1').click(function(e){
+				e.preventDefault();
+				var total=$('.tab1').length;
+				console.log(total);
+				if(total-6 > tabcnt[0]){
+					tabcnt[0]=tabcnt[0]+1;
+					view_tab(1);
+					console.log(tabcnt[0]);
+					$('.act_leftarr1').children().show();
+					if(total-6 == tabcnt[0]){
+						$('.act_rightarr1').children().hide();
+					}
+				}
+				
+			});
+			$('.act_leftarr2').click(function(e){
+				e.preventDefault();
+				if(0 != tabcnt[1]){
+					tabcnt[1]=tabcnt[1]-1;
+					view_tab(2);
+					$('.act_rightarr2').children().show();
+					if(0 == tabcnt[1]){
+						$('.act_leftarr2').children().hide();
+					}
+				}
+				
+			});
+			$('.act_rightarr2').click(function(e){
+				e.preventDefault();
+				var total=$('.tab2').length;
+				if(total-6 > tabcnt[1]){
+					tabcnt[1]=tabcnt[1]+1;
+					view_tab(2);
+					$('.act_leftarr2').children().show();
+					if(total-6 == tabcnt[1]){
+						$('.act_rightarr2').children().hide();
+					}
+				}
+				
+			});
+			$('.act_leftarr3').click(function(e){
+				e.preventDefault();
+				if(0 != tabcnt[2]){
+					tabcnt[2]=tabcnt[2]-1;
+					view_tab(3);
+					$('.act_rightarr3').children().show();
+					if(0 == tabcnt[2]){
+						$('.act_leftarr3').children().hide();
+					}
+				}
+				
+			});
+			$('.act_rightarr3').click(function(e){
+				e.preventDefault();
+				var total=$('.tab3').length;
+				if(total-6 > tabcnt[2]){
+					tabcnt[2]=tabcnt[2]+1;
+					view_tab(3);
+					$('.act_leftarr3').children().show();
+					if(total-6 == tabcnt[2]){
+						$('.act_rightarr3').children().hide();
+					}
+				}
+				
+			});
+			
+			$(function() {
+				$('.ptl_tooltip_layer').hide();
+				$('.ptl_tooltip_btn').click(function(){
+					$('.ptl_tooltip_layer').show();
+				})
+				$('.ptl_tooltip_top a').click(function(){
+					$('.ptl_tooltip_layer').hide();
+				})
+			})
+		});
+		
+		function view_tab(num){
+			var leftmove=0;
+			
+			var tableft=new Array();
+			tableft[0]=20;
+			tableft[1]=-159;
+			tableft[2]=-338;
+			
+			$('.tab'+num).parent().parent().css("left",tabcnt[num-1]*89*-1+tableft[num-1]);
+			$('.tab'+num).find('.ptl_board_ul3').css("left",tabcnt[num-1]*89-20);
+		}
+		</script>
+	</head>
+
+	<body>
+		<div class="ptl_board" style="">
+			<div class="ptl_board_div1">
+				<ul class="ptl_board_ul1">
+				
+					<li class="ptl_board_li1">
+						<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a1 act_ptlsel1" topid="200" style="width: 178px; border-left: 0px;"><span class="ptl_board_span1">행정업무</span></a>
+						<div class="ptl_board_div2 act_ptl_view" style="left: 20px;">
+							<ul class="ptl_board_ul2" style="display: block;">
+								<li class="ptl_board_li2 tab1 act_ptlsel2" cateid="200" pid="200">
+									<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a3"><span>전체</span></a>
+                                	
+                                	
+									<ul class="ptl_board_ul3 act_ptl_view" style="left: -20px;">
+	                                    
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="안전 &gt; 신분증/출입증/차량등록증 양식">
+											  	<span class="ptl_board_span2">
+											  		2018.05.16&nbsp;
+											  		안전
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;안전 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/sa_notice/11526448470623&#39;, &#39;_top&#39;)"><span>신분증/출입증/차량등록증 양식</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;안전 &gt; 공지사항&#39;, &#39;https://safety.kaist.ac.kr/Notice/Notice.aspx?boardPath=/sa_notice/11526448470623&#39;, &#39;safety.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+										</li>
+										
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="안전 &gt; KAIST 실험실 안전 뉴스레터 MAY 2018 ">
+											  	<span class="ptl_board_span2">
+											  		2018.05.15&nbsp;
+											  		안전
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;안전 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/sa_notice/11526362054369&#39;, &#39;_top&#39;)"><span>KAIST 실험실 안전 뉴스레터 MAY 2018 </span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;안전 &gt; 공지사항&#39;, &#39;https://safety.kaist.ac.kr/Notice/Notice.aspx?boardPath=/sa_notice/11526362054369&#39;, &#39;safety.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+										</li>
+										
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="감사 &gt; 연구분야 감사사례">
+											  	<span class="ptl_board_span2">
+											  		2018.05.14&nbsp;
+											  		감사
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;감사 &gt; 감사사례&#39;, &#39;https://board.kaist.ac.kr/enboard/ad_case/11526287599529&#39;, &#39;_top&#39;)"><span>연구분야 감사사례</span></a>
+											  	
+											</div>
+											
+											</div>
+										</li>
+										
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="감사 &gt; 청탁금지법 질의창구 일원화 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.05.10&nbsp;
+											  		감사
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;감사 &gt; 감사공지&#39;, &#39;https://board.kaist.ac.kr/enboard/ad_notice/11525928387755&#39;, &#39;_top&#39;)"><span>청탁금지법 질의창구 일원화 안내</span></a>
+											  	
+											</div>
+											
+											</div>
+										</li>
+										
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="고객만족 &gt; 2018년 5월 CS Issue Paper 교육 자료">
+											  	<span class="ptl_board_span2">
+											  		2018.05.02&nbsp;
+											  		고객만족
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;고객만족 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/cs_notice/11525268040670&#39;, &#39;_top&#39;)"><span>2018년 5월 CS Issue Paper 교육 자료</span></a>
+											  	
+											</div>
+											
+											</div>
+										</li>
+										
+										
+										<span class="ptl_more" id="more2" style="display: block;"><a href="https://board.kaist.ac.kr/category/200" target="_top" title="new">more +</a></span>
+									</ul>
+								</li>
+								
+								<li class="ptl_board_li2 tab1" cateid="183" pid="200">
+									<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a3"><span>구매</span></a>
+	                              	
+                                	
+									<ul class="ptl_board_ul3" style="left: -20px;">
+										
+										
+	                                    
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; [외자] 관세감면을 위한 &#39;국내제작곤란물품 추천서&#39; 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.02.28&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;구매 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/pr_notice/11519802272305&#39;, &#39;_top&#39;)"><span>[외자] 관세감면을 위한 '국내제작곤란물품 추천서' 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;구매 &gt; 공지사항&#39;, &#39;https://webs.kaist.ac.kr/erp2/board.do?mode=poNotice&amp;boardPath=/pr_notice/11519802272305&#39;, &#39;webs.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; [외자] 사후관리 대상 물품 일시수출 신청 절차 안내">
+											  	<span class="ptl_board_span2">
+											  		2017.03.28&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;구매 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/pr_notice/11490685056554&#39;, &#39;_top&#39;)"><span>[외자] 사후관리 대상 물품 일시수출 신청 절차 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;구매 &gt; 공지사항&#39;, &#39;https://webs.kaist.ac.kr/erp2/board.do?mode=poNotice&amp;boardPath=/pr_notice/11490685056554&#39;, &#39;webs.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; [외자] 관세감면 물품 사후관리 안내">
+											  	<span class="ptl_board_span2">
+											  		2017.03.28&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;구매 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/pr_notice/11490684855962&#39;, &#39;_top&#39;)"><span>[외자] 관세감면 물품 사후관리 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;구매 &gt; 공지사항&#39;, &#39;https://webs.kaist.ac.kr/erp2/board.do?mode=poNotice&amp;boardPath=/pr_notice/11490684855962&#39;, &#39;webs.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; [외자] 직접구매 관세감면 신청(절차)안내">
+											  	<span class="ptl_board_span2">
+											  		2017.03.28&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;구매 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/pr_notice/11490682528445&#39;, &#39;_top&#39;)"><span>[외자] 직접구매 관세감면 신청(절차)안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;구매 &gt; 공지사항&#39;, &#39;https://webs.kaist.ac.kr/erp2/board.do?mode=poNotice&amp;boardPath=/pr_notice/11490682528445&#39;, &#39;webs.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; 구매물품 검사(검수)제도 변경 안내">
+											  	<span class="ptl_board_span2">
+											  		2016.01.27&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;구매 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/pr_notice/11453856543813&#39;, &#39;_top&#39;)"><span>구매물품 검사(검수)제도 변경 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;구매 &gt; 공지사항&#39;, &#39;https://webs.kaist.ac.kr/erp2/board.do?mode=poNotice&amp;boardPath=/pr_notice/11453856543813&#39;, &#39;webs.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+										
+										<span class="ptl_more" id="more2" style="display: block;"><a href="https://board.kaist.ac.kr/enboard/pr_notice" target="_top" title="new">more +</a></span>
+									</ul>
+								</li>
+								
+								<li class="ptl_board_li2 tab1" cateid="184" pid="200">
+									<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a3"><span>재무</span></a>
+	                              	
+                                	
+									<ul class="ptl_board_ul3" style="left: -20px;">
+										
+										
+	                                    
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="비용 &gt; [중요!]기타소득 원천징수세율 변경관련 안내(시행 : 18년 4월 1일부)">
+											  	<span class="ptl_board_span2">
+											  		2018.03.27&nbsp;
+											  		비용
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;재무 &gt; 비용&#39;, &#39;https://board.kaist.ac.kr/enboard/fi_expense/11522140908962&#39;, &#39;_top&#39;)"><span>[중요!]기타소득 원천징수세율 변경관련 안내(시행 : 18년 4월 1일부)</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;재무 &gt; 비용&#39;, &#39;https://webs.kaist.ac.kr/erp2/board.do?mode=bearerNotice&amp;boardPath=/fi_expense/11522140908962&#39;, &#39;webs.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="비용 &gt; 해외송금 업무관련 관련서식 및 주의사항">
+											  	<span class="ptl_board_span2">
+											  		2018.03.27&nbsp;
+											  		비용
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;재무 &gt; 비용&#39;, &#39;https://board.kaist.ac.kr/enboard/fi_expense/11522108669863&#39;, &#39;_top&#39;)"><span>해외송금 업무관련 관련서식 및 주의사항</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;재무 &gt; 비용&#39;, &#39;https://webs.kaist.ac.kr/erp2/board.do?mode=bearerNotice&amp;boardPath=/fi_expense/11522108669863&#39;, &#39;webs.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="수입 &gt; 기타 사업외계정(학술) O/H정책 개선(안) 시행 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.02.27&nbsp;
+											  		수입
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;재무 &gt; 수입&#39;, &#39;https://board.kaist.ac.kr/enboard/fi_receivables/11519721917808&#39;, &#39;_top&#39;)"><span>기타 사업외계정(학술) O/H정책 개선(안) 시행 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;재무 &gt; 수입&#39;, &#39;https://webs.kaist.ac.kr/erp2/board.do?mode=cboArBoardTabNotice&amp;boardPath=/fi_receivables/11519721917808&#39;, &#39;webs.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="비용 &gt; (안내문) 해외송금 업무 프로세서 개선">
+											  	<span class="ptl_board_span2">
+											  		2018.01.29&nbsp;
+											  		비용
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;재무 &gt; 비용&#39;, &#39;https://board.kaist.ac.kr/enboard/fi_expense/11517208191940&#39;, &#39;_top&#39;)"><span>(안내문) 해외송금 업무 프로세서 개선</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;재무 &gt; 비용&#39;, &#39;https://webs.kaist.ac.kr/erp2/board.do?mode=bearerNotice&amp;boardPath=/fi_expense/11517208191940&#39;, &#39;webs.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="수입 &gt; 법인카드 결제계좌 잔액 및 입출금 조회 메뉴얼">
+											  	<span class="ptl_board_span2">
+											  		2017.12.11&nbsp;
+											  		수입
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;재무 &gt; 수입&#39;, &#39;https://board.kaist.ac.kr/enboard/fi_receivables/11512976057244&#39;, &#39;_top&#39;)"><span>법인카드 결제계좌 잔액 및 입출금 조회 메뉴얼</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;재무 &gt; 수입&#39;, &#39;https://webs.kaist.ac.kr/erp2/board.do?mode=cboArBoardTabNotice&amp;boardPath=/fi_receivables/11512976057244&#39;, &#39;webs.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+										
+										<span class="ptl_more" id="more2" style="display: block;"><a href="https://board.kaist.ac.kr/enboard/fi_receivables" target="_top" title="new">more +</a></span>
+									</ul>
+								</li>
+								
+								<li class="ptl_board_li2 tab1" cateid="500" pid="200">
+									<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a3"><span>자산</span></a>
+	                              	
+                                	
+									<ul class="ptl_board_ul3" style="left: -20px;">
+										
+										
+	                                    
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="공지사항 &gt; 재물조사(동영상)">
+											  	<span class="ptl_board_span2">
+											  		2016.11.29&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;자산 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/as_notice/11480402011913&#39;, &#39;_top&#39;)"><span>재물조사(동영상)</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="공지사항 &gt; 자산 이관하기(동영상)">
+											  	<span class="ptl_board_span2">
+											  		2016.07.07&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;자산 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/as_notice/11467855878829&#39;, &#39;_top&#39;)"><span>자산 이관하기(동영상)</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="공지사항 &gt; 자산 불용 신청하기(동영상)">
+											  	<span class="ptl_board_span2">
+											  		2016.04.15&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;자산 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/as_notice/11460706080138&#39;, &#39;_top&#39;)"><span>자산 불용 신청하기(동영상)</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="공지사항 &gt; 자산 보유 현황 조회하기(동영상)">
+											  	<span class="ptl_board_span2">
+											  		2016.04.15&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;자산 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/as_notice/11460705373406&#39;, &#39;_top&#39;)"><span>자산 보유 현황 조회하기(동영상)</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="공지사항 &gt; 부서 내 자산이관(동영상)">
+											  	<span class="ptl_board_span2">
+											  		2016.04.01&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;자산 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/as_notice/11459469344994&#39;, &#39;_top&#39;)"><span>부서 내 자산이관(동영상)</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+										
+										<span class="ptl_more" id="more2" style="display: block;"><a href="https://board.kaist.ac.kr/enboard/as_notice" target="_top" title="new">more +</a></span>
+									</ul>
+								</li>
+								
+								<li class="ptl_board_li2 tab1" cateid="187" pid="200">
+									<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a3"><span>고객만족</span></a>
+	                              	
+                                	
+									<ul class="ptl_board_ul3" style="left: -20px;">
+										
+										
+	                                    
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="공지사항 &gt; 2018년 5월 CS Issue Paper 교육 자료">
+											  	<span class="ptl_board_span2">
+											  		2018.05.02&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;고객만족 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/cs_notice/11525268040670&#39;, &#39;_top&#39;)"><span>2018년 5월 CS Issue Paper 교육 자료</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="공지사항 &gt; 감정노동 종사자를 위한 건강보호 가이드">
+											  	<span class="ptl_board_span2">
+											  		2018.04.17&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;고객만족 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/cs_notice/11523941400354&#39;, &#39;_top&#39;)"><span>감정노동 종사자를 위한 건강보호 가이드</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="공지사항 &gt; 2018년 4월 CS Issue Paper 교육 자료">
+											  	<span class="ptl_board_span2">
+											  		2018.04.02&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;고객만족 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/cs_notice/11522644618687&#39;, &#39;_top&#39;)"><span>2018년 4월 CS Issue Paper 교육 자료</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="공지사항 &gt; 2017년 학생모니터링단 운영 및 추진, 점검 주요현황">
+											  	<span class="ptl_board_span2">
+											  		2018.03.14&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;고객만족 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/cs_notice/11521011421045&#39;, &#39;_top&#39;)"><span>2017년 학생모니터링단 운영 및 추진, 점검 주요현황</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="공지사항 &gt; 고객만족센터에서 알려드립니다">
+											  	<span class="ptl_board_span2">
+											  		2018.03.02&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;고객만족 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/cs_notice/11519973459795&#39;, &#39;_top&#39;)"><span>고객만족센터에서 알려드립니다</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+										
+										<span class="ptl_more" id="more2" style="display: block;"><a href="https://board.kaist.ac.kr/enboard/cs_notice" target="_top" title="new">more +</a></span>
+									</ul>
+								</li>
+								
+								<li class="ptl_board_li2 tab1" cateid="188" pid="200">
+									<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a3"><span>안전</span></a>
+	                              	
+                                	
+									<ul class="ptl_board_ul3" style="left: -20px;">
+										
+										
+	                                    
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; 신분증/출입증/차량등록증 양식">
+											  	<span class="ptl_board_span2">
+											  		2018.05.16&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;안전 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/sa_notice/11526448470623&#39;, &#39;_top&#39;)"><span>신분증/출입증/차량등록증 양식</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;안전 &gt; 공지사항&#39;, &#39;https://safety.kaist.ac.kr/Notice/Notice.aspx?boardPath=/sa_notice/11526448470623&#39;, &#39;safety.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; KAIST 실험실 안전 뉴스레터 MAY 2018 ">
+											  	<span class="ptl_board_span2">
+											  		2018.05.15&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;안전 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/sa_notice/11526362054369&#39;, &#39;_top&#39;)"><span>KAIST 실험실 안전 뉴스레터 MAY 2018 </span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;안전 &gt; 공지사항&#39;, &#39;https://safety.kaist.ac.kr/Notice/Notice.aspx?boardPath=/sa_notice/11526362054369&#39;, &#39;safety.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; 안전연극 &quot;얼렁뚱땅&quot; 공연 안내(5월 3일_목요일_오후 7시, 학술문화관 양승택 오디토리움)">
+											  	<span class="ptl_board_span2">
+											  		2018.05.02&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;안전 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/sa_notice/11525235962555&#39;, &#39;_top&#39;)"><span>안전연극 "얼렁뚱땅" 공연 안내(5월 3일_목요일_오후 7시, 학술문화관 양승택 오디토리움)</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;안전 &gt; 공지사항&#39;, &#39;https://safety.kaist.ac.kr/Notice/Notice.aspx?boardPath=/sa_notice/11525235962555&#39;, &#39;safety.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; 제11회 연구실안전문화캠페인(4월 주요행사안내)">
+											  	<span class="ptl_board_span2">
+											  		2018.04.20&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;안전 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/sa_notice/11524212139033&#39;, &#39;_top&#39;)"><span>제11회 연구실안전문화캠페인(4월 주요행사안내)</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;안전 &gt; 공지사항&#39;, &#39;https://safety.kaist.ac.kr/Notice/Notice.aspx?boardPath=/sa_notice/11524212139033&#39;, &#39;safety.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; 2018년 국가안전대진단 점검결과 공개">
+											  	<span class="ptl_board_span2">
+											  		2018.04.19&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;안전 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/sa_notice/11524112270230&#39;, &#39;_top&#39;)"><span>2018년 국가안전대진단 점검결과 공개</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;안전 &gt; 공지사항&#39;, &#39;https://safety.kaist.ac.kr/Notice/Notice.aspx?boardPath=/sa_notice/11524112270230&#39;, &#39;safety.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+										
+										<span class="ptl_more" id="more2" style="display: block;"><a href="https://board.kaist.ac.kr/enboard/sa_notice" target="_top" title="new">more +</a></span>
+									</ul>
+								</li>
+								
+								<li class="ptl_board_li2 tab1" cateid="383" pid="200">
+									<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a3"><span>감사</span></a>
+	                              	
+                                	
+									<ul class="ptl_board_ul3" style="left: -20px;">
+										
+										
+	                                    
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="감사사례 &gt; 연구분야 감사사례">
+											  	<span class="ptl_board_span2">
+											  		2018.05.14&nbsp;
+											  		감사사례
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;감사 &gt; 감사사례&#39;, &#39;https://board.kaist.ac.kr/enboard/ad_case/11526287599529&#39;, &#39;_top&#39;)"><span>연구분야 감사사례</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="감사공지 &gt; 청탁금지법 질의창구 일원화 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.05.10&nbsp;
+											  		감사공지
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;감사 &gt; 감사공지&#39;, &#39;https://board.kaist.ac.kr/enboard/ad_notice/11525928387755&#39;, &#39;_top&#39;)"><span>청탁금지법 질의창구 일원화 안내</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="감사공지 &gt; 감사실 업무분장 안내(2018.4.23부)">
+											  	<span class="ptl_board_span2">
+											  		2018.04.20&nbsp;
+											  		감사공지
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;감사 &gt; 감사공지&#39;, &#39;https://board.kaist.ac.kr/enboard/ad_notice/11524200622783&#39;, &#39;_top&#39;)"><span>감사실 업무분장 안내(2018.4.23부)</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="감사공지 &gt; 감사실 업무분장 안내(2018.2.27부)">
+											  	<span class="ptl_board_span2">
+											  		2018.02.28&nbsp;
+											  		감사공지
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;감사 &gt; 감사공지&#39;, &#39;https://board.kaist.ac.kr/enboard/ad_notice/11519810626346&#39;, &#39;_top&#39;)"><span>감사실 업무분장 안내(2018.2.27부)</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="감사공지 &gt; [청탁금지법] 외부강의등 신고 개정관련 FAQ">
+											  	<span class="ptl_board_span2">
+											  		2018.02.05&nbsp;
+											  		감사공지
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;감사 &gt; 감사공지&#39;, &#39;https://board.kaist.ac.kr/enboard/ad_notice/11517809799959&#39;, &#39;_top&#39;)"><span>[청탁금지법] 외부강의등 신고 개정관련 FAQ</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+										
+										<span class="ptl_more" id="more2" style="display: block;"><a href="https://board.kaist.ac.kr/enboard/ad_notice" target="_top" title="new">more +</a></span>
+									</ul>
+								</li>
+								
+
+							</ul>
+						</div>
+						<div class="ptl_board_div3 act_ptl_view">
+						  	<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a2 act_leftarr1" style="border-left: 0px;"><img src="./btn_ptlbdleft_ptl.png" alt="Left"></a>
+						  	
+						</div>
+						<div class="ptl_board_div4 act_ptl_view">
+						  	<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a4 act_rightarr1"><img src="./btn_ptlbdright_ptl.png" alt="Right" style="display: inline;"></a>
+						</div>
+						
+					</li>
+					
+					<li class="ptl_board_li1">
+						<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a1" topid="201" style="width: 178px;"><span class="ptl_board_span1">연구업무</span></a>
+						<div class="ptl_board_div2" style="left: -159px;">
+							<ul class="ptl_board_ul2" style="display:none;">
+								<li class="ptl_board_li2 tab2 act_ptlsel2" cateid="201" pid="201">
+									<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a3"><span>전체</span></a>
+                                	
+                                	
+									<ul class="ptl_board_ul3 act_ptl_view" style="left: -20px;">
+	                                    
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="연구관리 &gt; 2018년 상반기 산학연협력 기술개발사업 과제(공동)책임자 교육 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.05.18&nbsp;
+											  		연구관리
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;연구관리 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/rm_notice/11526610177016&#39;, &#39;_top&#39;)"><span>2018년 상반기 산학연협력 기술개발사업 과제(공동)책임자 교육 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;연구관리 &gt; 공지사항&#39;, &#39;https://webs.kaist.ac.kr/erp2/board.do?mode=boardTabNotice&amp;boardPath=/rm_notice/11526610177016&#39;, &#39;webs.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+										</li>
+										
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="연구관리 &gt; 바이오의료기술개발사업 신규과제 설명회 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.05.18&nbsp;
+											  		연구관리
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;연구관리 &gt; 연구개발사업안내&#39;, &#39;https://board.kaist.ac.kr/enboard/rm_info/11526609983460&#39;, &#39;_top&#39;)"><span>바이오의료기술개발사업 신규과제 설명회 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;연구관리 &gt; 연구개발사업안내&#39;, &#39;https://webs.kaist.ac.kr/erp2/board.do?mode=boardTabSaup&amp;boardPath=/rm_info/11526609983460&#39;, &#39;webs.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+										</li>
+										
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="도서관 &gt; 2018년 봄학기 도서구입신청 이벤트 (Keep Calm and Read On)">
+											  	<span class="ptl_board_span2">
+											  		2018.05.18&nbsp;
+											  		도서관
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;도서관 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/lib_notice/11526603636034&#39;, &#39;_top&#39;)"><span>2018년 봄학기 도서구입신청 이벤트 (Keep Calm and Read On)</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;도서관 &gt; 공지사항&#39;, &#39;http://library.kaist.ac.kr/board/board.do?code=notice&amp;boardPath=/lib_notice/11526603636034&#39;, &#39;library.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+										</li>
+										
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="연구관리 &gt; 오류내용-집행금액의 총합이 총사용금액을 초과합니다.">
+											  	<span class="ptl_board_span2">
+											  		2018.05.17&nbsp;
+											  		연구관리
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;연구관리 &gt; 이지바로 연계시스템 오류 문의&#39;, &#39;https://board.kaist.ac.kr/enboard/ERSE_request/11526533664105&#39;, &#39;_top&#39;)"><span>오류내용-집행금액의 총합이 총사용금액을 초과합니다.</span></a>
+											  	
+											</div>
+											
+											</div>
+										</li>
+										
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="연구관리 &gt; (모니터링)이지바로 연계시스템 관련입니다.">
+											  	<span class="ptl_board_span2">
+											  		2018.05.16&nbsp;
+											  		연구관리
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;연구관리 &gt; 이지바로 연계시스템 오류 문의&#39;, &#39;https://board.kaist.ac.kr/enboard/ERSE_request/11526452119862&#39;, &#39;_top&#39;)"><span>(모니터링)이지바로 연계시스템 관련입니다.</span></a>
+											  	
+											</div>
+											
+											</div>
+										</li>
+										
+										
+										<span class="ptl_more" id="more2" style="display: block;"><a href="https://board.kaist.ac.kr/category/201" target="_top" title="new">more +</a></span>
+									</ul>
+								</li>
+								
+								<li class="ptl_board_li2 tab2" cateid="221" pid="201">
+									<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a3"><span>연구관리</span></a>
+	                              	
+                                	
+									<ul class="ptl_board_ul3" style="left: -20px;">
+										
+										
+	                                    
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; 2018년 상반기 산학연협력 기술개발사업 과제(공동)책임자 교육 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.05.18&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;연구관리 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/rm_notice/11526610177016&#39;, &#39;_top&#39;)"><span>2018년 상반기 산학연협력 기술개발사업 과제(공동)책임자 교육 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;연구관리 &gt; 공지사항&#39;, &#39;https://webs.kaist.ac.kr/erp2/board.do?mode=boardTabNotice&amp;boardPath=/rm_notice/11526610177016&#39;, &#39;webs.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="연구개발사업안내 &gt; 바이오의료기술개발사업 신규과제 설명회 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.05.18&nbsp;
+											  		연구개발사업안내
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;연구관리 &gt; 연구개발사업안내&#39;, &#39;https://board.kaist.ac.kr/enboard/rm_info/11526609983460&#39;, &#39;_top&#39;)"><span>바이오의료기술개발사업 신규과제 설명회 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;연구관리 &gt; 연구개발사업안내&#39;, &#39;https://webs.kaist.ac.kr/erp2/board.do?mode=boardTabSaup&amp;boardPath=/rm_info/11526609983460&#39;, &#39;webs.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="이지바로 연계시스템 오류 문의 &gt; 오류내용-집행금액의 총합이 총사용금액을 초과합니다.">
+											  	<span class="ptl_board_span2">
+											  		2018.05.17&nbsp;
+											  		이지바로 연계시스템 오류 문의
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;연구관리 &gt; 이지바로 연계시스템 오류 문의&#39;, &#39;https://board.kaist.ac.kr/enboard/ERSE_request/11526533664105&#39;, &#39;_top&#39;)"><span>오류내용-집행금액의 총합이 총사용금액을 초과합니다.</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="이지바로 연계시스템 오류 문의 &gt; (모니터링)이지바로 연계시스템 관련입니다.">
+											  	<span class="ptl_board_span2">
+											  		2018.05.16&nbsp;
+											  		이지바로 연계시스템 오류 문의
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;연구관리 &gt; 이지바로 연계시스템 오류 문의&#39;, &#39;https://board.kaist.ac.kr/enboard/ERSE_request/11526452119862&#39;, &#39;_top&#39;)"><span>(모니터링)이지바로 연계시스템 관련입니다.</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="연구개발사업안내 &gt; KCTC 교전훈련장비』 선행연구 용역사업 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.05.16&nbsp;
+											  		연구개발사업안내
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;연구관리 &gt; 연구개발사업안내&#39;, &#39;https://board.kaist.ac.kr/enboard/rm_info/11526440876590&#39;, &#39;_top&#39;)"><span>KCTC 교전훈련장비』 선행연구 용역사업 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;연구관리 &gt; 연구개발사업안내&#39;, &#39;https://webs.kaist.ac.kr/erp2/board.do?mode=boardTabSaup&amp;boardPath=/rm_info/11526440876590&#39;, &#39;webs.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+										
+										<span class="ptl_more" id="more2" style="display: block;"><a href="https://board.kaist.ac.kr/enboard/rm_info" target="_top" title="new">more +</a></span>
+									</ul>
+								</li>
+								
+								<li class="ptl_board_li2 tab2" cateid="222" pid="201">
+									<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a3"><span>RIMS</span></a>
+	                              	
+                                	
+									<ul class="ptl_board_ul3" style="left: -20px;">
+										
+										
+	                                    
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; RIMS 학과관리자용 매뉴얼">
+											  	<span class="ptl_board_span2">
+											  		2018.04.24&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;RIMS &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ri_notice/11524555789139&#39;, &#39;_top&#39;)"><span>RIMS 학과관리자용 매뉴얼</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;RIMS &gt; 공지사항&#39;, &#39;https://rims.kaist.ac.kr/rims/kboard.do?cateId=1&amp;boardPath=/ri_notice/11524555789139&#39;, &#39;rims.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; RIMS 연구자용 매뉴얼">
+											  	<span class="ptl_board_span2">
+											  		2018.04.24&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;RIMS &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ri_notice/11524555591217&#39;, &#39;_top&#39;)"><span>RIMS 연구자용 매뉴얼</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;RIMS &gt; 공지사항&#39;, &#39;https://rims.kaist.ac.kr/rims/kboard.do?cateId=1&amp;boardPath=/ri_notice/11524555591217&#39;, &#39;rims.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; RIMS Discovery 오픈(KAIST 연구자 및 연구성과 통합검색서비스)">
+											  	<span class="ptl_board_span2">
+											  		2018.01.17&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;RIMS &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ri_notice/11516148677589&#39;, &#39;_top&#39;)"><span>RIMS Discovery 오픈(KAIST 연구자 및 연구성과 통합검색서비스)</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;RIMS &gt; 공지사항&#39;, &#39;https://rims.kaist.ac.kr/rims/kboard.do?cateId=1&amp;boardPath=/ri_notice/11516148677589&#39;, &#39;rims.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; RIMS, KOASAS, ELN서비스 일시 중지 안내">
+											  	<span class="ptl_board_span2">
+											  		2017.12.14&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;RIMS &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ri_notice/11513236525564&#39;, &#39;_top&#39;)"><span>RIMS, KOASAS, ELN서비스 일시 중지 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;RIMS &gt; 공지사항&#39;, &#39;https://rims.kaist.ac.kr/rims/kboard.do?cateId=1&amp;boardPath=/ri_notice/11513236525564&#39;, &#39;rims.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; 2017.05 SCIE/SSCI Journal Master Update List">
+											  	<span class="ptl_board_span2">
+											  		2017.06.27&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;RIMS &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ri_notice/11498545643055&#39;, &#39;_top&#39;)"><span>2017.05 SCIE/SSCI Journal Master Update List</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;RIMS &gt; 공지사항&#39;, &#39;https://rims.kaist.ac.kr/rims/kboard.do?cateId=1&amp;boardPath=/ri_notice/11498545643055&#39;, &#39;rims.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+										
+										<span class="ptl_more" id="more2" style="display: block;"><a href="https://board.kaist.ac.kr/enboard/ri_notice" target="_top" title="new">more +</a></span>
+									</ul>
+								</li>
+								
+								<li class="ptl_board_li2 tab2" cateid="341" pid="201">
+									<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a3"><span>도서관</span></a>
+	                              	
+                                	
+									<ul class="ptl_board_ul3" style="left: -20px;">
+										
+										
+	                                    
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; 2018년 봄학기 도서구입신청 이벤트 (Keep Calm and Read On)">
+											  	<span class="ptl_board_span2">
+											  		2018.05.18&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;도서관 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/lib_notice/11526603636034&#39;, &#39;_top&#39;)"><span>2018년 봄학기 도서구입신청 이벤트 (Keep Calm and Read On)</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;도서관 &gt; 공지사항&#39;, &#39;http://library.kaist.ac.kr/board/board.do?code=notice&amp;boardPath=/lib_notice/11526603636034&#39;, &#39;library.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; 도서관 휴관 안내 (5/22)">
+											  	<span class="ptl_board_span2">
+											  		2018.05.16&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;도서관 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/lib_notice/11526430638774&#39;, &#39;_top&#39;)"><span>도서관 휴관 안내 (5/22)</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;도서관 &gt; 공지사항&#39;, &#39;http://library.kaist.ac.kr/board/board.do?code=notice&amp;boardPath=/lib_notice/11526430638774&#39;, &#39;library.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; 신착 국내전자도서(e-book &amp; 오디오북) 이용안내">
+											  	<span class="ptl_board_span2">
+											  		2018.05.15&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;도서관 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/lib_notice/11526349311966&#39;, &#39;_top&#39;)"><span>신착 국내전자도서(e-book &amp; 오디오북) 이용안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;도서관 &gt; 공지사항&#39;, &#39;http://library.kaist.ac.kr/board/board.do?code=notice&amp;boardPath=/lib_notice/11526349311966&#39;, &#39;library.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; 학술문화관(도서관) 도서소독 안내(5.14.~20.)">
+											  	<span class="ptl_board_span2">
+											  		2018.05.09&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;도서관 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/lib_notice/11525847142220&#39;, &#39;_top&#39;)"><span>학술문화관(도서관) 도서소독 안내(5.14.~20.)</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;도서관 &gt; 공지사항&#39;, &#39;http://library.kaist.ac.kr/board/board.do?code=notice&amp;boardPath=/lib_notice/11525847142220&#39;, &#39;library.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; 도서관 휴관 안내 (5/7)">
+											  	<span class="ptl_board_span2">
+											  		2018.05.03&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;도서관 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/lib_notice/11525322426535&#39;, &#39;_top&#39;)"><span>도서관 휴관 안내 (5/7)</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;도서관 &gt; 공지사항&#39;, &#39;http://library.kaist.ac.kr/board/board.do?code=notice&amp;boardPath=/lib_notice/11525322426535&#39;, &#39;library.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+										
+										<span class="ptl_more" id="more2" style="display: block;"><a href="https://board.kaist.ac.kr/enboard/lib_notice" target="_top" title="new">more +</a></span>
+									</ul>
+								</li>
+								
+								<li class="ptl_board_li2 tab2" cateid="240" pid="201">
+									<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a3"><span>특허</span></a>
+	                              	
+                                	
+									<ul class="ptl_board_ul3" style="left: -20px;">
+										
+										
+	                                    
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="공지사항 &gt; [2018-4월] 국내 특허 발명평가 일정 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.05.10&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;특허 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ppms_notice/11525927258610&#39;, &#39;_top&#39;)"><span>[2018-4월] 국내 특허 발명평가 일정 안내</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="공지사항 &gt; [대전지식재산센터 공지]2018년도 제8회 대전발명경진대회 개최">
+											  	<span class="ptl_board_span2">
+											  		2018.04.09&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;특허 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ppms_notice/11523233980776&#39;, &#39;_top&#39;)"><span>[대전지식재산센터 공지]2018년도 제8회 대전발명경진대회 개최</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="공지사항 &gt; [2018- 3월]국내 특허 발명평가 일정 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.04.03&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;특허 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ppms_notice/11522730414619&#39;, &#39;_top&#39;)"><span>[2018- 3월]국내 특허 발명평가 일정 안내</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="공지사항 &gt; [2018-2월]국내 특허 발명평가 일정 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.02.26&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;특허 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ppms_notice/11519609971939&#39;, &#39;_top&#39;)"><span>[2018-2월]국내 특허 발명평가 일정 안내</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="공지사항 &gt; [2018-1월]국내 특허 발명평가 일정 안내 ">
+											  	<span class="ptl_board_span2">
+											  		2018.02.20&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;특허 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ppms_notice/11519116224168&#39;, &#39;_top&#39;)"><span>[2018-1월]국내 특허 발명평가 일정 안내 </span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+										
+										<span class="ptl_more" id="more2" style="display: block;"><a href="https://board.kaist.ac.kr/enboard/ppms_notice" target="_top" title="new">more +</a></span>
+									</ul>
+								</li>
+								
+								<li class="ptl_board_li2 tab2" cateid="250" pid="201">
+									<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a3"><span>자체사업</span></a>
+	                              	
+                                	
+									<ul class="ptl_board_ul3" style="left: -20px;">
+										
+										
+	                                    
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="Q&amp;A &gt; 테스트 입니다.">
+											  	<span class="ptl_board_span2">
+											  		2016.03.29&nbsp;
+											  		Q&amp;A
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;자체사업 &gt; Q&amp;A&#39;, &#39;https://board.kaist.ac.kr/enboard/rsh_qna/11459216666216&#39;, &#39;_top&#39;)"><span>테스트 입니다.</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut" title="공지사항 &gt; 테스트 공지사항 입니다.">
+											  	<span class="ptl_board_span2">
+											  		2016.03.29&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;자체사업 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/rship_notice/11459216585339&#39;, &#39;_top&#39;)"><span>테스트 공지사항 입니다.</span></a>
+											  	
+											</div>
+											
+											</div>
+											
+										</li>
+										
+										
+										<span class="ptl_more" id="more2" style="display: block;"><a href="https://board.kaist.ac.kr/enboard/rship_notice" target="_top" title="new">more +</a></span>
+									</ul>
+								</li>
+								
+
+							</ul>
+						</div>
+						<div class="ptl_board_div3">
+						  	<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a2 act_leftarr2"><img src="./btn_ptlbdleft_ptl.png" alt="Left"></a>
+						  	
+						</div>
+						<div class="ptl_board_div4">
+						  	<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a4 act_rightarr2"><img src="./btn_ptlbdright_ptl.png" alt="Right"></a>
+						</div>
+						
+					</li>
+					
+					<li class="ptl_board_li1">
+						<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a1" topid="202" style="width: 178px;"><span class="ptl_board_span1">학사업무</span></a>
+						<div class="ptl_board_div2" style="left: -338px;">
+							<ul class="ptl_board_ul2" style="display:none;">
+								<li class="ptl_board_li2 tab3 act_ptlsel2" cateid="202" pid="202">
+									<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a3"><span>전체</span></a>
+                                	
+                                	
+									<ul class="ptl_board_ul3 act_ptl_view" style="left: -20px;">
+	                                    
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="리더십 &gt; 문화답사 모집 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.05.14&nbsp;
+											  		리더십
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ls_notice/11526258205171&#39;, &#39;_top&#39;)"><span>문화답사 모집 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;http://leadership.kaist.ac.kr/sub0501?boardPath=/ls_notice/11526258205171&#39;, &#39;leadership.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+										</li>
+										
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="리더십 &gt; 2018년 봄학기, 이색강좌 시작 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.03.23&nbsp;
+											  		리더십
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ls_notice/11521790780599&#39;, &#39;_top&#39;)"><span>2018년 봄학기, 이색강좌 시작 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;http://leadership.kaist.ac.kr/sub0501?boardPath=/ls_notice/11521790780599&#39;, &#39;leadership.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+										</li>
+										
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="리더십 &gt; 2018-봄, 영리더 목요특강 일정">
+											  	<span class="ptl_board_span2">
+											  		2018.03.23&nbsp;
+											  		리더십
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ls_notice/11521772987598&#39;, &#39;_top&#39;)"><span>2018-봄, 영리더 목요특강 일정</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;http://leadership.kaist.ac.kr/sub0501?boardPath=/ls_notice/11521772987598&#39;, &#39;leadership.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+										</li>
+										
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="리더십 &gt; 2018 - 봄학기, 이색강좌 모집 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.03.09&nbsp;
+											  		리더십
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ls_notice/11520560210512&#39;, &#39;_top&#39;)"><span>2018 - 봄학기, 이색강좌 모집 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;http://leadership.kaist.ac.kr/sub0501?boardPath=/ls_notice/11520560210512&#39;, &#39;leadership.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+										</li>
+										
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="리더십 &gt; 금주 인성/리더십 수업 시작 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.03.05&nbsp;
+											  		리더십
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ls_notice/11520215009895&#39;, &#39;_top&#39;)"><span>금주 인성/리더십 수업 시작 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;http://leadership.kaist.ac.kr/sub0501?boardPath=/ls_notice/11520215009895&#39;, &#39;leadership.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+										</li>
+										
+										
+										<span class="ptl_more" id="more2" style="display: block;"><a href="https://board.kaist.ac.kr/category/202" target="_top" title="new">more +</a></span>
+									</ul>
+								</li>
+								
+								<li class="ptl_board_li2 tab3" cateid="224" pid="202">
+									<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a3"><span>리더십</span></a>
+	                              	
+                                	
+									<ul class="ptl_board_ul3" style="left: -20px;">
+										
+										
+	                                    
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; 문화답사 모집 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.05.14&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ls_notice/11526258205171&#39;, &#39;_top&#39;)"><span>문화답사 모집 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;http://leadership.kaist.ac.kr/sub0501?boardPath=/ls_notice/11526258205171&#39;, &#39;leadership.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; 2018년 봄학기, 이색강좌 시작 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.03.23&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ls_notice/11521790780599&#39;, &#39;_top&#39;)"><span>2018년 봄학기, 이색강좌 시작 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;http://leadership.kaist.ac.kr/sub0501?boardPath=/ls_notice/11521790780599&#39;, &#39;leadership.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; 2018-봄, 영리더 목요특강 일정">
+											  	<span class="ptl_board_span2">
+											  		2018.03.23&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ls_notice/11521772987598&#39;, &#39;_top&#39;)"><span>2018-봄, 영리더 목요특강 일정</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;http://leadership.kaist.ac.kr/sub0501?boardPath=/ls_notice/11521772987598&#39;, &#39;leadership.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; 2018 - 봄학기, 이색강좌 모집 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.03.09&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ls_notice/11520560210512&#39;, &#39;_top&#39;)"><span>2018 - 봄학기, 이색강좌 모집 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;http://leadership.kaist.ac.kr/sub0501?boardPath=/ls_notice/11520560210512&#39;, &#39;leadership.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="공지사항 &gt; 금주 인성/리더십 수업 시작 안내">
+											  	<span class="ptl_board_span2">
+											  		2018.03.05&nbsp;
+											  		공지사항
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;https://board.kaist.ac.kr/enboard/ls_notice/11520215009895&#39;, &#39;_top&#39;)"><span>금주 인성/리더십 수업 시작 안내</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;리더십 &gt; 공지사항&#39;, &#39;http://leadership.kaist.ac.kr/sub0501?boardPath=/ls_notice/11520215009895&#39;, &#39;leadership.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+										
+										<span class="ptl_more" id="more2" style="display: block;"><a href="https://board.kaist.ac.kr/enboard/ls_notice" target="_top" title="new">more +</a></span>
+									</ul>
+								</li>
+								
+								<li class="ptl_board_li2 tab3" cateid="225" pid="202">
+									<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a3"><span>교수/학습</span></a>
+	                              	
+                                	
+									<ul class="ptl_board_ul3" style="left: -20px;">
+										
+										
+	                                    
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="KLMS &gt; KLMS 활용가이드는 교수자/조교자 권한으로만 가능한 기능 안내입니다.">
+											  	<span class="ptl_board_span2">
+											  		2017.03.03&nbsp;
+											  		KLMS
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;교수/학습 &gt; KLMS&#39;, &#39;https://board.kaist.ac.kr/enboard/tl_notice/11488509390189&#39;, &#39;_top&#39;)"><span>KLMS 활용가이드는 교수자/조교자 권한으로만 가능한 기능 안내입니다.</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;교수/학습 &gt; KLMS&#39;, &#39;http://klms.kaist.ac.kr/mod/ubboard/tlnotice.php?boardPath=/tl_notice/11488509390189&#39;, &#39;klms.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="KLMS &gt; [KLMS 활용가이드] 조교신청승인 및 직접등록">
+											  	<span class="ptl_board_span2">
+											  		2016.09.07&nbsp;
+											  		KLMS
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;교수/학습 &gt; KLMS&#39;, &#39;https://board.kaist.ac.kr/enboard/tl_notice/11473217206740&#39;, &#39;_top&#39;)"><span>[KLMS 활용가이드] 조교신청승인 및 직접등록</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;교수/학습 &gt; KLMS&#39;, &#39;http://klms.kaist.ac.kr/mod/ubboard/tlnotice.php?boardPath=/tl_notice/11473217206740&#39;, &#39;klms.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="KLMS &gt; [KLMS 활용가이드] 청강생 등록하기">
+											  	<span class="ptl_board_span2">
+											  		2016.09.05&nbsp;
+											  		KLMS
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;교수/학습 &gt; KLMS&#39;, &#39;https://board.kaist.ac.kr/enboard/tl_notice/11473049703553&#39;, &#39;_top&#39;)"><span>[KLMS 활용가이드] 청강생 등록하기</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;교수/학습 &gt; KLMS&#39;, &#39;http://klms.kaist.ac.kr/mod/ubboard/tlnotice.php?boardPath=/tl_notice/11473049703553&#39;, &#39;klms.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="KLMS &gt; 2016년도 가을학기 강좌 연동안내 ">
+											  	<span class="ptl_board_span2">
+											  		2016.08.01&nbsp;
+											  		KLMS
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;교수/학습 &gt; KLMS&#39;, &#39;https://board.kaist.ac.kr/enboard/tl_notice/11470032416086&#39;, &#39;_top&#39;)"><span>2016년도 가을학기 강좌 연동안내 </span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;교수/학습 &gt; KLMS&#39;, &#39;http://klms.kaist.ac.kr/mod/ubboard/tlnotice.php?boardPath=/tl_notice/11470032416086&#39;, &#39;klms.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+	                                    
+										<li class="ptl_board_li3">
+											<div class="ptl_board_div7">
+											<div class="text_cut newwindow_div2" title="KLMS &gt; [KLMS 활용가이드] 백업 및 복구 (강의실 재활용)">
+											  	<span class="ptl_board_span2">
+											  		2016.07.19&nbsp;
+											  		KLMS
+											  	</span>
+											  	
+											  	<a href="javascript:openLink(&#39;K&#39;, &#39;교수/학습 &gt; KLMS&#39;, &#39;https://board.kaist.ac.kr/enboard/tl_notice/11468908370871&#39;, &#39;_top&#39;)"><span>[KLMS 활용가이드] 백업 및 복구 (강의실 재활용)</span></a>
+											  	
+											</div>
+											 
+											
+											<a href="javascript:openLink(&#39;k&#39;, &#39;교수/학습 &gt; KLMS&#39;, &#39;http://klms.kaist.ac.kr/mod/ubboard/tlnotice.php?boardPath=/tl_notice/11468908370871&#39;, &#39;klms.kaist.ac.kr&#39;)" title="새창으로 연계 시스템에서 글보기">
+												<img class="newwindow_icon newwindow_icon_cr" src="./icon_newwindow_commom.png" alt="New Window">
+											</a>
+											
+											</div>
+											
+										</li>
+										
+										
+										<span class="ptl_more" id="more2" style="display: block;"><a href="https://board.kaist.ac.kr/enboard/tl_notice" target="_top" title="new">more +</a></span>
+									</ul>
+								</li>
+								
+
+							</ul>
+						</div>
+						<div class="ptl_board_div3">
+						  	<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a2 act_leftarr3"><img src="./btn_ptlbdleft_ptl.png" alt="Left"></a>
+						  	
+						</div>
+						<div class="ptl_board_div4">
+						  	<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" class="ptl_board_a4 act_rightarr3"><img src="./btn_ptlbdright_ptl.png" alt="Right"></a>
+						</div>
+						
+					</li>
+					
+					<!-- 2015.12.04 툴팁 버튼 추가  -->
+					<li class="ptl_tooltip_btn">
+						<img src="./btn_ptlbdright_tooltip.png" alt="연계시스텝 툴팁" title="연계시스텝 툴팁">
+					</li>
+					<!-- 2015.12.04 툴팁 버튼 추가  -->
+				</ul>
+			</div>
+			<!-- 2015.12.04 툴팁 추가  -->
+			<div class="ptl_tooltip_layer" style="display: none">
+				<div class="ptl_tooltip_top">
+					
+						새창으로 연계 시스템에서 글 보기.
+						<a href="https://board.kaist.ac.kr/kaist/bd/portalMainTab/list.face?lang_knd=ko&amp;userAgent=Chrome&amp;isMobile=false&amp;#" title="닫기">닫기</a>
+					
+					
+					
+				</div>
+				<div class="ptl_tooltip_content">
+					<div class="ptl_tooltip_content_img">
+						<img src="./ptlboardd_tooltip_img_ko.gif" alt="새창으로 연계 시스템">
+					</div>
+					<div class="ptl_tooltip_content_text">
+		        		<p>&nbsp;</p><p><span style="line-height: 1.8em; font-size: 10pt;">• 새창으로 해당 시스템의 상세글 화면으로 바로 이동합니다.</span></p><p><span style="line-height: 1.8em; font-size: 10pt;">• 연계 시스템의 사정에 따라 정상적으로 동작하지 않을 수 있습니다.</span></p>
+					</div>
+				</div>
+			</div>
+			<!-- 2015.12.04 툴팁 추가  -->
+		</div>
+	
+
+</body></html>

@@ -1,0 +1,2218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0052)https://portal.kaist.ac.kr/portal/default/home/today -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>KAIST Portal System(1)</title>
+	
+		
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+	    <meta name="version" content="3.2.5">
+		<meta name="robots" content="noindex,nofollow">		
+	    <meta name="description" content="오늘의공지">
+		
+		<script type="text/javascript" src="./KAIST_Portal_System_files/jquery-1.10.2.min.js.다운로드"></script>
+			
+		<script type="text/javascript" src="./KAIST_Portal_System_files/mrbun_ko_mm.js.다운로드"></script>
+		<script type="text/javascript" src="./KAIST_Portal_System_files/mrbun_ko_ev.js.다운로드"></script>
+		<script type="text/javascript" src="./KAIST_Portal_System_files/mrbun_ko_ka.js.다운로드"></script>
+	
+		<script type="text/javascript" src="./KAIST_Portal_System_files/common_new.js.다운로드"></script>
+		<script type="text/javascript" src="./KAIST_Portal_System_files/portal_new.js.다운로드"></script>
+		<script type="text/javascript" src="./KAIST_Portal_System_files/utility.js.다운로드"></script>
+		<script type="text/javascript" src="./KAIST_Portal_System_files/validator.js.다운로드"></script>
+	
+		<script type="text/javascript" src="./KAIST_Portal_System_files/portlet.js.다운로드"></script>
+		<script type="text/javascript" src="./KAIST_Portal_System_files/main.js.다운로드"></script>
+		<script type="text/javascript" src="./KAIST_Portal_System_files/portal.js.다운로드"></script>
+		<script type="text/javascript" src="./KAIST_Portal_System_files/jquery.cookie.js.다운로드"></script>	
+	
+		<link type="text/css" href="./KAIST_Portal_System_files/jquery.ui.all.css" rel="stylesheet">
+		<link href="./KAIST_Portal_System_files/ptl_style.css" rel="stylesheet" type="text/css">
+		<link href="./KAIST_Portal_System_files/ptl_main.css" rel="stylesheet" type="text/css">
+	
+		<script type="text/javascript">
+			function iframe_autoresize(arg) {
+				try {
+					arg.height = 1
+					arg.height = eval(arg.name+".document.body.scrollHeight");
+				} catch(e) {
+					
+				}
+			}
+			
+			function autoresize_iframe_portlets() {
+				var iframes = document.getElementsByTagName("iframe");
+				for( var i =0; i < iframes.length;i++ ) {
+					if( iframes[i].name.indexOf("IframePortlet")==0) {
+						iframe_autoresize( iframes[i])
+					}
+				}
+			}
+			
+			function initEnview() {
+				var errorMessage = "";
+				if( errorMessage != "null" && errorMessage.length > 0 ) {
+					alert( errorMessage );
+				}
+				var pageInfo = eval({"id": "24551", "path": "/default/home/today", "title": "오늘의공지", "targetUrl": "", "useIframe": "false", "contextPath": "", "servletPath": "/portal", "theme": "kaist_pc", "evalTheme": "null", "themePath": "/decorations/layout/kaist_pc/", "admContextPath": "null", "layout": "enview-layouts::VelocityOneColumn" });
+				var decorations = eval({"layouts": [{"name" : "1열 레이아웃", "value" : "enview-layouts::VelocityOneColumn"} , {"name" : "2열 레이아웃 (50%/50%)", "value" : "enview-layouts::VelocityTwoColumns"} , {"name" : "2열 레이아웃 (25%/75%)", "value" : "enview-layouts::VelocityTwoColumns2575"} , {"name" : "2열 레이아웃 (15%/85%)", "value" : "enview-layouts::VelocityTwoColumnsSmallLeft"} , {"name" : "3열 레이아웃 (33%/33%/34%)", "value" : "enview-layouts::VelocityThreeColumns"} , {"name" : "4열 레이아웃 (20%/30%/30%/20%)", "value" : "enview-layouts::VelocityFourColumns"} ],"pages": [{"name" : "admin", "value" : "admin"} , {"name" : "default", "value" : "default"} , {"name" : "empty", "value" : "empty"} , {"name" : "encafe", "value" : "encafe"} , {"name" : "enview", "value" : "enview"} , {"name" : "kaist_main", "value" : "kaist_main"} , {"name" : "kaist_main_2013", "value" : "kaist_main_2013"} , {"name" : "kaist_mobile", "value" : "kaist_mobile"} , {"name" : "kaist_mobile_2013", "value" : "kaist_mobile_2013"} , {"name" : "kaist_pc", "value" : "kaist_pc"} , {"name" : "kaist_pc_2013", "value" : "kaist_pc_2013"} ],"mypages": []});
+				portalPageInitialize("3.2.5 (M20131118-383)", false, "hdh8277", pageInfo, decorations, "ko", "1");
+				tabInitialize();
+				noticeInitialize("24551");
+
+				initLinkMenu("Q");
+				initLinkMenu("H");
+				initLinkMenu("F");
+				initLinkMenu("B");
+				fn_mainTabAutoSelect('/default/home/today');
+				
+				portalPage.m_ajax.m_isShowMsgbox = false;
+			}
+		</script>
+	</head>
+	<body style="">
+		<div id="EnviewMessageBox" title="Notice" style="left:0px; top:0px; display:none; z-index:999"></div>
+		<div id="quick" align="right" class="webpanel" style="display:none;left:100px;top:100px;"></div>
+		<div id="Enview.Portal.ContextMenu" class="contextMenu" style="position:absolute; left:925px; top:198px; z-index:10; visibility:visible; display:none;"></div>
+		<div id="Enview.Portal.DialogBasePane" class="contextMenu" style="position:absolute; left:925px; top:198px; z-index:10; visibility:visible; display:none;"></div>
+		<div id="EnviewContentArea" style="display:none;"></div>
+		<div class="em_notice" id="em_notice" style="display: none;">
+		    <ul class="lst_notice" id="lst_notice">
+		    </ul>
+		</div>
+		
+
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function () { 
+	$('.tnb_a1').hover(function(){
+		$(this)	.parent().addClass('tnb_on2');
+	});
+	$('.tnb_a1').mouseout(function(){
+		$(this)	.parent().removeClass('tnb_on2');
+	});
+
+	$('.ptl_service_group > a').click(function(){
+		if( $(".tnb_ul1").html()=='') {
+			var server = "portal.kaist.ac.kr";
+			var url = "https://portal.kaist.ac.kr:443/portal/";
+			var pgId='';
+			if( server.indexOf('search.kaist.ac.kr')!=-1) {
+				pgId='search'; // 검색
+			} else if( server.indexOf('board.kaist.ac.kr')!=-1) {
+				pgId='ob'; // 업무통합게시판
+			} else if( server.indexOf('portal.kaist.ac.kr')!=-1) {
+				if( url.indexOf('/push/')!=-1) {
+					pgId='push'; // PUSH
+				} else if( url.indexOf('/reqt/')!=-1) {
+					pgId='cs'; // 고객만족
+				} else {
+					pgId = 'portal';
+				}
+			}
+			$.ajax({
+				url: "https://portal.kaist.ac.kr/kaist/listPortalGroupForAjax.jsp",
+				dataType: "jsonp",
+				success: function(data) {
+					if (data != null) {
+						html = '';
+						for(var i=0;i<data.length;i++) {
+							var url = "javascript:openLink('G', '" + data[i].desc + "', '" + data[i].url + "', '_top')";
+							html += '<li class="tnb_li1' + (data[i].id==pgId ? ' tnb_on1' : '') + '">';
+							html += '<img class="tnb_img2" src="/kaist/images/portal/ptl_main/icon_ptlblit1_ptl.png" alt="">';
+							html += '<a href="' + url + '" class="tnb_a1" title="' + data[i].desc + '"><span class="">' + data[i].name + '</span></a>';
+							html += '</li>';
+						}
+						$(".tnb_ul1").html( html);
+					}
+				},
+				complete: function( ) {
+					$('.tnb_div2').slideToggle();
+				}
+			});
+		} else {
+			$('.tnb_div2').slideToggle();
+		}
+	});
+});
+</script>
+<div id="ptl_headerArea">
+	<div id="ptl_hearderWrap">
+		<!-- @@ 포탈 서비스 그룹 추가 -->
+		<div class="ptl_service_group">
+			<a href="https://portal.kaist.ac.kr/portal/default/home/today#"> <span class="tnb_span1">Portal Service Group</span> <img class="tnb_img1" src="./KAIST_Portal_System_files/icon_btarr1_tnb.png" alt=""> </a>
+			<div class="tnb_div2">
+				<div class="tnb_div3">
+					<ul id="tnb_ul1" class="tnb_ul1"></ul>
+				</div>
+
+			</div>
+		</div>
+		<div class="ptl_homeNav">
+			<ul>
+                
+			    
+				<li class="ptl_first"><a href="https://portal.kaist.ac.kr/lang/changeLang.face?langKnd=en">English</a></li>
+				<li><strong><a href="javascript:openLink(&#39;M&#39;, &#39;My 설정&#39;, &#39;/portal/user/hdh8277.page?isMyPage=true&#39;, &#39;_self&#39;)">My 설정</a></strong></li>
+				<li><a href="https://portal.kaist.ac.kr/user/logout?destination=https://portalsso.kaist.ac.kr/logout.ps?returnURL=https://portal.kaist.ac.kr">로그아웃</a></li>
+				<li>
+					<a href="javascript:void(0);" onclick="fn_showSiteMap()">
+						<img src="./KAIST_Portal_System_files/ptl_home_nav1.gif" alt="사이트맵">
+						사이트맵
+					</a>
+				</li>
+				<li>
+					<a href="https://portal.kaist.ac.kr/user/changeMode.face">
+						<img src="./KAIST_Portal_System_files/ptl_home_nav2.gif" alt="Mobile">
+						Mobile
+					</a>
+				</li>
+				<li>
+					<a href="https://portal.kaist.ac.kr/portal/default/help">
+						<img src="./KAIST_Portal_System_files/ptl_home_nav3.gif" alt="포탈안내">
+						포탈안내
+					</a>
+				</li>
+            </ul>
+        </div>
+        <h1><a href="https://portal.kaist.ac.kr/"><img src="./KAIST_Portal_System_files/logo.gif" alt="kaist portalsystem"></a></h1>
+        <div class="ptl_search">
+            <fieldset>
+                <legend>검색영역</legend>
+                <label for="ptl_searchForm">검색어를 입력해 주세요</label><input type="text" onkeydown="javascript:if(event.keyCode==13){search();}" id="ptl_searchForm" class="ptl_searchForm" value="검색어를 입력해 주세요" onfocus="this.value=&#39;&#39;">
+                <span><a href="javascript:search();">검색</a></span>
+            </fieldset>
+            <div class="ptl_popular" id="trendDiv" style="width: 288px; height: 12px; overflow: hidden; position: absolute;">
+				<img src="./KAIST_Portal_System_files/mgBg.gif" alt="인기검색어">
+				<div style="width: 254px; overflow: hidden;position: absolute;left: 10px;">
+				<ul class="ptl_popular_ul" id="trendKey" style="width: 1000px; position: relative; left: 0; overflow: hidden;">
+				<li><a href="https://search.kaist.ac.kr/index.jsp?langCD=ko&amp;searchTarget=total&amp;searchSubTarget=&amp;searchTerm=%EC%97%AC%EB%A6%84%ED%95%99%EA%B8%B0" target="_blank" title="여름학기">여름학기</a></li><li><a href="https://search.kaist.ac.kr/index.jsp?langCD=ko&amp;searchTarget=total&amp;searchSubTarget=&amp;searchTerm=URP" target="_blank" title="URP">URP</a></li><li><a href="https://search.kaist.ac.kr/index.jsp?langCD=ko&amp;searchTarget=total&amp;searchSubTarget=&amp;searchTerm=GLA" target="_blank" title="GLA">GLA</a></li><li><a href="https://search.kaist.ac.kr/index.jsp?langCD=ko&amp;searchTarget=total&amp;searchSubTarget=&amp;searchTerm=%EB%8C%80%EC%9A%B4%EB%8F%99%EC%9E%A5%20%EC%9D%B4%EC%9A%A9" target="_blank" title="대운동장 이용">대운동장 이용</a></li><li><a href="https://search.kaist.ac.kr/index.jsp?langCD=ko&amp;searchTarget=total&amp;searchSubTarget=&amp;searchTerm=%EA%B9%80%EB%8C%80%EC%8B%9D" target="_blank" title="김대식">김대식</a></li><li><a href="https://search.kaist.ac.kr/index.jsp?langCD=ko&amp;searchTarget=total&amp;searchSubTarget=&amp;searchTerm=URP%202018" target="_blank" title="URP 2018">URP 2018</a></li><li><a href="https://search.kaist.ac.kr/index.jsp?langCD=ko&amp;searchTarget=total&amp;searchSubTarget=&amp;searchTerm=%EC%A7%84%EB%A6%AC%EA%B4%80" target="_blank" title="진리관">진리관</a></li><li><a href="https://search.kaist.ac.kr/index.jsp?langCD=ko&amp;searchTarget=total&amp;searchSubTarget=&amp;searchTerm=%EA%B9%80%EC%98%81%EA%B1%B8" target="_blank" title="김영걸">김영걸</a></li><li><a href="https://search.kaist.ac.kr/index.jsp?langCD=ko&amp;searchTarget=total&amp;searchSubTarget=&amp;searchTerm=%EB%84%99%EC%A3%BD%EC%9D%B4" target="_blank" title="넙죽이">넙죽이</a></li><li><a href="https://search.kaist.ac.kr/index.jsp?langCD=ko&amp;searchTarget=total&amp;searchSubTarget=&amp;searchTerm=%EB%9F%AC%EC%8B%9C%EC%95%84" target="_blank" title="러시아">러시아</a></li></ul>
+				</div>
+				<a href="javascript:void(0);" onclick="fn_trendKeyAnimation(&#39;L&#39;);" style="position: absolute; right: 11px;"><img src="./KAIST_Portal_System_files/sl_prev.gif" alt="prev"></a>
+				<a href="javascript:void(0);" onclick="fn_trendKeyAnimation(&#39;R&#39;);" style="position: absolute; right: 0px;"><img src="./KAIST_Portal_System_files/sl_next.gif" alt="next"></a>
+	        </div>
+        </div>
+        <div id="ptl_allmenu" class="cate_view_all">
+			<div class="cate_list">
+			
+				<h2>카이스트포탈시스템 사이트 맵</h2>
+			
+			
+		    <h3>
+		    	
+		    	
+		    	<span class="txt1">
+		    		이용안내
+		    	</span>
+		    	메뉴 앞에 있는 책갈피를 클릭하시면 <span class="txt2">“주황색”</span>으로 활성화가 되고 북마크에 등록하실 수 있습니다.
+		    	
+		    	
+		    </h3>
+		    <ul class="chk">
+		    	
+		    		
+			    		
+			    			<li>
+			    				
+			    				
+			    				<h4>공지사항</h4>
+			    				
+								<ul>
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6336" favid="" onclick="bookmarkforAjax(&#39;뉴스레터&#39;, &#39;/portal/default/notice/it_newsletter&#39;, &#39;6336&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_it_newsletter" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/it_newsletter" target="_self">
+														뉴스레터
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6258" favid="" onclick="bookmarkforAjax(&#39;업무공지사항&#39;, &#39;/portal/default/notice/notice&#39;, &#39;6258&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_notice" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/notice" target="_self">
+														업무공지사항
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6337" favid="" onclick="bookmarkforAjax(&#39;International Community&#39;, &#39;/portal/default/notice/International&#39;, &#39;6337&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_International" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/International" target="_self">
+														International Community
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="52864" favid="" onclick="bookmarkforAjax(&#39;International Opportunities/Collaboration&#39;, &#39;/portal/default/notice/international_opportunities&#39;, &#39;52864&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_international_opportunities" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/international_opportunities" target="_self">
+														International Opportunities/Collaboration
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6338" favid="" onclick="bookmarkforAjax(&#39;IT 서비스&#39;, &#39;/portal/default/notice/computer_network&#39;, &#39;6338&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_computer_network" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/computer_network" target="_self">
+														IT 서비스
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6339" favid="" onclick="bookmarkforAjax(&#39;체육/건강관리/클리닉&#39;, &#39;/portal/default/notice/influenza_a_h1n1&#39;, &#39;6339&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_influenza_a_h1n1" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/influenza_a_h1n1" target="_self">
+														체육/건강관리/클리닉
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6340" favid="" onclick="bookmarkforAjax(&#39;연구개발사업 공지사항&#39;, &#39;/portal/default/notice/rnd_notices&#39;, &#39;6340&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_rnd_notices" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/rnd_notices" target="_self">
+														연구개발사업 공지사항
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6341" favid="" onclick="bookmarkforAjax(&#39;업무편람&#39;, &#39;/portal/default/notice/manuals_forms&#39;, &#39;6341&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_manuals_forms" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/manuals_forms" target="_self">
+														업무편람
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6342" favid="" onclick="bookmarkforAjax(&#39;세미나/행사공지&#39;, &#39;/portal/default/notice/seminar_events&#39;, &#39;6342&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_seminar_events" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/seminar_events" target="_self">
+														세미나/행사공지
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6343" favid="" onclick="bookmarkforAjax(&#39;학생공지사항&#39;, &#39;/portal/default/notice/student_notice&#39;, &#39;6343&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_student_notice" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/student_notice" target="_self">
+														학생공지사항
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6344" favid="" onclick="bookmarkforAjax(&#39;수강/학적/논문&#39;, &#39;/portal/default/notice/lecture_academic_paper&#39;, &#39;6344&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_lecture_academic_paper" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/lecture_academic_paper" target="_self">
+														수강/학적/논문
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6345" favid="" onclick="bookmarkforAjax(&#39;리더십/인턴/상담&#39;, &#39;/portal/default/notice/leadership_intern_counseling&#39;, &#39;6345&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_leadership_intern_counseling" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/leadership_intern_counseling" target="_self">
+														리더십/인턴/상담
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="50380" favid="" onclick="bookmarkforAjax(&#39;생활관&#39;, &#39;/portal/default/notice/dormitory_notice&#39;, &#39;50380&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_dormitory_notice" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/dormitory_notice" target="_self">
+														생활관
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6346" favid="" onclick="bookmarkforAjax(&#39;장학/복지&#39;, &#39;/portal/default/notice/dormitory_scholarship_welfare&#39;, &#39;6346&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_dormitory_scholarship_welfare" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/dormitory_scholarship_welfare" target="_self">
+														장학/복지
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="50381" favid="" onclick="bookmarkforAjax(&#39;근로장학생&#39;, &#39;/portal/default/notice/parttime_scholarship&#39;, &#39;50381&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_parttime_scholarship" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/parttime_scholarship" target="_self">
+														근로장학생
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6347" favid="" onclick="bookmarkforAjax(&#39;교과과정신설변경&#39;, &#39;/portal/default/notice/academic_courses&#39;, &#39;6347&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_academic_courses" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/academic_courses" target="_self">
+														교과과정신설변경
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6348" favid="" onclick="bookmarkforAjax(&#39;취업&#39;, &#39;/portal/default/notice/recruiting&#39;, &#39;6348&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_recruiting" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/recruiting" target="_self">
+														취업
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6349" favid="" onclick="bookmarkforAjax(&#39;원총/총학공지&#39;, &#39;/portal/default/notice/gsc_usc_notice&#39;, &#39;6349&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_gsc_usc_notice" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/gsc_usc_notice" target="_self">
+														원총/총학공지
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6350" favid="" onclick="bookmarkforAjax(&#39;학생동아리소개&#39;, &#39;/portal/default/notice/student_club&#39;, &#39;6350&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_student_club" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/student_club" target="_self">
+														학생동아리소개
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6351" favid="" onclick="bookmarkforAjax(&#39;전문연구요원&#39;, &#39;/portal/default/notice/researcher_on_military_duty&#39;, &#39;6351&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_researcher_on_military_duty" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/researcher_on_military_duty" target="_self">
+														전문연구요원
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6352" favid="" onclick="bookmarkforAjax(&#39;경조사&#39;, &#39;/portal/default/notice/classified&#39;, &#39;6352&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_classified" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/classified" target="_self">
+														경조사
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6353" favid="" onclick="bookmarkforAjax(&#39;작업공지&#39;, &#39;/portal/default/notice/work_notice&#39;, &#39;6353&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_work_notice" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/work_notice" target="_self">
+														작업공지
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6354" favid="" onclick="bookmarkforAjax(&#39;오늘의 공지사항&#39;, &#39;/portal/default/notice/today_notice&#39;, &#39;6354&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_notice_today_notice" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/notice/today_notice" target="_self">
+														오늘의 공지사항
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+									
+								</ul>
+								
+			    			</li>
+			    		
+			    		
+											    	
+		    	
+		    		
+			    		
+			    			<li>
+			    				
+			    				
+			    				<h4>일반게시판</h4>
+			    				
+								<ul>
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6416" favid="" onclick="bookmarkforAjax(&#39;오늘의 게시물&#39;, &#39;/portal/default/board/today_board&#39;, &#39;6416&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_board_today_board" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/board/today_board" target="_self">
+														오늘의 게시물
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="24578" favid="" onclick="bookmarkforAjax(&#39;생활/육아정보&#39;, &#39;/portal/default/board/life&#39;, &#39;24578&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_board_life" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/board/life" target="_self">
+														생활/육아정보
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6359" favid="" onclick="bookmarkforAjax(&#39;유실물게시판&#39;, &#39;/portal/default/board/lostfound&#39;, &#39;6359&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_board_lostfound" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/board/lostfound" target="_self">
+														유실물게시판
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6360" favid="" onclick="bookmarkforAjax(&#39;칭찬게시판&#39;, &#39;/portal/default/board/praises&#39;, &#39;6360&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_board_praises" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/board/praises" target="_self">
+														칭찬게시판
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6357" favid="" onclick="bookmarkforAjax(&#39;자유게시판&#39;, &#39;/portal/default/board/discussions&#39;, &#39;6357&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_board_discussions" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/board/discussions" target="_self">
+														자유게시판
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="55189" favid="" onclick="bookmarkforAjax(&#39;이달의 직원상&#39;, &#39;/portal/default/board/month_staff&#39;, &#39;55189&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_board_month_staff" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/board/month_staff" target="_self">
+														이달의 직원상
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="25190" favid="" onclick="bookmarkforAjax(&#39;행정 직무교육&#39;, &#39;/portal/default/board/admin_edu_course&#39;, &#39;25190&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_board_admin_edu_course" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/board/admin_edu_course" target="_self">
+														행정 직무교육
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6362" favid="" onclick="bookmarkforAjax(&#39;해외연수 결과보고&#39;, &#39;/portal/default/board/overseas_staff_training_report&#39;, &#39;6362&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_board_overseas_staff_training_report" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/board/overseas_staff_training_report" target="_self">
+														해외연수 결과보고
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="20853" favid="" onclick="bookmarkforAjax(&#39;고정자산 재활용&#39;, &#39;/portal/default/board/assets_reuse&#39;, &#39;20853&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_board_assets_reuse" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/board/assets_reuse" target="_self">
+														고정자산 재활용
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="6358" favid="" onclick="bookmarkforAjax(&#39;궁동아파트&#39;, &#39;/portal/default/board/gungdong_apt&#39;, &#39;6358&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_board_gungdong_apt" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/board/gungdong_apt" target="_self">
+														궁동아파트
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</ul>
+								
+			    			</li>
+			    		
+			    		
+											    	
+		    	
+		    		
+			    		
+			    			<li>
+			    				
+			    				
+			    					
+										
+										
+											
+										
+									
+									
+			    				
+			    				<h4>업무게시판</h4>
+			    				
+								<ul>
+									
+										
+											
+											
+												
+													
+													
+														
+													
+												
+												
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="37002" favid="" onclick="bookmarkforAjax(&#39;업무게시판 메인&#39;, &#39;https://board.kaist.ac.kr&#39;, &#39;37002&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_officeBoard_main" class="ellipsis_leftmenu" href="https://board.kaist.ac.kr/" target="_self">
+														업무게시판 메인
+													</a>
+												</dd>
+											</li>
+										
+									
+								</ul>
+								
+			    			</li>
+			    		
+			    		
+											    	
+		    	
+		    		
+			    		
+			    			<li>
+			    				
+			    				
+			    				<h4>캘린더</h4>
+			    				
+								<ul>
+									
+										
+											
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="7476" favid="" onclick="bookmarkforAjax(&#39;학사력&#39;, &#39;/portal/default/calendar/public&#39;, &#39;7476&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_calendar_public" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/portal/default/calendar/public" target="_self">
+														학사력
+													</a>
+												</dd>
+											</li>
+										
+									
+								</ul>
+								
+			    			</li>
+			    		
+			    		
+											    	
+		    	
+		    		
+			    		
+			    			<li class="right">
+			    				
+			    				
+			    					
+										
+										
+											
+										
+									
+									
+			    				
+			    				<h4>고객만족</h4>
+			    				
+								<ul>
+									
+										
+											
+											
+												
+													
+													
+														
+													
+												
+												
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="8156" favid="" onclick="bookmarkforAjax(&#39;나의 문의/신청 내역&#39;, &#39;/reqt/mywork/myReq.face&#39;, &#39;8156&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_inquery_request" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/reqt/mywork/myReq.face" target="_self">
+														나의 문의/신청 내역
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+												
+													
+													
+														
+													
+												
+												
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="8157" favid="" onclick="bookmarkforAjax(&#39;나의 답변/조치 내역&#39;, &#39;/reqt/mywork/myWork.face&#39;, &#39;8157&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_inquery_works" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/reqt/mywork/myWork.face" target="_self">
+														나의 답변/조치 내역
+													</a>
+												</dd>
+											</li>
+										
+									
+										
+											
+											
+												
+													
+													
+														
+													
+												
+												
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="8158" favid="" onclick="bookmarkforAjax(&#39;묻고답하기&#39;, &#39;/reqt/qna/intro.face?MNG_SN=1003&#39;, &#39;8158&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_inquery_QnA" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/reqt/qna/intro.face?MNG_SN=1003" target="_self">
+														묻고답하기
+													</a>
+												</dd>
+											</li>
+										
+									
+								</ul>
+								
+			    			</li>
+			    		
+			    		
+											    	
+		    	
+		    		
+			    		
+			    			<li>
+			    				
+			    				
+			    					
+										
+										
+											
+										
+									
+									
+			    				
+			    				<h4>PUSH 알림</h4>
+			    				
+								<ul>
+									
+										
+											
+											
+												
+													
+													
+														
+													
+												
+												
+											
+											<li>
+												<dt>
+													<div class="ez-checkbox"><input type="checkbox" name="allMenuChk" value="" id="27596" favid="" onclick="bookmarkforAjax(&#39;PUSH 알림&#39;, &#39;https://portal.kaist.ac.kr/push&#39;, &#39;27596&#39;);" class="ez-hide"></div>
+												</dt>
+												<dd>
+													<a id="_default_push_main" class="ellipsis_leftmenu" href="https://portal.kaist.ac.kr/push" target="_blank">
+														PUSH 알림
+													</a>
+												</dd>
+											</li>
+										
+									
+								</ul>
+								
+			    			</li>
+			    		
+			    		
+											    	
+		    	
+		    								    	
+		    	
+		    								    	
+		    	
+		    								    	
+		    	
+		    								    	
+		    	
+		    								    	
+		    	
+		    								    	
+		    	
+		    </ul>
+		</div>
+		<div class="cate_portal">
+		    <ul>
+		    	<li>
+					<strong>
+						
+					</strong>
+				</li>
+		    	
+		    </ul>
+	    </div>
+	    <a href="javascript:void(0);" onclick="fn_closeSiteMap();" class="more"><img src="./KAIST_Portal_System_files/btn_close.gif" alt="close"></a>
+	               </div>
+        
+		
+		<!----------------------------------------------------------------------------->
+		<!----------------------------------------------------------------------------->
+		<!----------------------------------------------------------------------------->
+		<!-- 도움말 배너 { -->
+		<!--<p class="ptl_slogan"><img src="./kaist/images/portal/ptl_main/kaist_slogan01_ko.gif" /></p>-->
+		
+
+
+
+
+
+
+
+<p class="ptl_slogan"><a href="javascript:openLink(&#39;b&#39;, &#39;고객만족 이용안내&#39;, &#39;/portal/default/help/inquery&#39;,  &#39;_top&#39;);" title="고객만족 이용안내"><img class="bn_ko" src="./KAIST_Portal_System_files/linkicon"></a></p>
+
+
+
+
+
+
+
+
+
+
+		<!-- 			
+		<p class="ptl_slogan"><a href="/portal/default/help/portal_v2.page"><img src="/kaist/images/portal/ptl_main/kaist_hbanner1_ko.gif" /></a></p>
+		 -->
+		<!-- } 도움말 배너 -->
+		<!----------------------------------------------------------------------------->
+		<!----------------------------------------------------------------------------->
+		<!----------------------------------------------------------------------------->
+		<div class="ptl_gnb">
+			<ul>
+				
+					
+						<li>
+							
+							
+							
+							<a href="javascript:openLink(&#39;M&#39;, &#39;공지사항&#39;, &#39;/portal/default/notice&#39;, &#39;_self&#39;)">공지사항</a>
+						</li>
+										
+				
+					
+						<li>
+							
+							
+							
+							<a href="javascript:openLink(&#39;M&#39;, &#39;일반게시판&#39;, &#39;/portal/default/board&#39;, &#39;_self&#39;)">일반게시판</a>
+						</li>
+										
+				
+					
+						<li>
+							
+							
+								
+									
+									
+										
+									
+								
+								
+							
+							
+							<a href="javascript:openLink(&#39;M&#39;, &#39;업무게시판&#39;, &#39;https://board.kaist.ac.kr&#39;, &#39;_self&#39;)">업무게시판</a>
+						</li>
+										
+				
+					
+						<li>
+							
+							
+							
+							<a href="javascript:openLink(&#39;M&#39;, &#39;캘린더&#39;, &#39;/portal/default/calendar&#39;, &#39;_self&#39;)">캘린더</a>
+						</li>
+										
+				
+					
+						<li>
+							
+							
+								
+									
+									
+										
+									
+								
+								
+							
+							
+							<a href="javascript:openLink(&#39;M&#39;, &#39;고객만족&#39;, &#39;/reqt/index.face&#39;, &#39;_self&#39;)">고객만족</a>
+						</li>
+										
+				
+					
+						<li>
+							
+							
+								
+									
+									
+										
+									
+								
+								
+							
+							
+							<a href="javascript:openLink(&#39;M&#39;, &#39;PUSH 알림&#39;, &#39;https://portal.kaist.ac.kr/push&#39;, &#39;_blank&#39;)">PUSH 알림</a>
+						</li>
+										
+				
+										
+				
+										
+				
+										
+				
+										
+				
+										
+				
+										
+				
+            </ul>
+            <div id="ptl_menu">
+                <div class="ptl_allmArea">
+                    <p id="allMenuBtn" class="ptl_btn_off" onclick="ptl_gopop();">바로가기</p>
+                </div>
+        	</div>
+    	</div>
+    	<div id="ptl_gopop" class="ptl_gopop">
+			<div class="cell">
+	    		<div class="baro_ul" id="popupQuickList"> 
+	    		</div>
+	    		<a href="javascript:ptl_gopop();" class="close"><img src="./KAIST_Portal_System_files/btn_close.gif" alt="close"></a>
+	    	</div>
+		</div>            
+    </div>
+	<div class="headerBar"></div>
+</div>
+
+
+		<div id="ptl_wrap">
+			<!--leftArea 시작-->
+			<div id="ptl_leftArea">
+				
+
+
+<div class="ptl_parsonal" style="border-bottom:1px solid #cecece;">
+	<div class="ptl_userinfo">
+		<label class="ptl_name ellipsis" title="함동훈">
+			<a href="https://portal.kaist.ac.kr/portal/default/mypage/MySetting.page" target="_top" title="함동훈">함동훈</a>
+		</label>
+		<div class="ptl_groups" data="GRP_STU_S">
+			
+			
+			
+			<label id="ptl_group" class="ptl_group ellipsis" title="학생">(학생)</label>
+			
+			
+		</div>
+		<div id="groupList" class="groupList">
+			
+		</div>
+		<div class="ptl_check ptl_reicon" title="Refresh for amounts" id="refresh_Btn" onclick="javascript:countUpdates();">조회</div>
+		<!-- <div class="ui-icon ui-icon-refresh ptl_reicon" title="Refresh for amounts" id="refresh_Btn" onclick="javascript:countUpdates();"></div> -->
+	</div>
+	<ul>
+		<li>
+			<span class="ptl_box">
+				<a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="javascript:openLink(&#39;Q&#39;, &#39;이메일&#39;, &#39;https://ssogw17.kaist.ac.kr/sso/EMA_autologin.jsp&#39;, &#39;_blank&#39;)" class="emailUrl ">이메일</a>
+			</span>
+			<a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="javascript:openLink(&#39;Q&#39;, &#39;이메일&#39;, &#39;https://ssogw17.kaist.ac.kr/sso/EMA_autologin.jsp&#39;, &#39;_blank&#39;)" class="emailUrl " id="email_Url">-</a>
+		</li>
+		<li>
+			<span class="ptl_box">
+				<a class="workFlowUrl noPermission">전자문서</a>
+			</span>
+			<a class="workFlowUrl noPermission" id="wf_Url">-</a>
+		</li>
+
+		<li>
+			<span class="ptl_box">
+				<a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="javascript:openLink(&#39;Q&#39;, &#39;ERP/KMIS&#39;, &#39;https://kmis.kaist.ac.kr/index.jsp?SITE_NAME=apl&amp;lang=ko&#39;, &#39;_blank&#39;)" class="erpUrl ">ERP/KMIS</a>
+			</span>
+			<a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="javascript:openLink(&#39;Q&#39;, &#39;ERP/KMIS&#39;, &#39;https://kmis.kaist.ac.kr/index.jsp?SITE_NAME=apl&amp;lang=ko&#39;, &#39;_blank&#39;)" class="erpUrl " id="erp_Url">-</a>
+		</li>
+		<li>
+			<span class="ptl_box">
+				<a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="javascript:openLink(&#39;Q&#39;, &#39;도서관&#39;, &#39;https://ssogw3.kaist.ac.kr/sso/LIB_autologin.do?lang=kor&#39;, &#39;_blank&#39;)" class="libUrl ">도서관</a>
+			</span>
+			<a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="javascript:openLink(&#39;Q&#39;, &#39;도서관&#39;, &#39;https://ssogw3.kaist.ac.kr/sso/LIB_autologin.do?lang=kor&#39;, &#39;_blank&#39;)" class="libUrl " id="lib_Url">-</a>
+		</li>
+		<li>
+			<span class="ptl_box"> 
+				<a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="javascript:openLink(&#39;Q&#39;, &#39;문의/신청&#39;, &#39;/req/mywork/myReq.face?mId=2101&#39;, &#39;_self&#39;)" class="reqUrl ">문의/신청</a>
+			</span>
+			<a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="javascript:openLink(&#39;Q&#39;, &#39;문의/신청&#39;, &#39;/req/mywork/myReq.face?mId=2101&#39;, &#39;_self&#39;)" class="reqUrl " id="req_Url">-</a>
+		</li>
+		<li>
+			<span class="ptl_box"> 
+				<a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="javascript:openLink(&#39;Q&#39;, &#39;예약&#39;, &#39;https://urs.kaist.ac.kr/urs/sso/urs_autologin.do?lang=ko&#39;, &#39;_blank&#39;)" class="ursUrl ">예약</a>
+			</span>
+			<a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="javascript:openLink(&#39;Q&#39;, &#39;예약&#39;, &#39;https://urs.kaist.ac.kr/urs/sso/urs_autologin.do?lang=ko&#39;, &#39;_blank&#39;)" class="ursUrl " id="urs_Url">-</a>
+		</li>
+	</ul>
+	
+	<!-- @@ 비전보드 추가 150906 -->
+	<div class="ptl_vision_div1">
+	
+		<a href="javascript:openLink(&#39;Z&#39;, &#39;설문&#39;, &#39;/portal/default/poll&#39;, &#39;_top&#39;)" target="_top" title="설문">
+			<span class="ptl_vision_span1">설문</span>
+	  		<span class="ptl_vision_span2" id="pollCnt">2</span>
+		</a>
+	</div>
+	<div class="ptl_vision_div2">
+		<a href="javascript:openLink(&#39;Z&#39;, &#39;비전보드&#39;, &#39;https://board.kaist.ac.kr/user/login.face?destination=/default/home/mypage.page&#39;, &#39;_top&#39;)" target="_top" title="비전보드">
+			<span class="ptl_vision_span1">비전보드</span>
+	  		<span class="ptl_vision_span2" id="visionCnt">0</span>
+		</a>
+	</div>
+	
+	<p class="ptl_access">
+		<label class="ptl_access_time" title="최근접속 IP: 110.76.94.173">
+			최근접속 : 05.11 02:06
+		</label>
+		<span class="ptl_app"> 
+			
+			 
+				<img src="./KAIST_Portal_System_files/installed_app.png" title="KAIST Portal App Installed.">
+			
+		</span>
+	</p>
+</div>
+
+
+<div class="ptl_find">
+	<div class="ptl_searchForm">
+		<h2 style="width:48%">빠른찾기</h2>
+		<input name="ptlSearchForm2" type="text" id="ptl_searchForm2" class="ptl_searchForm2" style="width:48%" onkeyup="javascript:keyupEvent();"><!-- <a style="text-decoration:none;" href="javascript:fastSearch();">검색</a> -->
+	</div>
+	<div class="findFormDiv">
+		<form id="findForm" name="form1" method="post" action="https://portal.kaist.ac.kr/portal/default/home/today">
+			<p>
+				<a style="text-decoration:none;" href="javascript:fastSearch(&#39;person&#39;);"><span>사람찾기</span> 
+                <img src="./KAIST_Portal_System_files/findGo.gif" alt="사람찾기"></a>
+				
+			</p>
+			<p>
+				<a style="text-decoration:none;" href="javascript:fastSearch(&#39;book&#39;);"><span>도서검색</span>
+                <img src="./KAIST_Portal_System_files/findGo.gif" alt="도서검색"></a>
+				
+			</p>
+			<input type="hidden" id="ptlSearchForm2H" name="ptlSearchForm2H">
+		</form>
+	</div>
+</div>
+
+
+<div class="ptl_hot">
+	<h2>Hot 메뉴</h2>
+	<div class="ptl_gotitle">		
+        <a href="javascript:void(0);" onclick="fn_showHotList();" class="openDirect">&nbsp;&nbsp;&nbsp;전체보기</a>
+	</div>
+	<ul class="ptl_hotbanner" id="info_H"><li><a style="text-decoration: none; text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;H&#39;, &#39;오늘의 식단&#39;, &#39;http://www.kaist.ac.kr/_prog/fodlst/?site_dvs_cd=kr&amp;menu_dvs_cd=050303&#39;, &#39;_blank&#39;)" title="오늘의 식단입니다.">오늘의 식단</a></li><li><a style="text-decoration: none; text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;H&#39;, &#39;셔틀버스&#39;, &#39;http://www.kaist.ac.kr/_prog/_board/?code=shuttle1&amp;site_dvs_cd=kr&amp;menu_dvs_cd=01070901&#39;, &#39;_blank&#39;)" title="Shuttle (www.kaist.ac.kr)">셔틀버스</a></li><li><a style="text-decoration: none; text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;H&#39;, &#39;KAIST 원규집&#39;, &#39;https://itguide.kaist.ac.kr/itguide/kr/rule/SelectRuleList.do?ruleCd=1&amp;mn=M0801&#39;, &#39;_blank&#39;)" title="카이스트 원규집 입니다.">KAIST 원규집</a></li><li><a style="text-decoration: none; text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;H&#39;, &#39;학사력&#39;, &#39;/portal/default/calendar/public&#39;, &#39;_top&#39;)" title="학사력 입니다">학사력</a></li><li><a style="text-decoration: none; text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;H&#39;, &#39;캠퍼스맵&#39;, &#39;http://www.kaist.ac.kr/camtour/kr/index.html&#39;, &#39;_blank&#39;)" title="캠퍼스 맵 입니다">캠퍼스맵</a></li><li><a style="text-decoration: none; text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;H&#39;, &#39;홈페이지&#39;, &#39;http://www.kaist.ac.kr/html/kr/index.html&#39;, &#39;_blank&#39;)" title="홈페이지로 이동합니다.">홈페이지</a></li><li><a style="text-decoration: none; text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;H&#39;, &#39;청탁등록코너&#39;, &#39;http://www.kaist.ac.kr/sub07/sub07_07.html?req_P=bi&amp;req_BIDX=50&amp;req_BNM=ask&#39;, &#39;_blank&#39;)" title="청탁등록코너">청탁등록코너</a></li><li><a style="text-decoration: none; text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;H&#39;, &#39;학사요람&#39;, &#39;http://bulletin.kaist.ac.kr/html/kr&#39;, &#39;_blank&#39;)" title="학사요람 / KAIST Bulletin">학사요람</a></li><li><a style="text-decoration: none; text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;H&#39;, &#39;IT길라잡이&#39;, &#39;https://info.kaist.ac.kr/html/kr/index.html&#39;, &#39;_blank&#39;)" title="IT길라잡이">IT길라잡이</a></li><li><a style="text-decoration: none; text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;H&#39;, &#39;포토갤러리&#39;, &#39;http://photo.kaist.ac.kr&#39;, &#39;_blank&#39;)" title="포토갤러리">포토갤러리</a></li><li><a style="text-decoration: none; text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;H&#39;, &#39;KAIST 현황소개 PPT&#39;, &#39;http://www.kaist.ac.kr/html/kr/kaist_ppt.html&#39;, &#39;_blank&#39;)" title="담당자:윤석주(T.2298)">KAIST 현황소개 PPT</a></li><li><a style="text-decoration: none; text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;H&#39;, &#39;상담 및 신고 안내&#39;, &#39;https://portal.kaist.ac.kr/ennotice/student_notice/11461315125330&#39;, &#39;_blank&#39;)" title="상담 및 신고 안내">상담 및 신고 안내</a></li></ul>
+	<p class="ptl_num" id="num_H"><a href="javascript:" class="ptl_parv"><img src="./KAIST_Portal_System_files/btn_parv.gif" alt="이전"></a><label id="preText_H">1</label>/<label id="nextText_H">2</label><input type="hidden" id="pre_H" value="1"><input type="hidden" id="next_H" value="2"><a href="javascript:pageLinkMenu(&#39;H&#39;, 2);" class="ptl_next"><img src="./KAIST_Portal_System_files/btn_next.gif" alt="다음"></a></p>
+	<div id="ptl_gopop2" class="ptl_gopop2" style="display:none;">
+	<div class="cell">
+	    <div class="baro_ul2" id="hotList">
+		</div>
+		<a href="javascript:void(0);" onclick="fn_closeHotList();" class="close"><img src="./KAIST_Portal_System_files/btn_close.gif" alt="close"></a>
+	</div>
+</div>
+</div>
+
+
+
+			</div>			
+			<!--leftArea 끝-->
+			<div id="ptl_centerArea">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div id="Enview_Layout_56499" class="portal-layout">
+
+				<div id="Enview_Column_56499_0" columnwidth="1" class="column  colspan_1" style="float:left; position:relative; width:100%;">
+
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div id="Enview_Layout_86362" class="portal-nested-layout">
+
+				<div id="Enview_Column_86362_0" columnwidth="1" class="column  colspan_1" style="float:left; position:relative; width:100%;">
+
+							<div id="Enview_Portlet_56521" class="portlet-fixed">
+
+								<div id="Enview_Portlet_Content_56521" class="portlet-content">
+
+
+
+
+<div id="ptl_portNotice" class="ptl_portNotice m1">
+	<ul id="mainUl">
+					
+			
+				            
+			<li class="m1" id="m1"><a href="javascript:void(0);" onclick="javascript:kaistMainTab(this);" id="firstTab" class="ptl_first"><span title="오늘의 공지사항" class="ellipsis portlet-title" style="float: none;">오늘의 공지사항</span></a>
+				<ul>
+					
+					
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="[부고] 전기및전자공학부 이희철 교수 빙모상" href="https://portal.kaist.ac.kr/ennotice/classified/11526701356914">
+									
+									
+										<em>경조사</em>
+									
+	            					
+									[부고] 전기및전자공학부 이희철 교수 빙모상
+								</a>
+							</span>
+						</li>
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="[과학영재교육연구원] 2018년 5월 콜로키움 안내" href="https://portal.kaist.ac.kr/ennotice/notice/11526688834678">
+									
+									
+										<em>업무공지사항</em>
+									
+	            					
+									[과학영재교육연구원] 2018년 5월 콜로키움 안내
+								</a>
+							</span>
+						</li>
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="[과학영재교육연구원] 2018년 5월 콜로키움 안내" href="https://portal.kaist.ac.kr/ennotice/seminar_events/11526688502034">
+									
+									
+										<em>세미나/행사공지</em>
+									
+	            					<em>05.23 16:00</em>
+									[과학영재교육연구원] 2018년 5월 콜로키움 안내
+								</a>
+							</span>
+						</li>
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="&#39;융합기초학부 교과과정 운영에 대한 간담회 &#39;안내" href="https://portal.kaist.ac.kr/ennotice/student_notice/11526639429332">
+									
+									
+										<em>학생공지사항</em>
+									
+	            					
+									'융합기초학부 교과과정 운영에 대한 간담회 '안내
+								</a>
+							</span>
+						</li>
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="[상담센터] 나탐구 심리패키지 여행(6월 매주 금/오후1시~)" href="https://portal.kaist.ac.kr/ennotice/student_notice/11526634702120">
+									
+									
+										<em>학생공지사항</em>
+									
+	            					
+									[상담센터] 나탐구 심리패키지 여행(6월 매주 금/오후1시~)
+								</a>
+							</span>
+						</li>
+					 
+				</ul>
+				<span class="ptl_more" id="more1" style="display: block;"><a href="https://portal.kaist.ac.kr/ennotice/today_notice">more +</a></span>   
+			</li>
+			
+					
+			
+				            
+			<li class="m2" id="m2"><a href="javascript:void(0);" onclick="javascript:kaistMainTab(this);"><span title="업무공지사항" class="ellipsis portlet-title" style="float: none;">업무공지사항</span></a>
+				<ul>
+					
+					
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="[과학영재교육연구원] 2018년 5월 콜로키움 안내" href="https://portal.kaist.ac.kr/ennotice/notice/11526688834678">
+									
+									
+	            					
+									[과학영재교육연구원] 2018년 5월 콜로키움 안내
+								</a>
+							</span>
+						</li>
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="[대전시립연정국악원 공연안내] 흥부와 놀부(6월 1일)" href="https://portal.kaist.ac.kr/ennotice/notice/11526628500273">
+									
+									
+	            					
+									[대전시립연정국악원 공연안내] 흥부와 놀부(6월 1일)
+								</a>
+							</span>
+						</li>
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="캠퍼스 네트워크 대역폭 확장 안내." href="https://portal.kaist.ac.kr/ennotice/notice/11526615535042">
+									
+									
+	            					
+									캠퍼스 네트워크 대역폭 확장 안내.
+								</a>
+							</span>
+						</li>
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="[도서관] 2018년 봄학기 도서구입신청 이벤트 (Keep Calm and Read On)" href="https://portal.kaist.ac.kr/ennotice/notice/11526602660729">
+									
+									
+	            					
+									[도서관] 2018년 봄학기 도서구입신청 이벤트 (Keep Calm and Read On)
+								</a>
+							</span>
+						</li>
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="캠퍼스내 생활관 네트워크 장애발생 및 복구 안내 !" href="https://portal.kaist.ac.kr/ennotice/notice/11526545927242">
+									
+									
+	            					
+									캠퍼스내 생활관 네트워크 장애발생 및 복구 안내 !
+								</a>
+							</span>
+						</li>
+					 
+				</ul>
+				<span class="ptl_more" id="more2" style="display: none;"><a href="https://portal.kaist.ac.kr/ennotice/notice">more +</a></span>   
+			</li>
+			
+					
+			
+				            
+			<li class="m2" id="m3"><a href="javascript:void(0);" onclick="javascript:kaistMainTab(this);"><span title="학생공지사항" class="ellipsis portlet-title" style="float: none;">학생공지사항</span></a>
+				<ul>
+					
+					
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="&#39;융합기초학부 교과과정 운영에 대한 간담회 &#39;안내" href="https://portal.kaist.ac.kr/ennotice/student_notice/11526639429332">
+									
+									
+	            					
+									'융합기초학부 교과과정 운영에 대한 간담회 '안내
+								</a>
+							</span>
+						</li>
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="[상담센터] 나탐구 심리패키지 여행(6월 매주 금/오후1시~)" href="https://portal.kaist.ac.kr/ennotice/student_notice/11526634702120">
+									
+									
+	            					
+									[상담센터] 나탐구 심리패키지 여행(6월 매주 금/오후1시~)
+								</a>
+							</span>
+						</li>
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="2018학년도 2학기 국가장학금 1차 신청 안내" href="https://portal.kaist.ac.kr/ennotice/student_notice/11526630135033">
+									
+									
+	            					
+									2018학년도 2학기 국가장학금 1차 신청 안내
+								</a>
+							</span>
+						</li>
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="[대전시립연정국악원 공연안내] 흥부와 놀부(6월 1일)  " href="https://portal.kaist.ac.kr/ennotice/student_notice/11526628759232">
+									
+									
+	            					
+									[대전시립연정국악원 공연안내] 흥부와 놀부(6월 1일)  
+								</a>
+							</span>
+						</li>
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="*긴급* 중국 칭화대 파견 희망 학생 모집 (2018년 가을학기 ~ 2019년 봄학기 중)" href="https://portal.kaist.ac.kr/ennotice/student_notice/11526626662547">
+									
+									
+	            					
+									*긴급* 중국 칭화대 파견 희망 학생 모집 (2018년 가을학기 ~ 2019년 봄학기 중)
+								</a>
+							</span>
+						</li>
+					 
+				</ul>
+				<span class="ptl_more" id="more3" style="display: none;"><a href="https://portal.kaist.ac.kr/ennotice/student_notice">more +</a></span>   
+			</li>
+			
+					
+			
+				            
+			<li class="m2" id="m4"><a href="javascript:void(0);" onclick="javascript:kaistMainTab(this);"><span title="세미나/행사공지" class="ellipsis portlet-title" style="float: none;">세미나/행사공지</span></a>
+				<ul>
+					
+					
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="[과학영재교육연구원] 2018년 5월 콜로키움 안내" href="https://portal.kaist.ac.kr/ennotice/seminar_events/11526688502034">
+									
+									
+	            					<em>05.23 16:00</em>
+									[과학영재교육연구원] 2018년 5월 콜로키움 안내
+								</a>
+							</span>
+						</li>
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="[GSGT 정기세미나] 김의호 교수 (홍익대 기계∙시스템디자인인공학과)" href="https://portal.kaist.ac.kr/ennotice/seminar_events/11526359292592">
+									
+									
+	            					<em>05.24 16:00</em>
+									[GSGT 정기세미나] 김의호 교수 (홍익대 기계∙시스템디자인인공학과)
+								</a>
+							</span>
+						</li>
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="[STP콜로키움]Sustainable Development, Cities, and Local Governments (지속가능발전, 도시와 지방정부)" href="https://portal.kaist.ac.kr/ennotice/seminar_events/11526605397291">
+									
+									
+	            					<em>05.24 17:30</em>
+									[STP콜로키움]Sustainable Development, Cities, and Local Governments (지속가능발전, 도시와 지방정부)
+								</a>
+							</span>
+						</li>
+					
+						
+						<li>
+							<span class="ptl_title">
+								<a title="2018 KAIST RESEARCHDAY" href="https://portal.kaist.ac.kr/ennotice/seminar_events/11525923136829">
+									
+									
+	            					<em>05.25 10:00</em>
+									2018 KAIST RESEARCHDAY
+								</a>
+							</span>
+						</li>
+					 
+				</ul>
+				<span class="ptl_more" id="more4" style="display: none;"><a href="https://portal.kaist.ac.kr/ennotice/seminar_events">more +</a></span>   
+			</li>
+			
+		
+	</ul>
+</div> </div>
+
+							</div> <!-- portlet end -->
+
+							<div id="Enview_Portlet_86361" class="portlet-fixed">
+
+								<div id="Enview_Portlet_Content_86361" class="portlet-content"><iframe name="IframePortlet_86361" id="IframePortlet_86361" title="IFrame포틀릿" src="./KAIST_Portal_System_files/list.html" width="100%" height="189" scrolling="no" frameborder="0"></iframe>
+</div>
+
+							</div> <!-- portlet end -->
+
+				</div> <!-- portal-layout-column -->
+
+		</div> <!--portal-layout-->
+
+
+
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div id="Enview_Layout_56522" class="portal-nested-layout">
+
+				<div id="Enview_Column_56522_0" columnwidth="2" class="column  colspan_2" style="float:left; position:relative; width:50%;">
+
+							<div id="Enview_Portlet_56523" class="portlet-fixed">
+
+								<div id="Enview_Portlet_Content_56523" class="portlet-content">
+
+
+
+
+<script type="text/javascript">
+	var i = 0;
+	function changeImg(){
+		if(i > 4) i = 0;
+		$('.knewsImg').css('display', 'none');
+		$($('.knewsImg')[i++]).css('display', 'block');
+	}
+
+	$(document).ready(function(){
+		changeImg();
+		setInterval("changeImg()", 2500);
+	});
+</script>
+<!-- kaistNews-->
+<div class="ptl_Knews" style="border:1px solid #ddd;">
+	<h2 class="ellipsis portlet-title" title="KAIST News">KAIST News</h2>
+	
+	<span class="ptl_more"><a target="_blank" href="http://www.kaist.ac.kr/_prog/_board/?code=kaist_news&amp;site_dvs_cd=kr&amp;menu_dvs_cd=0601">more +</a></span>
+	<div class="ptl_news border-letitbe">
+		
+		
+			<div class="ptl_thumb">
+				
+					<img class="knewsImg" style="max-width: 100%; max-height: 100%; display: none;" idx="0" src="./KAIST_Portal_System_files/kaist_news_0_1526432915.jpg" title="			이해신 교수, 와인성분 통해 심장에 정맥주사로 약물 전달 기술 개발" onerror="this.src=&#39;/kaist/images/portal/ptl_common/noImage.png&#39;" onmouseover="$(&#39;#ptl_cont &gt; dt &gt; a[idx=0]&#39;).css(&#39;text-decoration&#39;, &#39;underline&#39;);" onmouseout="$(&#39;#ptl_cont &gt; dt &gt; a[idx=0]&#39;).css(&#39;text-decoration&#39;, &#39;none&#39;);" onclick="window.open(&#39;			http://www.kaist.ac.kr/_prog/_board/?code=kaist_news&amp;mode=V&amp;no=80941&amp;upr_ntt_no=80941&amp;site_dvs_cd=kr&amp;menu_dvs_cd=0601&#39;, &#39;_blank&#39;);">
+				
+					<img class="knewsImg" style="max-width: 100%; max-height: 100%; display: none;" idx="1" src="./KAIST_Portal_System_files/kaist_news_0_1526258635.jpg" title="			제5회 연구실 안전의 날 행사 개최" onerror="this.src=&#39;/kaist/images/portal/ptl_common/noImage.png&#39;" onmouseover="$(&#39;#ptl_cont &gt; dt &gt; a[idx=1]&#39;).css(&#39;text-decoration&#39;, &#39;underline&#39;);" onmouseout="$(&#39;#ptl_cont &gt; dt &gt; a[idx=1]&#39;).css(&#39;text-decoration&#39;, &#39;none&#39;);" onclick="window.open(&#39;			http://www.kaist.ac.kr/_prog/_board/?code=kaist_news&amp;mode=V&amp;no=80801&amp;upr_ntt_no=80801&amp;site_dvs_cd=kr&amp;menu_dvs_cd=0601&#39;, &#39;_blank&#39;);">
+				
+					<img class="knewsImg" style="max-width: 100%; max-height: 100%; display: none;" idx="2" src="./KAIST_Portal_System_files/kaist_news_0_1526257963.jpg" title="			영재키움 프로젝트 발대식 개최" onerror="this.src=&#39;/kaist/images/portal/ptl_common/noImage.png&#39;" onmouseover="$(&#39;#ptl_cont &gt; dt &gt; a[idx=2]&#39;).css(&#39;text-decoration&#39;, &#39;underline&#39;);" onmouseout="$(&#39;#ptl_cont &gt; dt &gt; a[idx=2]&#39;).css(&#39;text-decoration&#39;, &#39;none&#39;);" onclick="window.open(&#39;			http://www.kaist.ac.kr/_prog/_board/?code=kaist_news&amp;mode=V&amp;no=80741&amp;upr_ntt_no=80741&amp;site_dvs_cd=kr&amp;menu_dvs_cd=0601&#39;, &#39;_blank&#39;);">
+				
+					<img class="knewsImg" style="max-width: 100%; max-height: 100%; display: block;" idx="3" src="./KAIST_Portal_System_files/kaist_news_0_1525915110.jpg" title="			예종철 교수, 인공지능 블랙박스의 원리 밝혀" onerror="this.src=&#39;/kaist/images/portal/ptl_common/noImage.png&#39;" onmouseover="$(&#39;#ptl_cont &gt; dt &gt; a[idx=3]&#39;).css(&#39;text-decoration&#39;, &#39;underline&#39;);" onmouseout="$(&#39;#ptl_cont &gt; dt &gt; a[idx=3]&#39;).css(&#39;text-decoration&#39;, &#39;none&#39;);" onclick="window.open(&#39;			http://www.kaist.ac.kr/_prog/_board/?code=kaist_news&amp;mode=V&amp;no=80682&amp;upr_ntt_no=80682&amp;site_dvs_cd=kr&amp;menu_dvs_cd=0601&#39;, &#39;_blank&#39;);">
+				
+					<img class="knewsImg" style="max-width: 100%; max-height: 100%; display: none;" idx="4" src="./KAIST_Portal_System_files/kaist_news_0_1525826277.jpg" title="			제14회 KAIST 조정훈 학술상에 ADD 홍윤기 박사" onerror="this.src=&#39;/kaist/images/portal/ptl_common/noImage.png&#39;" onmouseover="$(&#39;#ptl_cont &gt; dt &gt; a[idx=4]&#39;).css(&#39;text-decoration&#39;, &#39;underline&#39;);" onmouseout="$(&#39;#ptl_cont &gt; dt &gt; a[idx=4]&#39;).css(&#39;text-decoration&#39;, &#39;none&#39;);" onclick="window.open(&#39;			http://www.kaist.ac.kr/_prog/_board/?code=kaist_news&amp;mode=V&amp;no=80581&amp;upr_ntt_no=80581&amp;site_dvs_cd=kr&amp;menu_dvs_cd=0601&#39;, &#39;_blank&#39;);">
+				
+			</div>
+			<dl class="ptl_cont" id="ptl_cont">
+				
+	 				<dt class="read ellipsis">
+	 					<a idx="0" target="_blank" title="			이해신 교수, 와인성분 통해 심장에 정맥주사로 약물 전달 기술 개발" href="http://www.kaist.ac.kr/_prog/_board/?code=kaist_news&amp;mode=V&amp;no=80941&amp;upr_ntt_no=80941&amp;site_dvs_cd=kr&amp;menu_dvs_cd=0601" onmouseover="$(this).css(&#39;text-decoration&#39;, &#39;underline&#39;);" onmouseout="$(this).css(&#39;text-decoration&#39;, &#39;none&#39;);">			이해신 교수, 와인성분 통해 심장에 정맥주사로 약물 전달 기술 개발</a>
+	 				</dt>
+				
+	 				<dt class="read ellipsis">
+	 					<a idx="1" target="_blank" title="			제5회 연구실 안전의 날 행사 개최" href="http://www.kaist.ac.kr/_prog/_board/?code=kaist_news&amp;mode=V&amp;no=80801&amp;upr_ntt_no=80801&amp;site_dvs_cd=kr&amp;menu_dvs_cd=0601" onmouseover="$(this).css(&#39;text-decoration&#39;, &#39;underline&#39;);" onmouseout="$(this).css(&#39;text-decoration&#39;, &#39;none&#39;);">			제5회 연구실 안전의 날 행사 개최</a>
+	 				</dt>
+				
+	 				<dt class="read ellipsis">
+	 					<a idx="2" target="_blank" title="			영재키움 프로젝트 발대식 개최" href="http://www.kaist.ac.kr/_prog/_board/?code=kaist_news&amp;mode=V&amp;no=80741&amp;upr_ntt_no=80741&amp;site_dvs_cd=kr&amp;menu_dvs_cd=0601" onmouseover="$(this).css(&#39;text-decoration&#39;, &#39;underline&#39;);" onmouseout="$(this).css(&#39;text-decoration&#39;, &#39;none&#39;);">			영재키움 프로젝트 발대식 개최</a>
+	 				</dt>
+				
+	 				<dt class="read ellipsis">
+	 					<a idx="3" target="_blank" title="			예종철 교수, 인공지능 블랙박스의 원리 밝혀" href="http://www.kaist.ac.kr/_prog/_board/?code=kaist_news&amp;mode=V&amp;no=80682&amp;upr_ntt_no=80682&amp;site_dvs_cd=kr&amp;menu_dvs_cd=0601" onmouseover="$(this).css(&#39;text-decoration&#39;, &#39;underline&#39;);" onmouseout="$(this).css(&#39;text-decoration&#39;, &#39;none&#39;);">			예종철 교수, 인공지능 블랙박스의 원리 밝혀</a>
+	 				</dt>
+				
+	 				<dt class="read ellipsis">
+	 					<a idx="4" target="_blank" title="			제14회 KAIST 조정훈 학술상에 ADD 홍윤기 박사" href="http://www.kaist.ac.kr/_prog/_board/?code=kaist_news&amp;mode=V&amp;no=80581&amp;upr_ntt_no=80581&amp;site_dvs_cd=kr&amp;menu_dvs_cd=0601" onmouseover="$(this).css(&#39;text-decoration&#39;, &#39;underline&#39;);" onmouseout="$(this).css(&#39;text-decoration&#39;, &#39;none&#39;);">			제14회 KAIST 조정훈 학술상에 ADD 홍윤기 박사</a>
+	 				</dt>
+				
+			</dl>
+		
+	</div>
+</div>		
+<!-- kaistNews--></div>
+
+							</div> <!-- portlet end -->
+
+							<div id="Enview_Portlet_56524" class="portlet-fixed">
+
+								<div id="Enview_Portlet_Content_56524" class="portlet-content">
+
+
+
+
+<div class="ptl_Fevent" style="border:1px solid #ddd;">
+	<h2 class="ellipsis portlet-title" title="International Community"><span class="ellipsis latest-title">International Community</span></h2>
+	<span class="ptl_more"><a href="https://portal.kaist.ac.kr/ennotice/International">more +</a></span>
+	<ul>
+		
+   		
+   			
+   				
+	            	<li><a title="[ISSS] 타일페인팅 이벤트" href="https://portal.kaist.ac.kr/ennotice/International/11526437903911"><span class="ptl_title">  &nbsp; [ISSS] 타일페인팅 이벤트</span></a></li>
+          	
+   				
+	            	<li><a title="1:1 한국어 배우기" href="https://portal.kaist.ac.kr/ennotice/International/11526369097058"><span class="ptl_title">  &nbsp; 1:1 한국어 배우기</span></a></li>
+          	
+   				
+	            	<li><a title="[ISSS] Office Closed for the International Food Festival (5/11)" href="https://portal.kaist.ac.kr/ennotice/International/11525999417007"><span class="ptl_title">  &nbsp; [ISSS] Office Closed for the International Food Festival (5/11)</span></a></li>
+          	
+   				
+	            	<li><a title="[Bizworld] 2nd KAIST International Entrepreneurship Summit" href="https://portal.kaist.ac.kr/ennotice/International/11525913468757"><span class="ptl_title">  &nbsp; [Bizworld] 2nd KAIST International Entrepreneurship Summit</span></a></li>
+          	
+   				
+	            	<li><a title="2018 KAIST International Food Festival" href="https://portal.kaist.ac.kr/ennotice/International/11525840987081"><span class="ptl_title">  &nbsp; 2018 KAIST International Food Festival</span></a></li>
+          	
+   		
+    </ul>
+</div>
+<!-- familyEvent--></div>
+
+							</div> <!-- portlet end -->
+
+				</div> <!-- portal-layout-column -->
+
+				<div id="Enview_Column_56522_1" columnwidth="2" class="column  colspan_2" style="float:right; position:relative; width:50%;">
+
+							<div id="Enview_Portlet_56525" class="portlet-fixed">
+
+								<div id="Enview_Portlet_Content_56525" class="portlet-content">
+
+
+
+
+<div class="ptl_Fevent" style="border:1px solid #ddd;">
+	<h2 class="ellipsis portlet-title" title="리더십/인턴/상담"><span class="ellipsis latest-title">리더십/인턴/상담</span></h2>
+	<span class="ptl_more"><a href="https://portal.kaist.ac.kr/ennotice/leadership_intern_counseling">more +</a></span>
+	<ul>
+		
+   		
+   			
+   				
+	            	<li><a title="[상담센터] 나탐구 심리패키지여행(6월 매주 금/1시~)" href="https://portal.kaist.ac.kr/ennotice/leadership_intern_counseling/11526634548825"><span class="ptl_title">  &nbsp; [상담센터] 나탐구 심리패키지여행(6월 매주 금/1시~)</span></a></li>
+          	
+   				
+	            	<li><a title="농식품 벤처창업 인턴제 모집공고" href="https://portal.kaist.ac.kr/ennotice/leadership_intern_counseling/11526616746890"><span class="ptl_title">  &nbsp; 농식품 벤처창업 인턴제 모집공고</span></a></li>
+          	
+   				
+	            	<li><a title="인성/리더십II 그룹리더십 GLA 설명회 안내" href="https://portal.kaist.ac.kr/ennotice/leadership_intern_counseling/11526518178640"><span class="ptl_title">  &nbsp; 인성/리더십II 그룹리더십 GLA 설명회 안내</span></a></li>
+          	
+   				
+	            	<li><a title="[석사리더십 A반 1강 인정] 인권/성평등 특강 실시" href="https://portal.kaist.ac.kr/ennotice/leadership_intern_counseling/11526456029720"><span class="ptl_title">  &nbsp; [석사리더십 A반 1강 인정] 인권/성평등 특강 실시</span></a></li>
+          	
+   				
+	            	<li><a title="2018년도 상반기 Computing 분야 인턴 및 취업설명회" href="https://portal.kaist.ac.kr/ennotice/leadership_intern_counseling/11526439730395"><span class="ptl_title">  &nbsp; 2018년도 상반기 Computing 분야 인턴 및 취업설명회</span></a></li>
+          	
+   		
+    </ul>
+</div>
+<!-- familyEvent--></div>
+
+							</div> <!-- portlet end -->
+
+							<div id="Enview_Portlet_56602" class="portlet-fixed">
+
+								<div id="Enview_Portlet_Content_56602" class="portlet-content">
+
+
+
+
+
+
+
+
+
+<!-- bachelor-->
+<div class="ptl_bachelor" style=" border-right:1px solid #d2d2d2; ">
+	<h2 class="ellipsis portlet-title" title="금주의 학사력(학사)"><span class="ellipsis latest-title">금주의 학사력(학사)</span></h2>
+	<span class="ptl_more"><a href="https://portal.kaist.ac.kr/portal/default/calendar/public">more +</a></span>
+	<ul>
+		
+			<center><br><br><br><br>금주의 학사력이 없습니다.</center>
+		
+		
+	</ul>
+</div>
+<!-- bachelor--></div>
+
+							</div> <!-- portlet end -->
+
+				</div> <!-- portal-layout-column -->
+ 
+					<br style="clear:both;">
+
+		</div> <!--portal-layout-->
+
+
+
+				</div> <!-- portal-layout-column -->
+
+		</div> <!--portal-layout-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			</div>
+			
+<div id="ptl_rightArea">
+	<input type="hidden" id="langKnd" value="ko">
+	
+	<div class="ptl_gobanner">
+		<div class="ptl_gotitle">
+			<a href="javascript:openptl_gopop();" class="openDirect">&nbsp;&nbsp;&nbsp;전체보기</a>
+            <a href="https://portal.kaist.ac.kr/portal/default/mypage/quick" class="openMyDirect">&nbsp;&nbsp;설정</a>
+		</div>
+		<ul class="ptl_quickbanner" id="info_Q"><li><a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;Q&#39;, &#39;이메일&#39;, &#39;https://ssogw17.kaist.ac.kr/sso/EMA_autologin.jsp&#39;, &#39;_blank&#39;)" style="text-decoration: none;  text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" title="담당 : IT개발팀 김재권 (T.1497)">이메일</a></li><li><a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;Q&#39;, &#39;학사시스템&#39;, &#39;https://ssogw6.kaist.ac.kr/sso/CA2_autologin/?lang=ko&#39;, &#39;_blank&#39;)" style="text-decoration: none;  text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" title="담당 : IT개발팀 김선영 (T.5275)">학사시스템</a></li><li><a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;Q&#39;, &#39;예약&#39;, &#39;https://urs.kaist.ac.kr/urs/sso/urs_autologin.do?lang=ko&#39;, &#39;_blank&#39;)" style="text-decoration: none;  text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" title="담당 : IT전략팀 신수진(T.1484)">예약</a></li><li><a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;Q&#39;, &#39;KLMS&#39;, &#39;https://ssogw15.kaist.ac.kr/sso/ICAM_autologin.php?lang=ko&#39;, &#39;_blank&#39;)" style="text-decoration: none;  text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" title="담당 : 교수학습기술팀 임범희 (T.6073)">KLMS</a></li><li><a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;Q&#39;, &#39;UPH(Channel)&#39;, &#39;http://ch.kaist.ac.kr/channel/sso/CH_autologin.jsp&#39;, &#39;_blank&#39;)" style="text-decoration: none;  text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" title="담당 :IT개발팀 윤경현 (T.5261)">UPH(Channel)</a></li><li><a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;Q&#39;, &#39;도서관&#39;, &#39;https://ssogw3.kaist.ac.kr/sso/LIB_autologin.do?lang=kor&#39;, &#39;_blank&#39;)" style="text-decoration: none;  text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" title="담당 : 학술정보개발팀 김서 (T.4495)">도서관</a></li><li><a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;Q&#39;, &#39;RIMS&#39;, &#39;https://rims.kaist.ac.kr/rims/sso/RIMS_autologin.jsp&#39;, &#39;_blank&#39;)" style="text-decoration: none;  text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" title="담당 : 학술정보개발팀 박희숙 (T.4493)">RIMS</a></li><li><a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;Q&#39;, &#39;Web ERP&#39;, &#39;https://webs.kaist.ac.kr/erp2/sso/EBW_autologin.jsp?lang=ko&#39;, &#39;_blank&#39;)" style="text-decoration: none;  text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" title="담당 : IT개발팀 (T.1494)">Web ERP</a></li><li><a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;Q&#39;, &#39;안전팀&#39;, &#39;https://ssogw10.kaist.ac.kr/sso/SAF_autologin_uid.aspx?lang=ko&#39;, &#39;_blank&#39;)" style="text-decoration: none;  text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" title="담당 : 안전팀 황원 (T.2341)">안전팀</a></li><li><a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;Q&#39;, &#39;전자연구노트&#39;, &#39;https://ssogw16.kaist.ac.kr/sso/ELN_autologin.jsp&#39;, &#39;_blank&#39;)" style="text-decoration: none;  text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" title="담당 : 학술정보개발팀 이경찬 (T.4472)">전자연구노트</a></li><li><a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;Q&#39;, &#39;국제협력 DB&#39;, &#39;https://ssogw18.kaist.ac.kr/sso/IRT_autologin.jsp&#39;, &#39;_blank&#39;)" style="text-decoration: none;  text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" title="담당 :국제협력팀 정상철 (T.2406)">국제협력 DB</a></li><li><a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;Q&#39;, &#39;특허관리&#39;, &#39;https://ssogw7.kaist.ac.kr/sso/PPMS_autologin_uid.php&#39;, &#39;_blank&#39;)" style="text-decoration: none;  text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" title="담당 : 기술사업화센터 정연 (T.2172)">특허관리</a></li><li><a title="담당 : 학술정보개발팀 이경찬 (T.4472)" href="https://portal.kaist.ac.kr/portal/default/home/today#" style="text-decoration: none; color: #c0c0c0; text-overflow:ellipsis; overflow:hidden; display: block; white-space: nowrap;cursor:default;">전자문서</a></li><li><a title="담당 : IT개발팀 (T.1494)" href="https://portal.kaist.ac.kr/portal/default/home/today#" style="text-decoration: none; color: #c0c0c0; text-overflow:ellipsis; overflow:hidden; display: block; white-space: nowrap;cursor:default;">Std. ERP</a></li><li><a title="담당 : IT전략팀  (T.1483)" href="https://portal.kaist.ac.kr/portal/default/home/today#" style="text-decoration: none; color: #c0c0c0; text-overflow:ellipsis; overflow:hidden; display: block; white-space: nowrap;cursor:default;">BI</a></li><li><a title="담당 : 경영대학 운영팀 이경화 (T.02-958-3237)" href="https://portal.kaist.ac.kr/portal/default/home/today#" style="text-decoration: none; color: #c0c0c0; text-overflow:ellipsis; overflow:hidden; display: block; white-space: nowrap;cursor:default;">FindPeople(서울)</a></li><li><a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;Q&#39;, &#39;공동연구장비&#39;, &#39;https://karasso.kaist.ac.kr/sso/KARA_autologin_uid.do&#39;, &#39;_blank&#39;)" style="text-decoration: none;  text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" title="공동연구장비">공동연구장비</a></li><li><a href="https://portal.kaist.ac.kr/portal/default/home/today#" onclick="openLink(&#39;Q&#39;, &#39;감사정보시스템&#39;, &#39;https://portalsso.kaist.ac.kr/ssoProcess.ps?langKnd=ko&amp;returnURL=https://auditsys.kaist.ac.kr/ssoLogin.do&#39;, &#39;_blank&#39;)" style="text-decoration: none;  text-overflow: ellipsis;  display: block; overflow: hidden; white-space: nowrap;" title="감사정보시스템">감사정보시스템</a></li></ul>
+		<p class="ptl_num" id="num_Q"><a href="javascript:" class="ptl_parv"><img src="./KAIST_Portal_System_files/btn_parv.gif" alt="이전"></a><label id="preText_Q">1</label>/<label id="nextText_Q">1</label><input type="hidden" id="pre_Q" value="1"><input type="hidden" id="next_Q" value="1"><a href="javascript:;" class="ptl_next"><img src="./KAIST_Portal_System_files/btn_next.gif" alt="다음"></a></p>
+	</div>
+	
+	
+	<!-- <div class="ptl_myBmark">
+		<div class="ptl_Btitle">즐겨찾기<a class="openMyfavorite" href="/portal/default/mypage/favorites.page"></a></div>
+		<ul class="ptl_favbanner" id="info_F">
+		</ul>
+		<p class="ptl_num" id="num_F">
+		</p>
+	</div> -->
+	
+	<div class="ptl_myBmark">
+        <div id="tab01">
+            <ul class="tab_box">
+               <li class="on">
+                	<a href="javascript:void(0);">
+                		북마크
+                	</a>
+                	<span class="my_setting1">
+						<a href="https://portal.kaist.ac.kr/portal/default/mypage/bookmark.page" target="_top" title="bookmark">
+							<img alt="북마크설정" src="./KAIST_Portal_System_files/icon_set_on.gif" style="margin:-2px 0;padding:2px;border:1px solid #ededed">
+						</a>
+					</span>
+                </li>
+                <li class="off">
+                	<a href="javascript:void(0);" onclick="ChangeLayer(&#39;02&#39;)">
+                		즐겨찾기
+                	</a>
+                	<span class="my_setting2">
+						<a href="https://portal.kaist.ac.kr/portal/default/mypage/favorites.page" target="_top" title="my favorites">
+							<img alt="즐겨찾기설정" src="./KAIST_Portal_System_files/icon_set_on.gif" style="margin:-2px 0;padding:2px;border:1px solid #ededed">
+						</a>
+					</span>
+                </li>
+            </ul>
+            
+            <div class="cont">
+				<ul class="ptl_favbanner" id="info_B"><br><br>나의 북마크가 등록되어있지 않습니다.</ul>
+				<p class="ptl_num" id="num_B"></p>
+            </div>
+		</div>
+		
+		<!-- 탭2 -->
+        <div id="tab02" style="display: none;">
+			<ul class="tab_box">
+               <li class="off">
+                	<a href="javascript:void(0);" onclick="ChangeLayer(&#39;01&#39;)">
+                		북마크
+                	</a>
+                	<span class="my_setting1">
+						<a href="https://portal.kaist.ac.kr/portal/default/mypage/bookmark.page" target="_top" title="bookmark">
+							<img alt="북마크설정" src="./KAIST_Portal_System_files/icon_set_on.gif" style="margin:-2px 0;padding:2px;border:1px solid #ededed">
+						</a>
+					</span>
+                </li>
+                <li class="on">
+                	<a href="javascript:void(0);">
+                		즐겨찾기
+                	</a>
+                	<span class="my_setting2">
+						<a href="https://portal.kaist.ac.kr/portal/default/mypage/favorites.page" target="_top" title="my favorites">
+							<img alt="즐겨찾기설정" src="./KAIST_Portal_System_files/icon_set_on.gif" style="margin:-2px 0;padding:2px;border:1px solid #ededed">
+						</a>
+					</span>
+                </li>
+            </ul>
+            <div class="cont">
+                    <ul class="ptl_favbanner" id="info_F"><br><br>나의 즐겨찾기가 등록되어있지 않습니다.</ul>
+                    <p class="ptl_num" id="num_F">
+                    </p>
+            </div>
+        </div>
+	</div>
+	
+</div>
+
+		</div>
+		
+
+<!-- 연결사이트 -->
+<div id="ptl_index">
+	<div class="ptl_btn">
+		<p class="ptl_btn_on"><a href="https://portal.kaist.ac.kr/portal/default/home/today#ptl_index" onclick="connectOpen();">KAIST 연결사이트 전체보기</a></p>
+	</div> 
+	
+	
+	<!-- <div class="ptl_indexView"> -->
+	   <div class="ptl_indexList">
+            <div class="ptl_listArea" id="ptl_listA" style="display: none;">
+       		</div>
+		</div>
+	<!-- </div>  -->
+</div>
+<div id="div_footerArea">
+	<input type="hidden" id="langKnd" value="ko">
+</div>
+<div id="ptl_footerArea">
+    <div id="ptl_footerWrap">        
+        <div id="ptl_footer">
+            <div class="ptl_Flogo"><img src="./KAIST_Portal_System_files/footer_logo.gif" alt="KAIST 한국과학기술원"></div>
+            <div class="ptl_policy">
+                <ul>
+                    <li class="ppFirst">
+                    	<a href="http://www.kaist.ac.kr/html/kr/kaist/kaist_010506.html" target="_blank">
+                    		<strong>[개인정보 보호정책]</strong>
+                    	</a>
+                    </li>
+                    <!-- <li>
+                    	<a href="http://www.kaist.ac.kr/sub07/sub07_07.html?req_P=bi&req_BIDX=50&req_BNM=ask" target="_blank" class="ptl_request">
+                    		청탁등록코너
+                    	</a>
+                    </li> -->
+                   
+                    <li class="ppLast">
+                    	<a href="https://portal.kaist.ac.kr/ennotice/student_notice/11461315125330" target="_top" class="ptl_request">
+                    		상담 및 신고 안내
+                    	</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="ptl_address">
+                <ul>
+					<li>34141 대전광역시 유성구 대학로 291 카이스트(KAIST)</li>
+					<li>Copyright©2013, Korea Advanced Institute of Science and Technology. All Rights Reserved.</li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="ftcontent_div3">
+			<ul class="ftcontent_ul1">
+				
+				<li><a href="javascript:openLink(&#39;G&#39;, &#39;포탈 홈&#39;, &#39;https://portal.kaist.ac.kr&#39;, &#39;_self&#39;);" target="_self" title="포탈 홈">포탈 홈</a></li>
+				<li><a href="javascript:openLink(&#39;G&#39;, &#39;고객만족&#39;, &#39;https://portal.kaist.ac.kr/reqt/index.face&#39;, &#39;_self&#39;);" target="_self" title="고객만족">고객만족</a></li>
+				<li><a href="javascript:openLink(&#39;G&#39;, &#39;PUSH&#39;, &#39;https://portal.kaist.ac.kr/push&#39;, &#39;_top&#39;);" target="_self">PUSH</a></li>
+				<li><a href="javascript:openLink(&#39;G&#39;, &#39;검색&#39;, &#39;https://search.kaist.ac.kr&#39;, &#39;_top&#39;);" target="_self">검색</a></li>
+				<li><a href="javascript:openLink(&#39;G&#39;, &#39;업무게시판&#39;, &#39;https://board.kaist.ac.kr&#39;, &#39;_top&#39;);" target="_self">업무게시판</a></li>
+				
+				
+			</ul>
+		</div>
+	</div>
+</div>
+		<script type="text/javascript">
+			if(navigator.appName.indexOf("Internet Explorer")!=-1) {
+			    if( navigator.appVersion.indexOf("MSIE 8")!=-1) {
+			    	$('body').css('margin-top', '-2px');
+			    } 
+			}
+			initEnview();
+		</script><div><div id="DebuggerDisplay" style="width:100%; height:20px; display:none;"></div><div id="EnviewMessageBox" title="Notice" class="massagebox" style="height:200px;display:none;"></div><div id="Enview.Portal.ContextMenu" style="display:none;"></div><div id="Enview.Portal.DialogBasePane" style="display:none;"></div></div>
+	
+
+</body></html>

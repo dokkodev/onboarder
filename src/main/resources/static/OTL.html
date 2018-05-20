@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)https://otl.kaist.ac.kr/main/ -->
+<html class="no-js"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>
+      
+  
+  OTL
+
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+  
+    
+
+
+    <link rel="shortcut icon" href="https://otl.kaist.ac.kr/media/img/ico/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="./OTL_files/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./OTL_files/font-awesome.min.css">
+    
+  
+    
+  <link rel="stylesheet" type="text/css" href="./OTL_files/global.css">
+  <link rel="stylesheet" type="text/css" href="./OTL_files/search.css">
+  <link rel="stylesheet" type="text/css" href="./OTL_files/option-main.css">
+  <link rel="stylesheet" type="text/css" href="./OTL_files/expect.css">
+  <link rel="stylesheet" type="text/css" href="./OTL_files/review-main.css">
+  <link rel="stylesheet" type="text/css" href="./OTL_files/search(1).css">
+  <link rel="stylesheet" href="./OTL_files/jquery-ui.css">
+  <link rel="stylesheet" href="./OTL_files/style.css">
+  <link rel="stylesheet" type="text/css" href="./OTL_files/course.css">
+  <style>
+  .ui-autocomplete {
+    max-height: 300px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+    border-radius: 10px;
+  }
+  .ui-autocomplete .ui-menu-item.ui-state-focus{
+    background: #F0F0F0;
+  }
+  /* IE 6 doesn't support max-height
+   * we use height instead, but this forces the menu to always be this tall
+   */
+  * html .ui-autocomplete {
+    height: 300px;
+  }
+  </style> 
+
+
+  </head>
+  <body style="">
+
+    
+  
+    
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://otl.kaist.ac.kr/">OTL</a>
+      </div>
+      <div class="header-middle collapse navbar-collapse" id="header">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="https://otl.kaist.ac.kr/timetable/">
+              모의시간표
+            </a>
+          </li>
+          <li>
+            <a href="https://otl.kaist.ac.kr/review/">
+              따끈따끈 과목후기
+            </a>
+          </li>
+          <li>
+            <a href="https://otl.kaist.ac.kr/review/insert/" style="padding-right:0px">
+              과목후기 작성하기
+            </a>
+          </li>
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right hid">
+          <li>
+            <a href="https://otl.kaist.ac.kr/session/language">
+              English
+            </a>
+          </li>
+          
+          <li>
+            <a class="login">
+              로그인
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="header-end collapse navbar-collapse" id="header">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="https://otl.kaist.ac.kr/session/language">
+            English
+          </a>
+        </li>
+        
+        <li>
+          <a class="login">
+            로그인
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <script type="text/javascript" src="./OTL_files/jquery.min.js.다운로드"></script>
+  <script type="text/javascript" src="./OTL_files/header.js.다운로드"></script>
+
+
+
+
+    
+      <section id="contents" class="container-fluid">
+        
+  <div class="row">
+    <div class="col-xs-22 col-xs-offset-1 col-sm-20 col-sm-offset-2 col-md-18 col-md-offset-3 col-lg-16 col-lg-offset-4 text-center">
+      <form role="form" class="row">
+        <div class="search_bar col-xs-24 col-sm-14 col-md-16 col-lg-18">
+            <input id="keyword" type="text" name="q" autocomplete="off" class="form-control ui-autocomplete-input" placeholder="Search">
+        </div>
+        <div class="search_bar col-xs-12 col-sm-5 col-md-4 col-lg-3">
+          <div id="option" type="button" class="btn btn-lg btn-block btn-danger">
+            필터
+          </div>
+        </div>
+        <div class="search_bar col-xs-12 col-sm-5 col-md-4 col-lg-3">
+          <input type="submit" class="btn btn-lg btn-block btn-danger" formaction="/review/result" value="검색" autocomplete="off">
+        </div>
+        
+  <div id="options" class="form-horizontal row">
+    <div class="form-group">
+      <label class="col-xs-6 col-sm-4 col-md-3 col-lg-3 control-label">분류</label>
+      <div class="col-xs-18 col-sm-20 col-md-21 col-lg-21">
+        <div class="controls">
+
+          <label class="active">
+            <input class="chkall" type="checkbox" autocomplete="off" name="type" value="ALL" checked="checked">전체
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="type" value="GR">공통
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="type" value="MGC">교필
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="type" value="BE">기선
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="type" value="BR">기필
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="type" value="EG">석박
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="type" value="HSE">인선
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="type" value="OE">자선
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="type" value="ME">전선
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="type" value="MR">전필
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="type" value="ETC">기타
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+
+
+      <label class="col-xs-6 col-sm-4 col-md-3 col-lg-3 control-label">학과</label>
+      <div class="col-xs-18 col-sm-20 col-md-21 col-lg-21">
+        <div class="controls">
+
+          <label class="active">
+            <input class="chkall" type="checkbox" autocomplete="off" name="department" value="ALL" checked="checked">전체
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+
+
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="HSS">인문
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="CE">건환
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="MSB">기경
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="MAE">기계
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="PH">물리
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="BiS">바공
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="IE">산공
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="ID">산디
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="BS">생명
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="MAS">수리
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="NQE">원양
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="EE">전자
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="CS">전산
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="MAE">항공
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="CH">화학
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="CBE">생화공
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="MS">신소재
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="department" value="ETC">기타
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="col-xs-6 col-sm-4 col-md-3 col-lg-3 control-label">학년</label>
+      <div class="col-xs-18 col-sm-20 col-md-21 col-lg-21">
+        <div class="controls">
+
+          <label class="active">
+            <input class="chkall" type="checkbox" autocomplete="off" name="grade" value="ALL" checked="checked">전체
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+
+
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="grade" value="000">000번대
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="grade" value="100">100번대
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="grade" value="200">200번대
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="grade" value="300">300번대
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="grade" value="400">400번대
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="grade" value="500">500번대
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+            <input class="chkelem" type="checkbox" autocomplete="off" name="grade" value="HIGH">석박사
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="col-xs-6 col-sm-4 col-md-3 col-lg-3 control-label">학기</label>
+      <div class="col-xs-18 col-sm-20 col-md-21 col-lg-21">
+        <div class="controls">
+
+          <label class="active">
+              <input class="chkall chkone" type="radio" autocomplete="off" name="semester" value="ALL" checked="checked">전체
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+
+          
+          <label>
+              <input class="chkelem chkone" type="radio" autocomplete="off" name="semester" value="NEXT">다음
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+              <input class="chkelem chkone" type="radio" autocomplete="off" name="semester" value="NOW">현재
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+              <input class="chkelem chkone" type="radio" autocomplete="off" name="semester" value="PREV">이전
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+          <label>
+              <input class="chkelem chkone" type="radio" autocomplete="off" name="semester" value="RECENT">최근
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle-o fa-stack-2x"></i>
+              <i class="fa fa-check fa-stack-1x"></i>
+            </span>
+          </label>
+          
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</form>
+
+      
+    </div>
+  </div>
+
+  <div class="row">
+    
+    <div class="col-xs-22 col-xs-offset-1 col-sm-10 col-sm-offset-2 col-md-9 col-md-offset-3 col-lg-8 col-lg-offset-4">
+      <h2 class="text-center" style="cursor:default">
+        사랑받는 교양 후기
+      </h2>
+      
+      
+        <div class="panel panel-default review">
+    <div class="panel-body">
+        <div class="row">
+            <div id="6449" style="cursor:Pointer" class="label-title lecture ellipsis-wrapper col-xs-24 col-sm-24 col-md-12">
+               <input type="hidden" id="csrf_token" value="SF7On1r3naHFLyNIqCCqr5ift0M28ObA" autocomplete="off">
+               <input type="hidden" name="6449" value="865" autocomplete="off">
+               <input type="hidden" name="course_id" value="6449" autocomplete="off">
+               <h4 style="margin-top:6px; margin-bottom:0px;line-height:1.2" class="ellipsis-content">HSS001 : 논리적글쓰기</h4>
+            </div>
+            <div class="col-xs-24 col-sm-24 col-md-12">
+                <span class="hidr-r">
+                <div class="score_table text-left col-xs-24" style="cursor:default important!; margin-right:-40px; min-width:350px; display:inline-block">
+          <div class="score-elem-review">
+              성적&nbsp; 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">A</span>
+              
+              
+      </div>
+          <div class="score-elem-review">
+              널널&nbsp;
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">A</span>
+              
+              
+      </div>
+          <div class="score-elem-review">
+              강의&nbsp;
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">A</span>
+              
+              
+      </div>
+          <div class="score-elem-review">
+                    종합&nbsp;
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <span class="score_letter-review">A</span>
+            
+            
+      </div>
+       <div class="score-elem-review">
+                    추천&nbsp;
+           <span class="score_letter-review like_num 6449">5</span>
+      </div>
+
+</div>
+
+
+                </span>
+            </div>
+           <div id="6449" style="cursor:Pointer" class="label-title lecture ellipsis-wrapper col-xs-24">
+               <h4 style="margin-top:3px; line-height:1.2" class="ellipsis-content"><small class="text-muted"> 최정아      2016 가을</small></h4>
+            </div>
+
+      <div class="col-xs-24 comment text-muted " style="cursor:Pointer" id="6449">
+         <input type="hidden" name="6449" value="6449" autocomplete="off">
+        <p></p><p>보통 논글 과목에서 학생들이 선호하는 몇몇 교수님 (오자은 교수님 등등) 이 있는데, 최정아 교수님은 왜 소문이 안났는지 모르겠습니다. 최정아 교수님 수업은 장점만 있고 단점은 없습니다. 장점으로는</p>
+
+<p>1) 첨삭을 친절하고 자세하게 잘 해주신다. 정말 많은 도움이 된다.<br>2) 수업이 빨리 끝난다. 그렇다고 해서 수업의 질이 낮거나 수업을 대충하시는건 또 절대 아님<br>3) 학점을 잘 주신다. 필자는 A+ 을 받았고 친구들에게 추천해주었는데  다들 학점 잘 받음<br>4) 글쓰기 : 6개~7개 정도 쓸텐데 글을 학기말에 한꺼번에 제출하는 형식이라 중간 중간<br> 과제의 압박이 없고 계속 수정도 가능해서 개꿀<br>5) 수업시간에 글쓰기 시간을 주신다. 이 시간을 잘 활용하면 정말 도움 많이 된다. <br>6) 교수님이 친절하시고 수강생들을 배려해 주시는 것이 느껴진다. 교수님 인품이 정말 좋으시다. <br> </p><p></p>
+      </div>
+            <div class="col-xs-24">
+                <span class="score_table_bottomr hidr" style="width:210px">
+                    <div class="score_table-bottomr text-left col-xs-24" style="min-width:210px; padding:0px; display:inline-block">
+                        <div class="score-elem-review">
+                          성적&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">A</span>
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          널널&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">A</span>
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          강의&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">A</span>
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          종합&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          <span class="score_letter-review">A</span>
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                            추천&nbsp;
+                            <span class="score_letter-review like_num 6449">5</span>
+                        </div>
+                    </div>
+                </span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+      
+        <div class="panel panel-default review">
+    <div class="panel-body">
+        <div class="row">
+            <div id="7256" style="cursor:Pointer" class="label-title lecture ellipsis-wrapper col-xs-24 col-sm-24 col-md-12">
+               <input type="hidden" id="csrf_token" value="SF7On1r3naHFLyNIqCCqr5ift0M28ObA" autocomplete="off">
+               <input type="hidden" name="7256" value="865" autocomplete="off">
+               <input type="hidden" name="course_id" value="7256" autocomplete="off">
+               <h4 style="margin-top:6px; margin-bottom:0px;line-height:1.2" class="ellipsis-content">HSS001 : 논리적글쓰기</h4>
+            </div>
+            <div class="col-xs-24 col-sm-24 col-md-12">
+                <span class="hidr-r">
+                <div class="score_table text-left col-xs-24" style="cursor:default important!; margin-right:-40px; min-width:350px; display:inline-block">
+          <div class="score-elem-review">
+              성적&nbsp; 
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">C</span>
+              
+              
+              
+              
+              
+              
+      </div>
+          <div class="score-elem-review">
+              널널&nbsp;
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">C</span>
+              
+              
+              
+              
+              
+              
+      </div>
+          <div class="score-elem-review">
+              강의&nbsp;
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">A</span>
+              
+              
+      </div>
+          <div class="score-elem-review">
+                    종합&nbsp;
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <span class="score_letter-review">B</span>
+            
+            
+            
+            
+      </div>
+       <div class="score-elem-review">
+                    추천&nbsp;
+           <span class="score_letter-review like_num 7256">4</span>
+      </div>
+
+</div>
+
+
+                </span>
+            </div>
+           <div id="7256" style="cursor:Pointer" class="label-title lecture ellipsis-wrapper col-xs-24">
+               <h4 style="margin-top:3px; line-height:1.2" class="ellipsis-content"><small class="text-muted"> 김윤정      2017 봄</small></h4>
+            </div>
+
+      <div class="col-xs-24 comment text-muted " style="cursor:Pointer" id="7256">
+         <input type="hidden" name="7256" value="7256" autocomplete="off">
+        <p></p><p>듣지마세요.<br>다른 반에 비해 시키는거 많고 빡센데요. 거의 주 1회 글쓰기하고 과제도 많아요. 사실 다른반보다 한게 많았었고, 교수님도 학점 잘주신다하셔서 믿었거든요.. 기말레포트에 영혼을 쏟았는데 B0 나왔어요. 저보다 잘한 평타친친구들은 B+..</p>
+
+<p>교수님 자체는 좋으신데 참.. 애초에 시간 정해놓고 글쓰는거로 글쓰기 실력 평가하는것도 저처럼 취약하시면 힘들고요. 진짜 교수님은 좋은데 마지막 성적이 결국 과목에 대한 이미지를 결정하네요. 다른 반 친구들은 세번빠지고 졸아도 B+받던데.. 보통 A-받던데. 아직 오신지 얼마 안되셔서 그런것같기도하구요. 글 잘쓴다고 자신하시는 분은 들어도 될것같아요. 암튼 꿀은 아니에요</p><p></p>
+      </div>
+            <div class="col-xs-24">
+                <span class="score_table_bottomr hidr" style="width:210px">
+                    <div class="score_table-bottomr text-left col-xs-24" style="min-width:210px; padding:0px; display:inline-block">
+                        <div class="score-elem-review">
+                          성적&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">C</span>
+                          
+                          
+                          
+                          
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          널널&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">C</span>
+                          
+                          
+                          
+                          
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          강의&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">A</span>
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          종합&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          <span class="score_letter-review">B</span>
+                          
+                          
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                            추천&nbsp;
+                            <span class="score_letter-review like_num 7256">4</span>
+                        </div>
+                    </div>
+                </span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+      
+        <div class="panel panel-default review">
+    <div class="panel-body">
+        <div class="row">
+            <div id="7515" style="cursor:Pointer" class="label-title lecture ellipsis-wrapper col-xs-24 col-sm-24 col-md-12">
+               <input type="hidden" id="csrf_token" value="SF7On1r3naHFLyNIqCCqr5ift0M28ObA" autocomplete="off">
+               <input type="hidden" name="7515" value="912" autocomplete="off">
+               <input type="hidden" name="course_id" value="7515" autocomplete="off">
+               <h4 style="margin-top:6px; margin-bottom:0px;line-height:1.2" class="ellipsis-content">HSS177 : 불어 회화</h4>
+            </div>
+            <div class="col-xs-24 col-sm-24 col-md-12">
+                <span class="hidr-r">
+                <div class="score_table text-left col-xs-24" style="cursor:default important!; margin-right:-40px; min-width:350px; display:inline-block">
+          <div class="score-elem-review">
+              성적&nbsp; 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">A</span>
+              
+              
+      </div>
+          <div class="score-elem-review">
+              널널&nbsp;
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">B</span>
+              
+              
+              
+              
+      </div>
+          <div class="score-elem-review">
+              강의&nbsp;
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">A</span>
+              
+              
+      </div>
+          <div class="score-elem-review">
+                    종합&nbsp;
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <span class="score_letter-review">A</span>
+            
+            
+      </div>
+       <div class="score-elem-review">
+                    추천&nbsp;
+           <span class="score_letter-review like_num 7515">4</span>
+      </div>
+
+</div>
+
+
+                </span>
+            </div>
+           <div id="7515" style="cursor:Pointer" class="label-title lecture ellipsis-wrapper col-xs-24">
+               <h4 style="margin-top:3px; line-height:1.2" class="ellipsis-content"><small class="text-muted"> 윤현      2017 봄</small></h4>
+            </div>
+
+      <div class="col-xs-24 comment text-muted " style="cursor:Pointer" id="7515">
+         <input type="hidden" name="7515" value="7515" autocomplete="off">
+        <p></p><p>윤현 교수님의 수업은 정말 좋습니다. 모든 학생의 이름을 다 외우시고, 모르는 것이 있으면 친절하게 설명해 주십니다. 수업 때 과제가 있는데 그렇게 힘든 편도 아닐 뿐더러, 수업시간에 배운 내용을 복습한다고 생각하면 크게 어렵지는 않습니다. 다만 프랑스어를 처음 접한다면 듣기에 상당한 애를 먹을 수 있습니다. 시험문제든, 평소 듣기든 말이 굉장히 빠르기 때문에 내가 아는 단어라도 잘 들리지 않아요. 그러니 듣기 연습을 정말 철저하게 해야 합니다. 그래도 절대평가 기준에 따르면 받을 수 없는 점수를 받았습니다. 노력하는 학생들을 굉장히 좋게 봐 주시고, 수업 시간에 더 많은 것을 알려주기 위해 노력하십니다. 어렵지만 한 번 도전해 볼 만한 수업이라고 생각합니다.</p><p></p>
+      </div>
+            <div class="col-xs-24">
+                <span class="score_table_bottomr hidr" style="width:210px">
+                    <div class="score_table-bottomr text-left col-xs-24" style="min-width:210px; padding:0px; display:inline-block">
+                        <div class="score-elem-review">
+                          성적&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">A</span>
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          널널&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">B</span>
+                          
+                          
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          강의&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">A</span>
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          종합&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          <span class="score_letter-review">A</span>
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                            추천&nbsp;
+                            <span class="score_letter-review like_num 7515">4</span>
+                        </div>
+                    </div>
+                </span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+      
+    </div>
+    
+    <div class="col-xs-22 col-xs-offset-1 col-sm-10 col-sm-offset-0 col-md-9 col-md-offset-0 col-lg-8 col-lg-offset-0">
+      <h2 class="text-center" style="cursor:default">
+        사랑받는 전공 후기
+      </h2>
+      
+      
+        <div class="panel panel-default review">
+    <div class="panel-body">
+        <div class="row">
+            <div id="7247" style="cursor:Pointer" class="label-title lecture ellipsis-wrapper col-xs-24 col-sm-24 col-md-12">
+               <input type="hidden" id="csrf_token" value="SF7On1r3naHFLyNIqCCqr5ift0M28ObA" autocomplete="off">
+               <input type="hidden" name="7247" value="145" autocomplete="off">
+               <input type="hidden" name="course_id" value="7247" autocomplete="off">
+               <h4 style="margin-top:6px; margin-bottom:0px;line-height:1.2" class="ellipsis-content">NQE281 : 에너지, 환경 및 물</h4>
+            </div>
+            <div class="col-xs-24 col-sm-24 col-md-12">
+                <span class="hidr-r">
+                <div class="score_table text-left col-xs-24" style="cursor:default important!; margin-right:-40px; min-width:350px; display:inline-block">
+          <div class="score-elem-review">
+              성적&nbsp; 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">A</span>
+              
+              
+      </div>
+          <div class="score-elem-review">
+              널널&nbsp;
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">A</span>
+              
+              
+      </div>
+          <div class="score-elem-review">
+              강의&nbsp;
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">B</span>
+              
+              
+              
+              
+      </div>
+          <div class="score-elem-review">
+                    종합&nbsp;
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <span class="score_letter-review">A</span>
+            
+            
+      </div>
+       <div class="score-elem-review">
+                    추천&nbsp;
+           <span class="score_letter-review like_num 7247">0</span>
+      </div>
+
+</div>
+
+
+                </span>
+            </div>
+           <div id="7247" style="cursor:Pointer" class="label-title lecture ellipsis-wrapper col-xs-24">
+               <h4 style="margin-top:3px; line-height:1.2" class="ellipsis-content"><small class="text-muted"> 정용훈      2017 봄</small></h4>
+            </div>
+
+      <div class="col-xs-24 comment text-muted " style="cursor:Pointer" id="7247">
+         <input type="hidden" name="7247" value="7247" autocomplete="off">
+        <p></p><p>타과생입니다.<br>원래는 원양개를 들어볼까 하다가 전공일정이 바쁜지라 도저히 엄두가 안 나서 보다 로드가 적은 에환물을 듣게 되었습니다. 원자과는 어떤 과목을 배우는지가 궁금해서 신청했는데, 돌이켜보면 이 강의는 교양과목에 더 가까웠습니다. 이전 후기 말마따나 외우는 것에 딱히 거부감이 없다면 학점 채우기 용도로 한 번쯤 들어볼 만한 과목입니다. 다만 원자과의 속성을 보여줄 만한 과목은 아닌듯 합니다.<br>Energy Science-Principles, technologies, and impacts 라는 교재를 사용합니다. 교수님께서 강의는 ppt로 하시고 본인께서 직접 컨텐츠를 가지고 오기도 하시지만 큰 틀은 이 교재의 흐름을 거의 그대로 따라갑니다.(순서만 조금 바꾸십니다.) 중간고사 이전까지는 에너지, 지구온난화, 화석연료, 그리고 fission 도입부 컨텐츠를 큰 범주에서 다룹니다. ppt 자료를 보다보면 아시겠지만, 교수님께서 이 범위의 자료들은 열정을 가지고 만드셨다는 것을 알 수 있습니다.(아주 많은 열정은 아니지만, 기말 범위에 비하면...) 에너지와 관련하여 거의 모든 자료를 도표화한 사이트에서 자료를 많이 가져오시지만, 시험에는 전혀 안 나온다는거.. 기말범위는 fission, fussion, solar energy(photo-voltaic), wind power, hydropower, biomass, energy carrier, desalination을 배웁니다. 꼼꼼히 보자면 양이 굉장히 많고, 교수님께서도 진도를 의식하셔서인지 중간 범위 보다는 빠르게 진행하십니다. 하루에 한 챕터 가량을 끝내시는 경우가 많아요. 진도만 빠르면 좀<br> 다행이겠습니다만, 학기의 2/3 지점을 넘어가서 부터는 컨텐츠가 부실해집니다. 교재 그래프만 떡하니 붙여 넣으시고 상당히 많은 부분을 뛰어 넘습니다. 덕분에 암기해야 할 분량이 줄어들기는 합니다.<br>시험에 관해서는 닥치고 ppt 암기라고 분명하게 말씀드릴 수 있습니다. 다만, 중간고사 범위에서는 교재의 간단한 example 문제들을 그대로 내시기도 하고, 수업시간에 판서해주시는 개념 중에 문제를 내시기도 합니다. 기말 범위는 그냥 ppt만 외우시면 됩니다. 시험공부를 한 뒤 교분에서 파는 족보를 보시면 살짝 당황스러우실 겁니다. 아니 중학교 사회/기가 시험도 아니고 뭐 이딴 자잘한 숫자까지 외워야 하나 싶기 때문입니다. 저 또한 걱정이 많았으나, 해당 족보는 수년 전 것이라는 점을 염두해 두시면 좋을 듯 합니다. 그 정도로 치사한 문제는 이제 더 이상 안 내신다고 볼 수 있습니다.<br>그런데, 사실 조금 실망스러웠던 점이 있습니다. 아무리 교양 같은 과목이라고 하더라도 공식을 (그것도 유도가 불가능한 경험식을!) 그대로 외워야만 답을 쓸 수 있는 문제를 내시는 건 조금 당황스러웠습니다. 물론 중요한 경험식이라면 그럴 수도 있겠습니다만, 훨씬 중요한 식이나 유도 과정을 통해 물리적 의미를 알 수 있는 이론식들이 널려있다는 점을 감안하면 실망스러운 마음을 금할 길이 없습니다. 어쩌면 교수님께서 '너희 어차피 이 과목 외우는 걸로 알고 왔을테니 너희 편하게 외우는 식으로 문제 내줄께' 라는 좋은 마음으로 출제 하셨을지도 모릅니다만...<br>중간 30 기말 30 과제 25 출결 15 입니다. 과제는 정확히 2주에 한 번 씩 총 7번 나왔습니다. (기말고사 직전에도 나와서 조금 슬펐습니다.) 중간 기말 시험시간은 1시간 반씩이며, 10문제 나온다고 보시면 됩니다. 시험이든 과제든 1-2점씩 깎이는 경우는 그리 많지 않습니다. 특히 시험은 서술한 내용이 부실하면 5점 단위로 깎입니다. 과제 채점도 굉장히 꼼꼼하게 하시는 편이니, 1-2점 깎이는 것도 싫으시다면 완벽하게 푸셔야 합니다.<br>학점은 대체로 잘 주시려 하시다보니 에쁠은 매우 적고 나머지 비율이 높은 듯 합니다. 22명 밖에 안 들은 데다가 과제가 차지하는 비중이 꽤 높은 편인지라 정확히 어떻게 주셨는지는 감이 잘 안오네요.</p><p></p>
+      </div>
+            <div class="col-xs-24">
+                <span class="score_table_bottomr hidr" style="width:210px">
+                    <div class="score_table-bottomr text-left col-xs-24" style="min-width:210px; padding:0px; display:inline-block">
+                        <div class="score-elem-review">
+                          성적&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">A</span>
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          널널&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">A</span>
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          강의&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">B</span>
+                          
+                          
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          종합&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          <span class="score_letter-review">A</span>
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                            추천&nbsp;
+                            <span class="score_letter-review like_num 7247">0</span>
+                        </div>
+                    </div>
+                </span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+      
+        <div class="panel panel-default review">
+    <div class="panel-body">
+        <div class="row">
+            <div id="7500" style="cursor:Pointer" class="label-title lecture ellipsis-wrapper col-xs-24 col-sm-24 col-md-12">
+               <input type="hidden" id="csrf_token" value="SF7On1r3naHFLyNIqCCqr5ift0M28ObA" autocomplete="off">
+               <input type="hidden" name="7500" value="1019" autocomplete="off">
+               <input type="hidden" name="course_id" value="7500" autocomplete="off">
+               <h4 style="margin-top:6px; margin-bottom:0px;line-height:1.2" class="ellipsis-content">MSB235 : 재무관리</h4>
+            </div>
+            <div class="col-xs-24 col-sm-24 col-md-12">
+                <span class="hidr-r">
+                <div class="score_table text-left col-xs-24" style="cursor:default important!; margin-right:-40px; min-width:350px; display:inline-block">
+          <div class="score-elem-review">
+              성적&nbsp; 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">B</span>
+              
+              
+              
+              
+      </div>
+          <div class="score-elem-review">
+              널널&nbsp;
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">A</span>
+              
+              
+      </div>
+          <div class="score-elem-review">
+              강의&nbsp;
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">A</span>
+              
+              
+      </div>
+          <div class="score-elem-review">
+                    종합&nbsp;
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <span class="score_letter-review">A</span>
+            
+            
+      </div>
+       <div class="score-elem-review">
+                    추천&nbsp;
+           <span class="score_letter-review like_num 7500">1</span>
+      </div>
+
+</div>
+
+
+                </span>
+            </div>
+           <div id="7500" style="cursor:Pointer" class="label-title lecture ellipsis-wrapper col-xs-24">
+               <h4 style="margin-top:3px; line-height:1.2" class="ellipsis-content"><small class="text-muted"> 한승헌      2017 봄</small></h4>
+            </div>
+
+      <div class="col-xs-24 comment text-muted " style="cursor:Pointer" id="7500">
+         <input type="hidden" name="7500" value="7500" autocomplete="off">
+        <p></p><p>매우 재미있는 수업이었습니다.<br>교수님도 열심히 설명해 주시고, 퀴즈도 점수를 후하게 주십니다.<br>기본적인 경영에 관한 언어부터 설명을 해주시기 때문에 아무것도 몰라도 들을 수 있습니다.<br>다만, 성적을 정말 칼같이 주시네요. 그래도 매우 추천합니다!</p><p></p>
+      </div>
+            <div class="col-xs-24">
+                <span class="score_table_bottomr hidr" style="width:210px">
+                    <div class="score_table-bottomr text-left col-xs-24" style="min-width:210px; padding:0px; display:inline-block">
+                        <div class="score-elem-review">
+                          성적&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">B</span>
+                          
+                          
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          널널&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">A</span>
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          강의&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">A</span>
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          종합&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          <span class="score_letter-review">A</span>
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                            추천&nbsp;
+                            <span class="score_letter-review like_num 7500">1</span>
+                        </div>
+                    </div>
+                </span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+      
+        <div class="panel panel-default review">
+    <div class="panel-body">
+        <div class="row">
+            <div id="7008" style="cursor:Pointer" class="label-title lecture ellipsis-wrapper col-xs-24 col-sm-24 col-md-12">
+               <input type="hidden" id="csrf_token" value="SF7On1r3naHFLyNIqCCqr5ift0M28ObA" autocomplete="off">
+               <input type="hidden" name="7008" value="1578" autocomplete="off">
+               <input type="hidden" name="course_id" value="7008" autocomplete="off">
+               <h4 style="margin-top:6px; margin-bottom:0px;line-height:1.2" class="ellipsis-content">CE202 : 구조역학</h4>
+            </div>
+            <div class="col-xs-24 col-sm-24 col-md-12">
+                <span class="hidr-r">
+                <div class="score_table text-left col-xs-24" style="cursor:default important!; margin-right:-40px; min-width:350px; display:inline-block">
+          <div class="score-elem-review">
+              성적&nbsp; 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">A</span>
+              
+              
+      </div>
+          <div class="score-elem-review">
+              널널&nbsp;
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">C</span>
+              
+              
+              
+              
+              
+              
+      </div>
+          <div class="score-elem-review">
+              강의&nbsp;
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+               <span class="score_letter-review">A</span>
+              
+              
+      </div>
+          <div class="score-elem-review">
+                    종합&nbsp;
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <span class="score_letter-review">B</span>
+            
+            
+            
+            
+      </div>
+       <div class="score-elem-review">
+                    추천&nbsp;
+           <span class="score_letter-review like_num 7008">2</span>
+      </div>
+
+</div>
+
+
+                </span>
+            </div>
+           <div id="7008" style="cursor:Pointer" class="label-title lecture ellipsis-wrapper col-xs-24">
+               <h4 style="margin-top:3px; line-height:1.2" class="ellipsis-content"><small class="text-muted"> 손훈      2016 가을</small></h4>
+            </div>
+
+      <div class="col-xs-24 comment text-muted " style="cursor:Pointer" id="7008">
+         <input type="hidden" name="7008" value="7008" autocomplete="off">
+        <p></p><p>학점 : 중간1 1등, 중간2 1등, 기말 하루 공부해서 망했는데(20명 중에 8등 정도) A+받았습니다.<br>출석이 정말 중요하다고 강조하시는데, 보강을 아침 8시에 그것도<br> 5번 넘게 잡으셔서 사람들이 수업을 종종 빠집니다. 저는 전출에다가 숙제도 거의 만점이라 기말을 망쳤음에도 잘 받은 듯 합니다. </p>
+
+<p>강의 : 정말 강의 잘하십니다. 질문도 잘 받아주시고 대단하십니다. 회식도 하는데 학생들을 잘 이해하려고 노력하는 참된 교육자이십니다. </p>
+
+<p>로드 : 숙제 문제수가 많습니다. 내용도 처음 구조역학을 접하는 학생에게는 어렵습니다. 아침 8시 출석 너무 힘듭니다. 저는 솔직히 다른 비슷한 과목을 듣고 들어서 쉬웠지만, 배우면서도 계속 처음 배우는 학생들에게는 어려울 것 같다는 생각이 들었습니다.</p>
+
+<p>조언 : 전출하세요. 답은 솔루션 + 책 뒤에 답지로 꼭 맞춰서 숙제도 만점 받으세요. 시험은 물리학적 베이스가 좋다면 많이 어렵지 않고 시간도 꽤 많이 줍니다. 하지만 계산이 어렵습니다.</p><p></p>
+      </div>
+            <div class="col-xs-24">
+                <span class="score_table_bottomr hidr" style="width:210px">
+                    <div class="score_table-bottomr text-left col-xs-24" style="min-width:210px; padding:0px; display:inline-block">
+                        <div class="score-elem-review">
+                          성적&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">A</span>
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          널널&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">C</span>
+                          
+                          
+                          
+                          
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          강의&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <span class="score_letter-review">A</span>
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                          종합&nbsp;
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                          <span class="score_letter-review">B</span>
+                          
+                          
+                          
+                          
+                        </div>
+                        <div class="score-elem-review">
+                            추천&nbsp;
+                            <span class="score_letter-review like_num 7008">2</span>
+                        </div>
+                    </div>
+                </span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+      
+    </div>
+    
+  </div>
+
+      </section>
+    
+
+    
+  
+    
+  <footer class="container" style="border-top:1px solid #d9d0d0; text-align:center;margin-top:20px;padding-top:10px">
+      <p class="info">
+          <a href="https://otl.kaist.ac.kr/credits/">만든 사람들</a> |
+          <a href="https://otl.kaist.ac.kr/licenses/">라이선스</a>
+      </p>
+      <p class="info">
+          <a href="mailto:otlplus@sparcs.org">FeedBack(otlplus@sparcs.org)</a>
+      </p>
+      <p class="copyright">
+          Copyright © 2016,
+          <a href="http://sparcs.kaist.ac.kr/">
+              <span style="color:#FF3399">S</span><span style="color:#33CC66">P</span><span style="color:#00CCFF">A</span><span style="color:#FF9900">R</span><span style="color:#33CCCC">C</span><span style="color:#9966FF">S</span>
+          </a>
+          OTL Team</p>
+   </footer>
+
+
+    
+  
+    
+
+
+    <script type="text/javascript" src="./OTL_files/jquery.min.js.다운로드"></script>
+    <script type="text/javascript" src="./OTL_files/bootstrap.min.js.다운로드"></script>
+    
+  
+    
+  <script type="text/javascript" src="./OTL_files/search.js.다운로드"></script>
+  <script type="text/javascript" src="./OTL_files/option.js.다운로드"></script>
+  <script type="text/javascript" src="./OTL_files/review.js.다운로드"></script>
+  <script src="./OTL_files/jquery-1.10.2.js.다운로드"></script>
+  <script src="./OTL_files/jquery-ui.js.다운로드"></script>
+  <script>
+    var auto_source = ""
+    var auto_source = auto_source.split(',')
+    $(document).ready(function(){     
+        $( "#keyword" ).autocomplete({
+            source: auto_source,
+            //source: availableTags,
+            focus: function(){
+                return false
+            },
+        });
+    });
+  </script>
+
+
+  
+<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul><span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span></body></html>
