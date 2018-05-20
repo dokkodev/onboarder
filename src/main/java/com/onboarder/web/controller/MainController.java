@@ -38,7 +38,7 @@ public class MainController {
     @Autowired
     private BoxPropertyRepository boxPropertyRepository;
 
-    @GetMapping("/OnboardingSet/")
+    @GetMapping("/OnboardingSet")
     @ResponseBody
     public String show(@RequestParam String url){
         OnboardingSet onboardingSet = onboardingSetRepository.findByUrl(url);
@@ -89,6 +89,15 @@ public class MainController {
     @PostMapping("/OnboardingSet")
     @ResponseBody
     public String saveOnboardings(@RequestBody OnboardingSet onboardingSet){
+
+
+        String onboardingSetUrl = onboardingSet.getUrl();
+
+        OnboardingSet existingOnboardingSet  = onboardingSetRepository.findByUrl(onboardingSetUrl);
+
+        if(existingOnboardingSet != null){
+            onboardingSetRepository.delete(existingOnboardingSet);
+        }
 
         List<SequenceOnboarding> sequenceOnboardings = onboardingSet.getSequenceOnboardings();
         List<SwipeOnboarding> swipeOnboardings = onboardingSet.getSwipeOnboardings();
