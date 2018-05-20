@@ -4,10 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import com.onboarder.web.model.*;
-import com.onboarder.web.repository.BoxPropertyRepository;
-import com.onboarder.web.repository.OnboardingSetRepository;
-import com.onboarder.web.repository.SequenceOnboardingRepository;
-import com.onboarder.web.repository.SwipeOnboardingRepository;
+import com.onboarder.web.repository.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,13 +27,8 @@ public class MainController {
     private OnboardingSetRepository onboardingSetRepository;
 
     @Autowired
-    private SequenceOnboardingRepository sequenceOnboardingRepository;
+    private OnboardingRepository onboardingRepository;
 
-    @Autowired
-    private SwipeOnboardingRepository swipeOnboardingRepository;
-
-    @Autowired
-    private BoxPropertyRepository boxPropertyRepository;
 
     @GetMapping("/OnboardingSet")
     @ResponseBody
@@ -45,45 +37,6 @@ public class MainController {
         Gson gson = new Gson();
         String onboardingset_json = gson.toJson(onboardingSet);
         return onboardingset_json;
-    }
-
-    @PutMapping("/OnboardingSet/")
-    @ResponseBody
-    public String update(@RequestBody OnboardingSet updatingOnboardingSet){
-
-        String onboardingSetUrl = updatingOnboardingSet.getUrl();
-
-        OnboardingSet existingOnboardingSet = onboardingSetRepository.findByUrl(onboardingSetUrl);
-
-        List<SequenceOnboarding> sequenceOnboardings = existingOnboardingSet.getSequenceOnboardings();
-        List<SwipeOnboarding> swipeOnboardings = existingOnboardingSet.getSwipeOnboardings();
-
-
-        for(SequenceOnboarding SO1 : sequenceOnboardings){
-            SequenceOnboarding se = sequenceOnboardingRepository.findById(SO1.getId());
-            sequenceOnboardingRepository.delete(se);
-        }
-
-        for(SwipeOnboarding SO2 : swipeOnboardings){
-            SwipeOnboarding sw = swipeOnboardingRepository.findById(SO2.getId());
-            swipeOnboardingRepository.delete(sw);
-        }
-
-
-        List<SequenceOnboarding> updatingSequenceOnboardings = updatingOnboardingSet.getSequenceOnboardings();
-        List<SwipeOnboarding> updatingSwipeOnboardings = updatingOnboardingSet.getSwipeOnboardings();
-
-        for(SequenceOnboarding SO : updatingSequenceOnboardings){
-            sequenceOnboardingRepository.save(SO);
-        }
-        for(SwipeOnboarding SW : updatingSwipeOnboardings){
-            swipeOnboardingRepository.save(SW);
-        }
-
-        existingOnboardingSet.setSequenceOnboardings(updatingSequenceOnboardings);
-        existingOnboardingSet.setSwipeOnboardings(updatingSwipeOnboardings);
-        onboardingSetRepository.save(existingOnboardingSet);
-        return "update success";
     }
 
     @PostMapping("/OnboardingSet")
@@ -99,15 +52,10 @@ public class MainController {
             onboardingSetRepository.delete(existingOnboardingSet);
         }
 
-        List<SequenceOnboarding> sequenceOnboardings = onboardingSet.getSequenceOnboardings();
-        List<SwipeOnboarding> swipeOnboardings = onboardingSet.getSwipeOnboardings();
+        List<Onboarding> Onboardings = onboardingSet.getOnboardings();
 
-        for(SequenceOnboarding SO : sequenceOnboardings){
-            sequenceOnboardingRepository.save(SO);
-        }
-
-        for(SwipeOnboarding SW : swipeOnboardings){
-            swipeOnboardingRepository.save(SW);
+        for(Onboarding Ob : Onboardings){
+            onboardingRepository.save(Ob);
         }
 
         onboardingSetRepository.save(onboardingSet);

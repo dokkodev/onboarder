@@ -18,12 +18,7 @@ public class OnboardingSet {
 
     @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.REMOVE)
     @JoinColumn(name="onboardingset_id")
-    private List<SequenceOnboarding> sequenceOnboardings;
-
-
-    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JoinColumn(name="onboardingset_id")
-    private List<SwipeOnboarding> swipeOnboardings;
+    private List<Onboarding> Onboardings;
 
 
     @Enumerated(EnumType.STRING)
