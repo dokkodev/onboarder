@@ -22,22 +22,19 @@ public class Onboarding {
     private int order;
 
     @Column(name = "onboarding_name")
-    @ColumnDefault(value = "no Name")
+    @ColumnDefault(value = "\"no_name\"")
     private String name;
 
     @Column(name = "content")
     private String content;
 
     @Column(name = "selector")
-    @ColumnDefault(value = "")
     private String selector ;
 
     @Column(name = "selector_index")
-    @ColumnDefault(value = "0")
     private int index ;
 
     @Column(name = "image_url")
-    @ColumnDefault(value = "")
     private String image_url;
 
 
