@@ -65,11 +65,11 @@ public class MainController {
         return onboardingset_json;
     }
 
-    @PutMapping("/OnboardingSet/{onboardingSetId}/")
+    @PutMapping("/OnboardingSet/{onboardingSetUrl}/")
     @ResponseBody
-    public String update(@RequestBody OnboardingSet updatingOnboardingSet, @PathVariable int onboardingSetId){
+    public String update(@RequestBody OnboardingSet updatingOnboardingSet, @PathVariable String onboardingSetUrl){
 
-        OnboardingSet existingOnboardingSet = onboardingSetRepository.findById(onboardingSetId);
+        OnboardingSet existingOnboardingSet = onboardingSetRepository.findByUrl(onboardingSetUrl);
 
         List<SequenceOnboarding> sequenceOnboardings = existingOnboardingSet.getSequenceOnboardings();
         List<SwipeOnboarding> swipeOnboardings = existingOnboardingSet.getSwipeOnboardings();
