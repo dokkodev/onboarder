@@ -65,9 +65,11 @@ public class MainController {
         return onboardingset_json;
     }
 
-    @PutMapping("/OnboardingSet/{onboardingSetUrl}/")
+    @PutMapping("/OnboardingSet/")
     @ResponseBody
-    public String update(@RequestBody OnboardingSet updatingOnboardingSet, @PathVariable String onboardingSetUrl){
+    public String update(@RequestBody OnboardingSet updatingOnboardingSet){
+
+        String onboardingSetUrl = updatingOnboardingSet.getUrl();
 
         OnboardingSet existingOnboardingSet = onboardingSetRepository.findByUrl(onboardingSetUrl);
 
