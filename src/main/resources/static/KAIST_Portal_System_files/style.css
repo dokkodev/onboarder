@@ -1,0 +1,257 @@
+@charset "utf-8";
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+input, button, select,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video { margin: 0;  padding: 0;  border: 0;  font-size:12px; font-family:'dotum'; color:#333;  }
+a:link, a:hover, a:active, a:visited {
+	text-decoration: none;
+}
+ul, ol {list-style:none;}
+
+.ptl_board {
+	width: 583px;
+}
+.ptl_board_div1{
+	width: 574px;
+	margin: 0px 0 0 0px;
+	border: 1px solid #e1e1e1;
+	border-top: 0px;
+	height: 188px;
+	overflow: hidden;
+}
+.ptl_board_div2{
+	position: relative;
+	width:1000%;
+	height: 22px;
+	float: left;
+	left:20px;
+	display: none;
+	border-bottom: 1px solid #e1e1e1;
+}
+.ptl_board_div3{
+	position: absolute;
+	width: 21px;
+	height: 24px;
+	left: 0px;
+	top:36px;
+	display: none;
+	background-color: #fff;
+}
+.ptl_board_div4{
+	position: absolute;
+	width: 21px;
+	height: 22px;
+	right: 0px;
+	top:36px;
+	display: none;
+	background-color: #fff;
+}
+.ptl_board_div5{
+	position: relative;
+	width:1000%;
+	height: 22px;
+	float: left;
+	left:-171px;
+	display: none;
+	border-bottom: 1px solid #e1e1e1;
+}
+.ptl_board_div6{
+	position: relative;
+	width:1000%;
+	height: 22px;
+	float: left;
+	left:-363px;
+	display: none;
+	border-bottom: 1px solid #e1e1e1;
+}
+.ptl_board_ul1{
+	position: relative;
+    width: 100%;
+    margin: 0 0 0 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+}
+.ptl_board_ul2{
+	position: relative;
+	
+}
+.ptl_board_ul3{
+	position: absolute;
+	top:28px;
+	left:-20px;
+	display: none;
+	width: 560px;
+}
+.ptl_board_li1{
+	width:191.3px;
+	float:left;
+	background: url(../images/ptl_portNotice_back.gif) repeat-x;
+	
+}
+.ptl_board_li2{
+	float: left;
+	width:89px;
+	height: 22px;
+}
+.ptl_board_li3{
+	line-height: 24px;
+	background: url('../images/ptl_login2_notice_b.gif') no-repeat 12px 11px;
+	padding-left: 15px;
+	width:100%;
+	display: inline-block;
+}
+.ptl_board_li3 > div{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 490px;
+	width: 490px;
+	display: inline-block;
+	float: left;
+}
+.ptl_board_li3 > div >span{
+	display: inline-block;
+}
+
+.ptl_board_li3 > .newwindow_div2{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: inline-block;
+	max-width: 424px;
+	width: 100%;
+	float: left;
+}
+.ptl_board_a1{
+	float: left;
+    position: relative;
+    width: 100%;
+    height: 23px;
+    padding: 3px 0px 8px 0px;
+    text-align: center;
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+    border-left: 1px solid #e1e1e1;
+    
+}
+.ptl_board_a2{
+	text-align: center;
+	width: 100%;
+	display: inline-block;
+	border-bottom: 1px solid #e1e1e1;
+	border-right: 1px solid #e1e1e1;
+	height: 17px;
+	padding-top: 5px;
+}
+.ptl_board_a2 >img{display: none;}
+.ptl_board_a3{
+	text-align: center;
+    width: 100%;
+    display: inline-block;
+	border-right:1px solid #e1e1e1;
+    height: 17px;
+    padding-top: 5px;
+}
+.ptl_board_a4{
+	text-align: center;
+	width: 100%;
+	display: inline-block;
+	border-bottom: 1px solid #e1e1e1;
+	border-left: 1px solid #e1e1e1;
+	height: 17px;
+	padding-top: 5px;
+}
+.ptl_board_a4 >img{display: none;}
+.ptl_board_span1{
+	font-weight: bold;
+    font-size: 14px;
+	padding: 7px 8px;
+	display: inline-block;
+}
+.ptl_board_span2{
+	font-weight: bold;
+	padding-left: 10px;
+	color: #848484;
+	padding-right: 5px;
+}
+.ptl_board_span3.{
+	margin-left: 30px;
+}
+.act_ptlsel1{
+	border-top: 1px solid #3f7fbb;
+	background-color: #fff;
+}
+.act_ptlsel1 > span{
+	color:#1453a5;
+	
+}
+
+.act_ptlsel2{
+	background: #1453a5;
+	
+}
+.act_ptlsel2 > a > span{
+	color:#fff;
+}
+
+.tab1{
+	
+}
+.act_ptl_view{
+	display: block;
+}
+
+/* 새창 열림 아이콘 */
+
+.newwindow_div1{display: inline-block; max-width: 90%;float: left;}
+.newwindow_div2{display: inline-block; max-width: 93%;float: left;}
+.newwindow_div2 >span> a{width:95%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.newwindow_div3{width:100%;}
+
+
+.newwindow_icon{position:relative; left:5px; top:5px;vertical-align: top;}
+.newwindow_icon_ie{ top:0px;}
+.newwindow_icon2{position:relative; right:-4px; top:0px;vertical-align: top;}
+.newwindow_icon2_ie{top:0px;}
+.newwindow_icon3{position:relative; right:0px; top:4px;vertical-align: top;}
+
+span.ptl_more {
+    position: absolute;
+    top: 4px;
+    right: -3px;
+    font-size: 11px;
+    border: 0 !important;
+    padding: 0;
+    letter-spacing: 0;
+}
+span.ptl_more > {font-size: 11px;}
+
+
+
+
+/* 2015.12.04 툴팁추가  */
+.ptl_tooltip_btn{width: 36px;height: 34px; float:left;border-top: 1px solid #e1e1e1;\: 1px solid #e1e1e1;border-left: 1px solid #e1e1e1;border-bottom: 1px solid #e1e1e1;cursor:pointer;background: url(../images/ptl_portNotice_back.gif) repeat-x;}
+
+.ptl_board_li1{width:179px;}
+.ptl_tooltip_layer{display:block; background:#fff;  position: absolute; left:0; top:0; width:574px; height: 187px; border:1px solid #e1e1e1;}
+.ptl_tooltip_top{position:relative;background:url(../images/ptlboardd_tooltip_top.gif) no-repeat; width:574px;height: 34px;line-height: 34px; text-indent:10px; font-size:14px; color:#fff; font-weight:bold;}
+.ptl_tooltip_top a{display:block; position:absolute; right:1px; top:1px;width:37px;height: 33px; cursor:pointer; text-indent:-9999px;}
+.ptl_tooltip_content{width:564px; height:138px; margin:5px auto 0 auto;}
+.ptl_tooltip_content_img{float:left; width:257px; height:138px; margin-right:25px;}
+.ptl_tooltip_content_text{float:left; width:277px; height:138px; vertical-align:middle;}
+.ptl_tooltip_content_text ul li{height:138px;  font-size:12px; line-height:20px; color:#494949; list-style:disc; }
+
+.text_cut{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+
