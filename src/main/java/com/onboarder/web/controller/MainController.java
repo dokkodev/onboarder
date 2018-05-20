@@ -72,8 +72,8 @@ public class MainController {
         OnboardingSet existingOnboardingSet = onboardingSetRepository.findById(onboardingSetId);
 
         List<SequenceOnboarding> sequenceOnboardings = existingOnboardingSet.getSequenceOnboardings();
+        List<SwipeOnboarding> swipeOnboardings = existingOnboardingSet.getSwipeOnboardings();
 
-//        SequenceOnboarding se = sequenceOnboardingRepository.findById(84);
 
         for(SequenceOnboarding SO1 : sequenceOnboardings){
             boxPropertyRepository.delete(SO1.getBoxProperty());
@@ -81,28 +81,34 @@ public class MainController {
             sequenceOnboardingRepository.delete(se);
         }
 
-//        sequenceOnboardingRepository.delete(se);
+        for(SwipeOnboarding SO2 : swipeOnboardings){
+            SwipeOnboarding sw = swipeOnboardingRepository.findById(SO2.getId());
+            swipeOnboardingRepository.delete(sw);
+        }
 
 
         List<SequenceOnboarding> updatingSequenceOnboardings = updatingOnboardingSet.getSequenceOnboardings();
+        List<SwipeOnboarding> updatingSwipeOnboardings = updatingOnboardingSet.getSwipeOnboardings();
+
         for(SequenceOnboarding SO : updatingSequenceOnboardings){
             boxPropertyRepository.save(SO.getBoxProperty());
             sequenceOnboardingRepository.save(SO);
         }
+        for(SwipeOnboarding SW : updatingSwipeOnboardings){
+            swipeOnboardingRepository.save(SW);
+        }
         existingOnboardingSet.setType(updatingOnboardingSet.getType());
         existingOnboardingSet.setSequenceOnboardings(updatingSequenceOnboardings);
+        existingOnboardingSet.setSwipeOnboardings(updatingSwipeOnboardings);
         onboardingSetRepository.save(existingOnboardingSet);
         return "update success";
     }
 
     @DeleteMapping("/OnboardingSet/{onboardingSetId}/")
     @ResponseBody
-    public String update(@PathVariable int onboardingSetId){
-
+    public String delete(@PathVariable int onboardingSetId){
         onboardingSetRepository.deleteById(onboardingSetId);
         return "success";
-
-
     }
 
     @PostMapping("/OnboardingSet")
@@ -110,9 +116,16 @@ public class MainController {
     public String saveOnboardings(@RequestBody OnboardingSet onboardingSet){
 
         List<SequenceOnboarding> sequenceOnboardings = onboardingSet.getSequenceOnboardings();
+        List<SwipeOnboarding> swipeOnboardings = onboardingSet.getSwipeOnboardings();
+
         for(SequenceOnboarding SO : sequenceOnboardings){
-            boxPropertyRepository.save(SO.getBoxProperty());
+            if(SO.getBoxProperty()!=null)
+                boxPropertyRepository.save(SO.getBoxProperty());
             sequenceOnboardingRepository.save(SO);
+        }
+
+        for(SwipeOnboarding SW : swipeOnboardings){
+            swipeOnboardingRepository.save(SW);
         }
 
         onboardingSetRepository.save(onboardingSet);
