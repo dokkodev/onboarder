@@ -39,6 +39,6 @@ dependencies {
 	compileOnly "org.projectlombok:lombok:1.16.16"
 	compile 'mysql:mysql-connector-java'
 	testCompile("org.springframework.boot:spring-boot-starter-test")
-
+	compile 'commons-io:commons-io:2.5'
 	compile group: 'org.onboarder', name: 'onboarder', version: '0.1.0'
 }
