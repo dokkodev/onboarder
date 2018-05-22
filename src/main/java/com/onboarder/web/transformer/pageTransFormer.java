@@ -20,6 +20,7 @@ public class pageTransFormer implements ResourceTransformer {
                 ,
                 "<script type=\"text/javascript\" src=\"http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js\"></script>\n" +
                         "<script type=\"text/javascript\" src=\"./js/test-code.js\"></script>\n" +
+                        "<link rel=\"stylesheet\" href=\"css/dragndrop_user.css\">\n" +
                         "</head>");
         return new TransformedResource(resource, html.getBytes());
     }
