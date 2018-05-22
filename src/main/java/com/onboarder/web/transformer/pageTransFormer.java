@@ -16,7 +16,11 @@ public class pageTransFormer implements ResourceTransformer {
     @Override
     public Resource transform(HttpServletRequest request, Resource resource, ResourceTransformerChain transformerChain) throws IOException {
         String html = IOUtils.toString(resource.getInputStream(), UTF_8);
-        html = html.replace("</head>", "<script type=\"text/javascript\" src=\"./js/test-code.js\"></script>\n</head>");
+        html = html.replace("</head>"
+                ,
+                "<script type=\"text/javascript\" src=\"http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js\"></script>\n" +
+                        "<script type=\"text/javascript\" src=\"./js/test-code.js\"></script>\n" +
+                        "</head>");
         return new TransformedResource(resource, html.getBytes());
     }
 }

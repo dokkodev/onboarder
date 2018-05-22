@@ -55,7 +55,8 @@ public class MainController {
         List<Onboarding> Onboardings = onboardingSet.getOnboardings();
 
         for(Onboarding Ob : Onboardings){
-            onboardingRepository.save(Ob);
+            //LOGGER.debug("id" + Ob.getId());
+            Ob.setId(onboardingRepository.save(Ob).getId());
         }
 
         onboardingSetRepository.save(onboardingSet);
