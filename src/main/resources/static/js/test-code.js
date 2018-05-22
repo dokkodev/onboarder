@@ -142,7 +142,10 @@ function inIframe () {
 jQuery(document).ready(function () {
 
     if (!inIframe()) {
-        fetchOnboardings('naver.html');
+
+        console.log(window.location.pathname.replace("/", ""));
+
+        fetchOnboardings(window.location.pathname.replace("/", ""));
     }
 
 });
