@@ -1,0 +1,223 @@
+(function() {
+	var naver_corp_da = window.naver_corp_da || {};
+
+	function getHttpOrHttpsUrl(httpUrl, httpsUrl) {
+		var url;
+		return url = (document.location.protocol === "http:") ? httpUrl : httpsUrl;
+	}
+
+	function getExtraParams() {
+		var extra_params = "";
+		if (typeof naver_corp_da.logParamManager !== "undefined") {
+
+			if (typeof naver_corp_da.logParamManager[uId] === "undefined") {
+				naver_corp_da.logParamManager[uId] = new naver_corp_da.logParamManager();
+			}
+
+			if (tarEl) {
+				var obj = naver_corp_da.logParamManager[uId].getExtraParam(tarEl);
+
+				obj.intervalTime = (isNaN(obj.intervalTime)) ? 0 : obj.intervalTime;
+
+				if (obj.elemHeight == 0) {
+					obj.elemHeight = 100;
+					obj.elemDistY = obj.elemDistY + 100;
+				}
+
+				extra_params = "&x_dy=" + obj.elemDistY + "&x_ih=" + obj.innerHeight + "&x_th=" + obj.elemHeight + "&x_iv=" + obj.intervalTime;
+			}
+		}
+
+		return extra_params;
+	}
+
+	function makeHTML() {
+		var html = '';
+
+		if (AgentDetect.IS_IOS) {
+			html += "<a href=\"https://mv.veta.naver.com/fxclick?eu=EU10000142&calp=-&ac=7664728&src=3407382&br=2678419&evtcd=P901&x_ti=935&tb=NEWS_1&oid=&sid1=&sid2=&rk=WuYNTgpgE3oAAm2ELQgAAAM4&eltts=FOlgSfaHrxG3so%2BvBP3NZQ%3D%3D&lu=&brs=Y&&tb=NEWS_1\" style=\"display:block;background:#fff;text-decoration:none;\">";
+		} else if (AgentDetect.IS_ANDROID) {
+			html += "<a href=\"https://mv.veta.naver.com/fxclick?eu=EU10000142&calp=-&ac=7664728&src=3407382&br=2678420&evtcd=P901&x_ti=935&tb=NEWS_1&oid=&sid1=&sid2=&rk=WuYNTgpgE3oAAm2ELQgAAAM4&eltts=FOlgSfaHrxG3so%2BvBP3NZQ%3D%3D&lu=&brs=Y&&tb=NEWS_1\" style=\"display:block;background:#fff;text-decoration:none;\">";
+		} else {
+			html += "<a href=\"https://mv.veta.naver.com/fxclick?eu=EU10000142&calp=-&ac=7664728&src=3407382&br=2678421&evtcd=P901&x_ti=935&tb=NEWS_1&oid=&sid1=&sid2=&rk=WuYNTgpgE3oAAm2ELQgAAAM4&eltts=FOlgSfaHrxG3so%2BvBP3NZQ%3D%3D&lu=&brs=Y&&tb=NEWS_1\" style=\"display:block;background:#fff;text-decoration:none;\">";
+		}
+		html += "<span id=\"nbp_da_img\" style=\"display:block;width:100%;height:100px;background:url(" + getHttpOrHttpsUrl('https://ssl.pstatic.net/tveta/libs/1195/1195845/b71ac09887697c927475_20180425182102472_1_bg_left.jpg', 'https://ssl.pstatic.net/tveta/libs/1195/1195845/b71ac09887697c927475_20180425182102472_1_bg_left.jpg') + ") repeat-x;background-size:auto 100px;-webkit-background-size:1px 100px;text-decoration:none;text-align:center;font-size:0;\">";
+		html += "<img src=\"" + getHttpOrHttpsUrl('https://ssl.pstatic.net/tveta/libs/1195/1195845/b71ac09887697c927475_20180425182102472_1.jpg', 'https://ssl.pstatic.net/tveta/libs/1195/1195845/b71ac09887697c927475_20180425182102472_1.jpg') + "\" onload=\"naver_corp_da.logParamManager['nmap_news_1'].imgOnloadHandler();\" alt=\"AD\" width=\"320\" height=\"100\" data-media-width=\"640\" data-media-height=\"200\" data-content-type=\"image\" data-bakery=\"material\" style=\"vertical-align:top;border:none\" />";
+		html += "&nbsp;</span>";
+		html += "</a>";
+		return html;
+	}
+	var daHTML = makeHTML();
+	var da_dom_id = 'nmap_news_1'.trim();
+	var uId = (da_dom_id.length > 0) ? da_dom_id : (typeof nbp_ad !== 'undefined') ? nbp_ad.mobilenetwork.ad_div_id : 'adw_da';
+	var tarEl = NBP_CORP.$(uId);
+
+	var util = naver_corp_da.Util ? new naver_corp_da.Util() : new NBP_CORP.Nimp();
+
+	util.log("https://mv.veta.naver.com/fxview?eu=EU10000142&calp=-&ac=7664728&src=&evtcd=&x_ti=935&tb=NEWS_1&oid=&sid1=&sid2=&rk=WuYNTgpgE3oAAm2ELQgAAAM4&eltts=FOlgSfaHrxG3so%2BvBP3NZQ%3D%3D&brs=Y&&eid=V803&tb=NEWS_1");
+
+	if (tarEl) {
+		tarEl.removeAttribute('style');
+		tarEl.innerHTML = daHTML;
+		/* ActiveView */
+		// da_scroll_target : 지식인 태블릿 가로모드 대응 시, 선언되는 객체. da_scroll_target.targetEl에 스크롤이 될 div 엘리먼트가 셋팅됨
+		var scroll_target = (typeof da_scroll_target !== 'undefined') ? da_scroll_target.targetEl : window;
+		var orientation_change_time = 500;
+
+		var callback = function() {
+			var url = "https://mv.veta.naver.com/fxview?eu=EU10000142&calp=-&ac=7664728&src=3407382&evtcd=V900&x_ti=935&tb=NEWS_1&oid=&sid1=&sid2=&rk=WuYNTgpgE3oAAm2ELQgAAAM4&eltts=FOlgSfaHrxG3so%2BvBP3NZQ%3D%3D&brs=Y&&eid=V900&tb=NEWS_1" + getExtraParams() + "&x_ev=";
+
+			var x_ev = '';
+			try {
+				var target = NBP_CORP.$(uId);
+				x_ev = (target) ? ((parseInt(target.getBoundingClientRect().height || target.offsetHeight, 10) === 0) ? '000' : '111') : '000';
+			} catch (e) {
+				x_ev = '000';
+			} finally {
+				url += x_ev;
+				util.log(url);
+			}
+		};
+
+		var callbackForInValid = function() {
+			var target = NBP_CORP.$(uId);
+			naver_corp_da.activeViews[uId].removeEventListener();
+			if (target) {
+				target.innerHTML = '';
+				target.style.removeProperty('height');
+			}
+		};
+
+		naver_corp_da.activeViews[uId] = naver_corp_da.activeViews[uId] || null;
+
+		if (naver_corp_da.activeViews[uId]) {
+			naver_corp_da.activeViews[uId].clearActiveView();
+			naver_corp_da.activeViews[uId] = null;
+		}
+
+		/* ActiveView */
+		var ac_end_date = "20180506235959";
+		var ad_end_date = "20180506235959";
+		naver_corp_da.activeViews[uId] = new naver_corp_da.ActiveView({
+			adDiv: tarEl,
+			acEndDate: ac_end_date,
+			adEndDate: ad_end_date,
+			scrollTarget: scroll_target,
+			orientationChangeTime: orientation_change_time,
+			callback: callback,
+			callbackForInValid: callbackForInValid
+		});
+
+		naver_corp_da.activeViews[uId].checkActiveView();
+
+		naver_corp_da.logParamManager[uId] = new naver_corp_da.logParamManager();
+	}
+})();
+(function() {
+	var naver_corp_da = window.naver_corp_da || {};
+	
+	var da_dom_id = 'nmap_news_2'.trim();
+	var uId = (da_dom_id.length > 0) ? da_dom_id : (typeof nbp_ad !== 'undefined') ? nbp_ad.mobilenetwork.ad_div_id : 'adw_da';
+	var tarEl = NBP_CORP.$(uId);
+	var util = naver_corp_da.Util ? new naver_corp_da.Util() : new NBP_CORP.Nimp();
+	
+	function getHttpOrHttpsUrl(httpUrl, httpsUrl) {
+		var url;
+		return url = (document.location.protocol === "http:") ? httpUrl : httpsUrl;
+	}
+	
+	function getExtraParams() {
+		var extra_params = "";
+		if(typeof naver_corp_da.logParamManager !== "undefined") {
+			
+			if(typeof naver_corp_da.logParamManager[uId] === "undefined") {
+				naver_corp_da.logParamManager[uId] = new naver_corp_da.logParamManager();
+			}
+			
+			if(tarEl) {
+				var obj = naver_corp_da.logParamManager[uId].getExtraParam(tarEl);
+				
+				obj.intervalTime = (isNaN(obj.intervalTime)) ? 0 : obj.intervalTime;
+								
+				if(obj.elemHeight == 0) {
+					obj.elemHeight = 100;
+					obj.elemDistY = obj.elemDistY + 100;
+				}
+				
+				extra_params = "&x_dy="+obj.elemDistY+"&x_ih="+obj.innerHeight+"&x_th="+obj.elemHeight+"&x_iv="+obj.intervalTime;
+			}
+		}
+		
+		return extra_params;
+	}
+	
+	function makeHTML() {
+		var handler = (typeof naver_corp_da.logParamManager !== "undefined")? "onload=\"naver_corp_da.logParamManager['nmap_news_2'].imgOnloadHandler();\"" : "";
+		
+		var html = "";
+		html += "<a href=\"https://mv.veta.naver.com/fxclick?eu=EU10000143&calp=-&ac=7664162&src=3410218&br=2680024&evtcd=P901&x_ti=886&tb=NEWS_1&oid=&sid1=&sid2=&rk=WuYNTgpgE3oAAm2ELQgAAAM4&eltts=FOlgSfaHrxG3so%2BvBP3NZQ%3D%3D&lu=&brs=Y&&tb=NEWS_1" + getExtraParams() + "\" style=\"display:block;background:#fff;text-decoration:none;\" >";
+		html += "<span id=\"nbp_da_img\" style=\"display:block;width:100%;height:100px;background:url(" + getHttpOrHttpsUrl('https://ssl.pstatic.net/tveta/libs/1195/1195080/6f67c23537b41c980fed_20180427140724286_bg_left.jpg', 'https://ssl.pstatic.net/tveta/libs/1195/1195080/6f67c23537b41c980fed_20180427140724286_bg_left.jpg') + ") repeat-x;background-size:auto 100px;-webkit-background-size:1px 100px;text-decoration:none;text-align:center;font-size:0;\">";
+		html += "<img src=\"" + getHttpOrHttpsUrl('https://ssl.pstatic.net/tveta/libs/1195/1195080/6f67c23537b41c980fed_20180427140724286.jpg', 'https://ssl.pstatic.net/tveta/libs/1195/1195080/6f67c23537b41c980fed_20180427140724286.jpg') + "\" alt=\"AD\" width=\"320\" height=\"100\" data-media-width=\"640\" data-media-height=\"170\" data-content-type=\"image\" data-bakery=\"material\" style=\"vertical-align:top;border:none\" "+handler+" />";
+		html += "&nbsp;</span>";
+		html += "</a>";
+		return html;
+	}
+	var daHTML = makeHTML();
+	
+	util.log("https://mv.veta.naver.com/fxview?eu=EU10000143&calp=-&ac=7664162&src=&evtcd=&x_ti=886&tb=NEWS_1&oid=&sid1=&sid2=&rk=WuYNTgpgE3oAAm2ELQgAAAM4&eltts=FOlgSfaHrxG3so%2BvBP3NZQ%3D%3D&brs=Y&&eid=V803&tb=NEWS_1");
+	
+	if (tarEl) {
+		tarEl.removeAttribute('style');
+		tarEl.innerHTML = daHTML;
+		
+		// da_scroll_target : 지식인 태블릿 가로모드 대응 시, 선언되는 객체. da_scroll_target.targetEl에 스크롤이 될 div 엘리먼트가 셋팅됨
+		var scroll_target = (typeof da_scroll_target !== 'undefined') ? da_scroll_target.targetEl : window;
+		var orientation_change_time = 500;
+		
+		var callback = function() {
+			var url = "https://mv.veta.naver.com/fxview?eu=EU10000143&calp=-&ac=7664162&src=3410218&evtcd=V900&x_ti=886&tb=NEWS_1&oid=&sid1=&sid2=&rk=WuYNTgpgE3oAAm2ELQgAAAM4&eltts=FOlgSfaHrxG3so%2BvBP3NZQ%3D%3D&brs=Y&&eid=V900&tb=NEWS_1" + getExtraParams() + "&x_ev=";
+			
+			var x_ev = '';
+			try {
+				var target = NBP_CORP.$(uId);
+				x_ev = (target) ? ((parseInt(target.getBoundingClientRect().height || target.offsetHeight, 10) === 0) ? '000' : '111') : '000';
+			} catch(e) {
+				x_ev = '000';
+			} finally {
+				url += x_ev;
+				util.log(url);
+			}
+		};
+		
+		var callbackForInValid = function() {
+			var target = NBP_CORP.$(uId);
+			naver_corp_da.activeViews[uId].removeEventListener();
+			if (target) {
+				target.innerHTML = '';
+				target.style.removeProperty('height');
+			}
+		};
+		
+		naver_corp_da.activeViews[uId] = naver_corp_da.activeViews[uId] || null;
+		
+		if (naver_corp_da.activeViews[uId]) {
+			naver_corp_da.activeViews[uId].clearActiveView();
+			naver_corp_da.activeViews[uId] = null;
+		}
+		
+		/* ActiveView */
+		var ac_end_date = "20180506235959";
+		var ad_end_date = "20180506235959";
+		
+		naver_corp_da.activeViews[uId] = new naver_corp_da.ActiveView({
+			adDiv: tarEl,
+			acEndDate: ac_end_date,
+			adEndDate: ad_end_date,
+			scrollTarget: scroll_target,
+			orientationChangeTime: orientation_change_time,
+			callback: callback,
+			callbackForInValid: callbackForInValid
+		});
+		naver_corp_da.activeViews[uId].checkActiveView();
+	}
+})();
