@@ -14,6 +14,10 @@ function fetchOnboardings(url) {
 
         var ret = JSON.parse(data);
 
+        ret.onboardings.sort(function(a, b) {
+            return a.order - b.order;
+        });
+
         // ret.onboardings.forEach(function(element) {
         //     console.log(element);
         // });
@@ -49,7 +53,6 @@ function displayOnboarding(index) {
 
         jQuery('.speech_bubble_div').find("img").remove();
         jQuery('.speech_bubble_div').css('margin-top', '4px');
-        jQuery('.speech_bubble').css('display', 'block');
 
         var found_div = jQuery(document).contents().find(element['selector'] + ':eq(' + element['index'] + ')');
         //found_div.css('border', '2px solid black');
@@ -90,14 +93,18 @@ function displayOnboarding(index) {
     var bubbleOffset = jQuery('.speech_bubble').offset();
     jQuery('.close_button').css('background-color', 'white');
 
+
     jQuery('.close_button').css('position', 'absolute');
     jQuery('.close_button').css('top', bubbleOffset.top + 3);
-    jQuery('.close_button').css('left', bubbleOffset.left + 110);
+    jQuery('.close_button').css('height', 20);
+    jQuery('.close_button').css('width', 20);
+
+    if (element.type == "Sequence") {
+        jQuery('.close_button').css('left', bubbleOffset.left + 103);
+    }
+
     if (element.type == 'Swipe') {
         jQuery('.close_button').css('left', 350);
-        jQuery('.close_button').css('height', 20);
-        jQuery('.close_button').css('width', 20);
-
     }
 
     jQuery('.close_button').on('click', function() {
