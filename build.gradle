@@ -33,14 +33,7 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
 	compile("org.springframework.boot:spring-boot-devtools")
 
-	compile group: 'org.onboarder', name: 'onboarder', version: '0.1.0'
+    compile("org.onboarder:onboarder:0.1.0")
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
-
-	//	compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
-	//	compile("org.springframework.boot:spring-boot-starter-data-jpa")
-	//	compile 'com.google.code.gson:gson:2.8.4'
-	//	compileOnly "org.projectlombok:lombok:1.16.16"
-	//	compile 'mysql:mysql-connector-java'
-	//	compile 'commons-io:commons-io:2.5'
 }
